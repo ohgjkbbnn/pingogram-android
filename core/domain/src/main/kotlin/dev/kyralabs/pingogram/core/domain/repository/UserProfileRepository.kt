@@ -2,6 +2,7 @@ package dev.kyralabs.pingogram.core.domain.repository
 
 import dev.kyralabs.pingogram.core.common.result.Outcome
 import dev.kyralabs.pingogram.core.domain.model.Birthdate
+import dev.kyralabs.pingogram.core.domain.model.ProfileAudiosPage
 import dev.kyralabs.pingogram.core.domain.model.UserFullInfo
 import dev.kyralabs.pingogram.core.domain.model.UserProfilePhotosPage
 import kotlinx.coroutines.flow.Flow
@@ -50,8 +51,21 @@ interface UserProfileRepository {
         limit: Int = PHOTOS_PAGE_SIZE,
     ): Outcome<UserProfilePhotosPage>
 
+    /**
+     * Up to [limit] (at most 100) of the music user [userId] chose for their profile, after the first [offset] of them.
+     * The first page feeds the profile's card, later ones the player's list as it is scrolled.
+     */
+    suspend fun profileAudios(
+        userId: Long,
+        offset: Int = 0,
+        limit: Int = PROFILE_AUDIOS_PAGE_SIZE,
+    ): Outcome<ProfileAudiosPage>
+
     companion object {
         /** The profile photos a page holds: enough for the carousel's first screens. */
         const val PHOTOS_PAGE_SIZE = 20
+
+        /** The profile music a page holds: the profile's card shows the first few, the player lists the rest. */
+        const val PROFILE_AUDIOS_PAGE_SIZE = 20
     }
 }
