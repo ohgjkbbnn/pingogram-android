@@ -98,7 +98,7 @@
     <string name="contacts_sync_not_now">Not now</string>
     <string name="contacts_sync_turn_on">Turn on</string>
     <string name="contacts_sync_paused_title">Contacts sync is paused</string>
-    <string name="contacts_sync_paused_body">Pingogram can no longer read your phone\'s contacts. Allow it again to keep syncing, or turn sync off.</string>
+    <string name="contacts_sync_paused_body">TrueGram can no longer read your phone\'s contacts. Allow it again to keep syncing, or turn sync off.</string>
     <string name="contacts_sync_turn_off">Turn off</string>
     <string name="contacts_sync_allow">Allow</string>
     <string name="contacts_sync_open_settings">Open settings</string>
