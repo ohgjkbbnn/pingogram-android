@@ -80,6 +80,10 @@ internal class DemoAccount : DemoArea {
                 photos(function.userId, function.offset, function.limit)
             }
 
+            is TdApi.GetUserProfileAudios -> {
+                ok(TdApi.Audios().apply { totalCount = 0; audios = emptyArray() })
+            }
+
             is TdApi.GetUserLink -> {
                 ok(userLink(world))
             }
