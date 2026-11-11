@@ -9,19 +9,19 @@
     <string name="auth_connection_connecting_to_proxy">Connecting to proxy…</string>
     <string name="auth_connection_connecting">Connecting…</string>
     <string name="auth_connection_updating">Updating…</string>
-    <string name="auth_offline_banner">You\'re offline. Pingogram will continue as soon as you\'re back online.</string>
+    <string name="auth_offline_banner">You\'re offline. TrueGram will continue as soon as you\'re back online.</string>
     <!-- %1$s: the remaining time, e.g. "5 minutes". -->
     <string name="auth_flood_wait">Too many attempts. Try again in %1$s.</string>
     <string name="auth_terms_of_service">Terms of Service</string>
     <string name="auth_privacy_policy">Privacy Policy</string>
     <!-- On the first screen, after Telegram's Terms of Service and Privacy Policy: opens Pingogram's own privacy
          policy (its website), which says what the app does with your data. -->
-    <string name="auth_pingogram_privacy_policy">Pingogram\'s privacy policy</string>
+    <string name="auth_pingogram_privacy_policy">TrueGram\'s privacy policy</string>
 
     <!-- Welcome (FR-A1) -->
-    <string name="auth_welcome_title" translatable="false">Pingogram</string>
+    <string name="auth_welcome_title" translatable="false">TrueGram</string>
     <string name="auth_welcome_tagline">A fast, private Telegram client for Android.</string>
-    <string name="auth_welcome_disclaimer">Pingogram is an independent, open-source app. It isn\'t made by Telegram.</string>
+    <string name="auth_welcome_disclaimer">TrueGram is an independent, open-source app. It isn\'t made by Telegram.</string>
     <string name="auth_start_messaging">Start messaging</string>
     <string name="auth_welcome_agreement">By continuing, you agree to Telegram\'s Terms of Service and Privacy Policy.</string>
 
