@@ -8,12 +8,12 @@
     <string name="scanner_hint_any">Point your camera at a Telegram QR code</string>
     <string name="scanner_hint_device">Point your camera at the QR code Telegram shows on your computer</string>
     <string name="scanner_rationale_title">Scan QR codes</string>
-    <string name="scanner_rationale_body">Pingogram uses the camera only to read QR codes. Nothing the camera sees leaves your phone.</string>
+    <string name="scanner_rationale_body">TrueGram uses the camera only to read QR codes. Nothing the camera sees leaves your phone.</string>
     <string name="scanner_denied_body">To scan with the camera, allow Pingogram to use it in the app\'s settings. You can also scan a QR code from an image.</string>
     <string name="scanner_continue">Continue</string>
     <string name="scanner_open_settings">Open settings</string>
     <string name="scanner_no_camera_title">No camera</string>
-    <string name="scanner_no_camera_body">This device has no camera Pingogram can use. You can scan a QR code from an image.</string>
+    <string name="scanner_no_camera_body">This device has no camera TrueGram can use. You can scan a QR code from an image.</string>
     <string name="scanner_resolving">Opening link…</string>
     <string name="scanner_not_telegram">This QR code isn\'t a Telegram link</string>
     <string name="scanner_not_login">This isn\'t a login code</string>
@@ -21,7 +21,7 @@
     <string name="scanner_login_code">This is a login code</string>
     <string name="scanner_login_code_body">Never share it: someone may be trying to log in to your account.</string>
     <string name="scanner_not_found">This link leads nowhere you can see</string>
-    <string name="scanner_unsupported">Pingogram can\'t open this kind of link yet</string>
+    <string name="scanner_unsupported">TrueGram can\'t open this kind of link yet</string>
     <string name="scanner_no_code">No QR code found</string>
     <string name="scanner_no_code_body">Choose an image where the QR code is sharp and fills more of the picture.</string>
     <string name="scanner_image_unreadable">Couldn\'t read this image</string>
