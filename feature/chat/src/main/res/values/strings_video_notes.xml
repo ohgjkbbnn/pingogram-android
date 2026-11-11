@@ -18,7 +18,7 @@
     <string name="video_note_preview">Video message, %1$s of %2$s</string>
     <!-- The sheet before the system asks for the camera and the microphone. -->
     <string name="video_note_permission_title">Record video messages</string>
-    <string name="video_note_permission_body">Video messages need your camera and microphone. Pingogram uses them only while you record, and the video goes only into the message you send.</string>
+    <string name="video_note_permission_body">Video messages need your camera and microphone. TrueGram uses them only while you record, and the video goes only into the message you send.</string>
     <string name="video_note_permission_denied_body">Allow the camera and the microphone in Settings to record video messages.</string>
     <string name="video_note_permission_not_now">Not now</string>
     <string name="video_note_permission_continue">Continue</string>
