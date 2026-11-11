@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The other person while TDLib does not know their name. -->
+    <string name="call_someone">Кто-то</string>
+    <!-- A voice chat's name while its chat's title is not known yet (Android's call list, a car, a watch). -->
+    <string name="voice_chat">Голосовой чат</string>
+    <string name="group_call">Групповой звонок</string>
+    <string name="group_call_confirm_title">Присоединиться к групповому звонку?</string>
+    <string name="group_call_confirm_text">Присоединиться может любой, у кого есть ссылка. Звонок защищён сквозным шифрованием, и вы подключитесь с выключенным микрофоном.</string>
+    <string name="group_call_join">Присоединиться</string>
+
+    <!-- The call's stage under the name (call screen, ongoing notification). -->
+    <string name="call_status_requesting">Звоним…</string>
+    <string name="call_status_calling">Звоним…</string>
+    <string name="call_status_incoming">Входящий голосовой звонок</string>
+    <string name="call_status_incoming_video">Входящий видеозвонок</string>
+    <string name="call_status_ringing">Вызов…</string>
+    <string name="call_status_connecting">Подключение…</string>
+    <string name="call_status_connected">В разговоре</string>
+    <string name="call_status_reconnecting">Переподключение…</string>
+    <string name="call_status_on_hold">На удержании</string>
+    <string name="call_status_ended">Звонок завершён</string>
+    <string name="call_end_no_answer">Нет ответа</string>
+    <string name="call_end_missed">Пропущенный звонок</string>
+    <string name="call_end_busy">Занято</string>
+    <string name="call_end_declined">Звонок отклонён</string>
+    <string name="call_end_disconnected">Соединение потеряно</string>
+
+    <!-- The connection's quality beside the timer, for screen readers. -->
+    <string name="call_signal_good">Хорошее соединение</string>
+    <string name="call_signal_weak">Слабое соединение</string>
+
+    <!-- The key's emojis at the top of the call screen. %1$s: the four emojis. -->
+    <string name="call_key_description">Ключ шифрования: %1$s</string>
+    <string name="call_key_explain">Объяснить эмодзи</string>
+    <!-- %1$s: the other person's name. -->
+    <string name="group_call_key_explanation">Если все в звонке видят одинаковые эмодзи, звонок защищён сквозным шифрованием.</string>
+    <string name="call_key_explanation">Если %1$s видит такие же эмодзи, ваш звонок защищён сквозным шифрованием.</string>
+
+    <string name="call_minimize">Вернуться в приложение</string>
+    <string name="call_answer">Ответить</string>
+    <string name="call_decline">Отклонить</string>
+    <string name="call_hang_up">Завершить</string>
+    <string name="call_mute">Выключить микрофон</string>
+    <string name="call_hold">Удержание</string>
+    <string name="call_speaker">Динамик</string>
+    <string name="call_audio">Аудио</string>
+    <!-- Video calls (docs/adr/0019-video-and-group-calls-scope.md): the panel's camera button and its label. -->
+    <string name="call_camera">Камера</string>
+    <!-- The button on the user's own picture (the self-view) that sends the other camera. -->
+    <string name="call_switch_camera">Переключить камеру</string>
+    <!-- For screen readers: the user's own picture, and the other person's video. %1$s: their name. -->
+    <string name="call_self_view">Ваша камера</string>
+    <string name="call_remote_video">Видео: %1$s</string>
+    <string name="call_remote_screen">Экран, который показывает %1$s</string>
+    <string name="call_share_screen">Показать экран</string>
+    <string name="call_stop_sharing">Остановить показ</string>
+    <string name="call_sharing_screen">Вы показываете свой экран</string>
+    <string name="call_sharing_stop">Остановить</string>
+    <!-- Over the other person's video while it does not come: their app is in the background, or the connection is weak. -->
+    <string name="call_video_paused">Видео на паузе</string>
+    <string name="group_call_pin">Закрепить видео</string>
+    <string name="group_call_unpin">Открепить видео</string>
+    <string name="group_call_video_pinned">Закреплено</string>
+    <!-- The incoming call's chip: declines the call and opens the chat with the caller. -->
+    <string name="call_message">Написать</string>
+    <!-- The answer slider, for screen readers, which answer and decline through its actions. -->
+    <string name="call_slide_description">Входящий звонок. Смахните к «Ответить», чтобы ответить, или к «Отклонить», чтобы отклонить</string>
+
+    <!-- The audio outputs of the route menu. -->
+    <string name="call_route_phone">Телефон</string>
+    <string name="call_route_speaker">Динамик</string>
+    <string name="call_route_headset">Проводная гарнитура</string>
+    <string name="call_route_bluetooth">Bluetooth</string>
+    <string name="call_route_selected">Выбрано</string>
+
+    <!-- Before Android asks for the microphone (and Bluetooth headsets on Android 12+). -->
+    <string name="call_microphone_rationale">Чтобы говорить, TrueGram нужен микрофон. Он используется только во время звонков, ничего не записывается. На Android 12 и новее система также спросит разрешение на поиск Bluetooth-гарнитур, чтобы можно было переключить звонок на них.</string>
+    <string name="call_microphone_settings">Чтобы говорить, разрешите TrueGram использовать микрофон в настройках.</string>
+    <string name="call_not_now">Не сейчас</string>
+    <string name="call_continue">Продолжить</string>
+    <string name="call_open_settings">Открыть настройки</string>
+    <!-- The voice chat's screen (docs/adr/0023-group-voice-chats-and-live-streams.md). -->
+    <string name="group_call_joining">Присоединяемся…</string>
+    <!-- A live stream's notification while the user watches it. -->
+    <string name="group_call_status_stream">Прямой эфир</string>
+    <string name="group_call_left">Вы вышли</string>
+    <string name="group_call_ended">Голосовой чат завершён</string>
+    <string name="group_call_busy">Чтобы присоединиться к голосовому чату, сначала завершите текущий звонок.</string>
+    <string name="group_call_no_voice_chat">Этот голосовой чат завершён.</string>
+    <!-- The user's own row among the participants: "Ada (you)". -->
+    <string name="group_call_you">%1$s (вы)</string>
+    <string name="group_call_speaking">Говорит</string>
+    <string name="group_call_listening">Слушает</string>
+    <string name="group_call_muted">Микрофон выключен</string>
+    <!-- A muted participant who asks to speak. -->
+    <string name="group_call_hand_raised">Хочет говорить</string>
+    <!-- Asks an administrator to let the user speak. -->
+    <string name="group_call_raise_hand">Поднять руку</string>
+    <string name="group_call_leave">Выйти</string>
+    <string name="group_call_end">Завершить голосовой чат</string>
+    <string name="group_call_end_stream">Завершить прямой эфир</string>
+    <string name="group_call_end_title">Завершить голосовой чат?</string>
+    <string name="group_call_end_stream_title">Завершить прямой эфир?</string>
+    <string name="group_call_end_text">Он завершится для всех участников.</string>
+    <string name="group_call_end_confirm">Завершить</string>
+    <string name="group_call_cancel">Отмена</string>
+    <string name="group_call_microphone_rationale">Чтобы говорить в голосовом чате, TrueGram нужен микрофон. Вы подключитесь с выключенным микрофоном, и ничего не будет передаваться, пока вы его не включите.</string>
+    <!-- Recent calls (the call history). -->
+    <string name="recent_calls_title">Недавние звонки</string>
+    <string name="recent_calls_back">Назад</string>
+    <string name="recent_calls_filter_all">Все</string>
+    <string name="recent_calls_filter_missed">Пропущенные</string>
+    <string name="recent_calls_today">Сегодня</string>
+    <string name="recent_calls_yesterday">Вчера</string>
+    <string name="recent_calls_empty">Звонков пока нет</string>
+    <string name="recent_calls_empty_body">Здесь появятся звонки, которые вы совершали и принимали. Начать звонок можно из чата или профиля.</string>
+    <string name="recent_calls_no_missed">Пропущенных звонков нет</string>
+    <string name="recent_calls_no_missed_body">Здесь появятся звонки, на которые вы не ответили.</string>
+    <string name="recent_calls_error">Не удалось загрузить звонки</string>
+    <string name="recent_calls_try_again">Попробовать снова</string>
+    <!-- How a call went and how long it lasted: "Outgoing call · 4:05". -->
+    <string name="recent_calls_kind_and_length">%1$s · %2$s</string>
+    <!-- What a tap on a row does, for screen readers. -->
+    <string name="recent_calls_call_back">Перезвонить</string>
+    <string name="recent_calls_video_call_back">Перезвонить по видео</string>
+    <string name="recent_calls_join">Присоединиться к групповому звонку</string>
+    <string name="recent_calls_group_call_ended">Этот групповой звонок завершён</string>
+    <string name="recent_calls_row_menu">Ещё</string>
+    <string name="recent_calls_delete">Удалить из истории звонков</string>
+    <string name="recent_calls_deleted">Звонок удалён из истории</string>
+    <string name="recent_calls_start">Начать звонок</string>
+    <string name="start_call_title">Начать звонок</string>
+    <string name="start_call_new_group">Новый групповой звонок</string>
+    <string name="start_call_new_group_text">Начните звонок и пригласите людей</string>
+    <string name="start_call_voice">Голосовой звонок</string>
+    <string name="start_call_video">Видеозвонок</string>
+    <string name="start_call_voice_person">Голосовой звонок: %1$s</string>
+    <string name="start_call_video_person">Видеозвонок: %1$s</string>
+    <string name="start_call_no_contacts">Нет контактов для звонка</string>
+    <!-- How long an answered call lasted, for screen readers: "lasted 4:05". -->
+    <string name="recent_calls_duration">длился %1$s</string>
+    <!-- Rate this call (docs/DESIGN_SYSTEM.md §6 "Call rating"), over the ended call when Telegram asks for it. -->
+    <string name="call_rating_title">Оцените звонок</string>
+    <plurals name="call_rating_stars">
+        <item quantity="one">%d звезда</item>
+        <item quantity="few">%d звезды</item>
+        <item quantity="many">%d звёзд</item>
+        <item quantity="other">%d звезды</item>
+    </plurals>
+    <string name="call_rating_problems">Что пошло не так?</string>
+    <string name="call_problem_echo">Эхо</string>
+    <string name="call_problem_noise">Шум</string>
+    <string name="call_problem_interruptions">Звук постоянно прерывался</string>
+    <string name="call_problem_distorted_speech">Искажённый голос</string>
+    <string name="call_problem_silent_local">Я не слышал собеседника</string>
+    <string name="call_problem_silent_remote">Собеседник не слышал меня</string>
+    <string name="call_problem_dropped">Звонок оборвался</string>
+    <string name="call_problem_distorted_video">Искажённое видео</string>
+    <string name="call_problem_pixelated_video">Размытое видео</string>
+    <string name="call_rating_note">Ваша оценка отправляется в Telegram, который использует её, чтобы улучшать звонки.</string>
+    <string name="call_rating_not_now">Не сейчас</string>
+    <string name="call_rating_send">Отправить</string>
+    <string name="group_call_add_people">Добавить людей</string>
+    <string name="call_end_upgraded">Переходим в групповой звонок…</string>
+    <string name="call_invite_title">Добавить людей</string>
+    <string name="call_invite_text">Каждый получит приглашение в звонок в своём чате с вами.</string>
+    <string name="call_invite_search">Поиск контактов</string>
+    <string name="call_invite_clear">Очистить поиск</string>
+    <string name="call_invite_no_matches">Контакты не найдены</string>
+    <string name="call_invite_no_contacts">Нет контактов для приглашения</string>
+    <string name="call_invite_cancel">Отмена</string>
+    <string name="call_invite_add">Добавить</string>
+    <plurals name="call_invite_add_count">
+        <item quantity="one">Добавить %d</item>
+        <item quantity="few">Добавить %d</item>
+        <item quantity="many">Добавить %d</item>
+        <item quantity="other">Добавить %d</item>
+    </plurals>
+    <plurals name="call_invite_sent">
+        <item quantity="one">Приглашение отправлено</item>
+        <item quantity="few">Отправлено приглашений: %d</item>
+        <item quantity="many">Отправлено приглашений: %d</item>
+        <item quantity="other">Отправлено приглашений: %d</item>
+    </plurals>
+    <plurals name="call_invite_refused">
+        <item quantity="one">Не удалось пригласить %d человека.</item>
+        <item quantity="few">Не удалось пригласить %d человека.</item>
+        <item quantity="many">Не удалось пригласить %d человек.</item>
+        <item quantity="other">Не удалось пригласить %d человека.</item>
+    </plurals>
+    <!-- Comments in voice chats and conference calls (docs/DESIGN_SYSTEM.md §6, "Voice chat comments"). -->
+    <string name="group_call_comments">Комментарии</string>
+    <string name="group_call_comments_count">Комментарии · %1$s</string>
+    <plurals name="group_call_comments_new">
+        <item quantity="one">%1$d новый комментарий. %2$s: %3$s</item>
+        <item quantity="few">%1$d новых комментария. %2$s: %3$s</item>
+        <item quantity="many">%1$d новых комментариев. Последний от %2$s: %3$s</item>
+        <item quantity="other">%1$d новых комментария. Последний от %2$s: %3$s</item>
+    </plurals>
+    <string name="group_call_comments_options">Настройки комментариев</string>
+    <string name="group_call_comments_turn_off">Выключить комментарии</string>
+    <string name="group_call_comments_turn_on">Включить комментарии</string>
+    <string name="group_call_comments_empty">Комментариев пока нет</string>
+    <string name="group_call_comments_off">Комментарии выключены</string>
+    <string name="group_call_comments_paid">Комментарии здесь стоят Telegram Stars. Pingogram пока не может их оплатить.</string>
+    <string name="group_call_comments_too_large">Здесь слишком много людей для комментариев</string>
+    <string name="group_call_comment_hint">Добавить комментарий</string>
+    <string name="group_call_comment_send">Отправить комментарий</string>
+    <string name="group_call_comment_react">Реакция</string>
+    <string name="group_call_comment_send_reaction">Отправить %1$s</string>
+    <string name="group_call_comment_stars">★ %1$d</string>
+    <string name="group_call_comment_not_sent">Не отправлено</string>
+    <string name="group_call_comment_delete">Удалить</string>
+    <string name="group_call_comment_report">Удалить и пожаловаться на спам</string>
+    <string name="group_call_comment_delete_all">Удалить все комментарии: %1$s</string>
+    <string name="group_call_invite_link">Ссылка-приглашение</string>
+</resources>
