@@ -3,9 +3,9 @@
     <!-- "Keep connected" (foss builds): the channel of its ongoing notification, in Android's notification settings.
          Never "Telegram" (CLAUDE.md rule 2). -->
     <string name="keep_connected_channel">Connection</string>
-    <string name="keep_connected_channel_description">Shown while Pingogram stays connected in the background</string>
+    <string name="keep_connected_channel_description">Shown while TrueGram stays connected in the background</string>
     <string name="keep_connected_notification_title">Connected for new messages</string>
-    <string name="keep_connected_notification_text">Pingogram stays connected in the background, so messages arrive at once</string>
+    <string name="keep_connected_notification_text">TrueGram stays connected in the background, so messages arrive at once</string>
     <!-- The notification's action that turns "Keep connected" off. -->
     <string name="keep_connected_turn_off">Turn off</string>
 </resources>
