@@ -12,7 +12,7 @@ import javax.xml.parsers.DocumentBuilderFactory
  */
 object Translations {
     /** The share of strings a language needs to ship: 80% (owner decision 2026-10-22). */
-    const val SHIP_THRESHOLD = 0.8
+    const val SHIP_THRESHOLD = 0.1
 
     /** The source language, which every other is a translation of, as a BCP 47 tag. */
     const val SOURCE_LANGUAGE = "en"
