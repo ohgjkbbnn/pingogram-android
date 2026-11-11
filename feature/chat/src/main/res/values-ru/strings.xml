@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Conversation top bar (ChatTopBar) -->
+    <string name="chat_back">Назад</string>
+    <!-- What tapping the title of a private chat does, spoken by screen readers ("double-tap to open profile"). -->
+    <string name="chat_open_profile">Открыть профиль</string>
+    <!-- What tapping the title of a group or channel does, spoken by screen readers. -->
+    <string name="chat_open_info">Открыть информацию</string>
+    <!-- The experimental look\'s top bar (docs/DESIGN_SYSTEM.md §13.5). -->
+    <string name="chat_more_options">Ещё</string>
+    <string name="chat_group_info">Информация о группе</string>
+    <string name="chat_channel_info">Информация о канале</string>
+    <!-- A channel\'s notifications toggle, read with its state ("on", "off"). -->
+    <string name="chat_notifications">Уведомления</string>
+    <!-- Between the member count and the online members: "1,248 members · 36 online". -->
+    <string name="chat_subtitle_separator">" · "</string>
+    <plurals name="chat_subtitle_online">
+        <item quantity="one">%d в сети</item>
+        <item quantity="few">%d в сети</item>
+        <item quantity="many">%d в сети</item>
+        <item quantity="other">%d в сети</item>
+    </plurals>
+    <string name="chat_jump_to_mention">Перейти к упоминанию</string>
+    <!-- The experimental look\'s unread divider (docs/DESIGN_SYSTEM.md §13.7). -->
+    <plurals name="chat_unread_posts_divider">
+        <item quantity="one">%d непрочитанная публикация</item>
+        <item quantity="few">%d непрочитанные публикации</item>
+        <item quantity="many">%d непрочитанных публикаций</item>
+        <item quantity="other">%d непрочитанной публикации</item>
+    </plurals>
+    <plurals name="chat_unread_messages_divider">
+        <item quantity="one">%d непрочитанное сообщение</item>
+        <item quantity="few">%d непрочитанных сообщения</item>
+        <item quantity="many">%d непрочитанных сообщений</item>
+        <item quantity="other">%d непрочитанного сообщения</item>
+    </plurals>
+    <!-- On the "Jump to mention" button; not a word, so it is not translated. -->
+    <string name="chat_mention_sign" translatable="false">\@</string>
+    <plurals name="chat_unread_mentions">
+        <item quantity="one">%d непрочитанное упоминание</item>
+        <item quantity="few">%d непрочитанных упоминания</item>
+        <item quantity="many">%d непрочитанных упоминаний</item>
+        <item quantity="other">%d непрочитанного упоминания</item>
+    </plurals>
+    <!-- In place of the chat\'s status while not connected, as the chat list\'s pill says it. -->
+    <string name="chat_waiting_for_network">Ожидание сети…</string>
+    <string name="chat_connecting_to_proxy">Подключение к прокси…</string>
+    <string name="chat_connecting">Подключение…</string>
+    <string name="chat_updating">Обновление…</string>
+    <string name="chat_subtitle_bot">бот</string>
+    <plurals name="chat_subtitle_members">
+        <item quantity="one">%,d участник</item>
+        <item quantity="few">%,d участника</item>
+        <item quantity="many">%,d участников</item>
+        <item quantity="other">%,d участника</item>
+    </plurals>
+    <plurals name="chat_subtitle_subscribers">
+        <item quantity="one">%,d подписчик</item>
+        <item quantity="few">%,d подписчика</item>
+        <item quantity="many">%,d подписчиков</item>
+        <item quantity="other">%,d подписчика</item>
+    </plurals>
+    <!-- Under a group\'s or channel\'s name while its member count is not known. -->
+    <string name="chat_subtitle_group">группа</string>
+    <string name="chat_subtitle_channel">канал</string>
+
+    <!-- Messages (ChatScreen, MessageBubble) -->
+    <string name="chat_date_today">Сегодня</string>
+    <string name="chat_date_yesterday">Вчера</string>
+    <!-- Above the scheduled messages that go out tomorrow. -->
+    <string name="chat_date_tomorrow">Завтра</string>
+    <!-- Above the first message that was unread when the chat was opened. -->
+    <string name="chat_unread_divider">Непрочитанные сообщения</string>
+    <!-- Before the time of a message that was edited. -->
+    <string name="chat_edited">изменено</string>
+    <!-- %1$s is who originally sent a forwarded message. -->
+    <string name="chat_forwarded_from">Переслано от %1$s</string>
+    <!-- A channel or chat a message was forwarded from (%1$s), with the signature of its author (%2$s). -->
+    <string name="chat_forwarded_name_signed">%1$s (%2$s)</string>
+    <!-- Reply quotes whose replied message cannot be shown (yet). -->
+    <string name="chat_reply_loading">Загрузка…</string>
+    <string name="chat_reply_deleted">Удалённое сообщение</string>
+    <string name="chat_reply_unavailable">Сообщение недоступно</string>
+    <!-- A replied message of another chat, known only by its sender. -->
+    <string name="chat_reply_message">Сообщение</string>
+    <!-- What tapping a reply quote does, for screen readers: scroll to the message it replies to. -->
+    <string name="chat_reply_open">Показать сообщение, на которое ответили</string>
+    <!-- A snackbar after tapping a reply quote, or opening search\'s result, whose message was deleted. -->
+    <string name="chat_message_unavailable">Сообщение больше недоступно</string>
+    <string name="chat_empty_title">Сообщений пока нет</string>
+    <string name="chat_empty_body">Сообщения из этого чата появятся здесь.</string>
+    <string name="chat_error_title">Не удалось загрузить сообщения</string>
+    <string name="chat_not_found_title">Чат не найден</string>
+    <string name="chat_not_found_body">Этот чат не существует или у вас больше нет к нему доступа.</string>
+    <string name="chat_retry">Попробовать снова</string>
+    <!-- The sender before a message\'s preview in a list: the pinned messages bar, a forum\'s topics. %1$s is the name. -->
+    <string name="preview_sender_label">%1$s:</string>
+    <!-- Above the oldest loaded message when older ones could not be loaded. -->
+    <string name="chat_older_error">Не удалось загрузить более ранние сообщения</string>
+    <!-- Below the newest loaded message when newer ones could not be loaded. -->
+    <string name="chat_newer_error">Не удалось загрузить более новые сообщения</string>
+    <!-- Under the next unread channel\'s name while a read channel is pulled up past its newest post. -->
+    <string name="chat_next_channel_pull">Потяните вверх, чтобы открыть</string>
+    <!-- The same, once letting go opens the channel. -->
+    <string name="chat_next_channel_release">Отпустите, чтобы открыть</string>
+    <!-- Screen readers\' action on a read channel\'s messages: the next unread channel\'s name. -->
+    <string name="chat_next_channel_action">Открыть следующий непрочитанный канал: %1$s</string>
+    <string name="chat_jump_to_bottom">Перейти к новым сообщениям</string>
+    <!-- The unread count in the badge of the button that scrolls to the newest messages. -->
+    <string name="chat_unread_badge">%1$d</string>
+    <!-- An unread count above the badge\'s limit: %1$d is the limit, 999. -->
+    <string name="chat_unread_badge_overflow">%1$d+</string>
+    <!-- On a bubble\'s corner after its first reaction badges: %1$d more kinds of reaction. -->
+    <string name="chat_reactions_more">+%1$d</string>
+    <!-- Under a bubble whose message could not be sent; tapping it sends the message again. -->
+    <string name="chat_not_sent_retry">Не отправлено · нажмите, чтобы повторить</string>
+    <!-- Under a bubble whose message could not be sent and cannot be sent again. -->
+    <string name="chat_not_sent">Не отправлено</string>
+
+    <!-- Screen readers: a message bubble read as one ("Alice, 9:41 AM: Hello, read"). -->
+    <!-- %1$s is the sender, %2$s the time, %3$s the content, %4$s the state of an outgoing message. -->
+    <string name="chat_bubble_description">%1$s, %2$s: %3$s, %4$s</string>
+    <!-- The same for incoming messages: %1$s is the sender, %2$s the time, %3$s the content. -->
+    <string name="chat_bubble_description_incoming">%1$s, %2$s: %3$s</string>
+    <!-- The time of an edited message: %1$s is the time. -->
+    <string name="chat_bubble_time_edited">%1$s, изменено</string>
+    <!-- A reply quote in the description: %1$s is the replied message\'s sender, %2$s its text. -->
+    <string name="chat_bubble_reply">Ответ %1$s: %2$s</string>
+    <!-- A reaction in the description: %1$s is the emoji, %2$d how often it was added. -->
+    <string name="chat_bubble_reaction">%1$s %2$d</string>
+    <string name="chat_bubble_spoiler">спойлер</string>
+    <string name="chat_status_pending">отправляется</string>
+    <string name="chat_status_failed">не отправлено</string>
+    <string name="chat_status_sent">отправлено</string>
+    <string name="chat_status_read">прочитано</string>
+    <string name="chat_reaction_custom_emoji">эмодзи</string>
+    <string name="chat_reaction_paid">Звезда</string>
+    <plurals name="chat_unread_count">
+        <item quantity="one">%d непрочитанное сообщение</item>
+        <item quantity="few">%d непрочитанных сообщения</item>
+        <item quantity="many">%d непрочитанных сообщений</item>
+        <item quantity="other">%d непрочитанного сообщения</item>
+    </plurals>
+
+    <!-- Composer (ChatBottomBar) -->
+    <!-- The hint in the empty text field. -->
+    <string name="composer_placeholder">Сообщение</string>
+    <string name="composer_send">Отправить</string>
+    <string name="composer_send_silently">Отправить без звука</string>
+    <!-- The button at the end of the empty message field that opens the system photo picker. -->
+    <string name="composer_schedule">Отложить отправку</string>
+    <!-- Instead of the composer, where the user may not write. -->
+    <string name="composer_restricted">Вы не можете отправлять сообщения в этом чате</string>
+    <string name="composer_not_member">Вы не состоите в этой группе</string>
+    <!-- In the composer\'s place in a public group or channel the user is not in (REQUIREMENTS.md FR-P5). -->
+    <string name="composer_join_group">Вступить в группу</string>
+    <string name="composer_join_channel">Подписаться на канал</string>
+    <string name="composer_request_to_join">Отправить заявку</string>
+    <string name="composer_join_request_sent">Заявка отправлена. Вы сможете вступить, когда администратор её примет.</string>
+    <string name="composer_join_refused">Вы не можете вступить в этот чат из Pingogram.</string>
+    <!-- Formatting of selected text, in the text selection menu. -->
+    <string name="composer_format_bold">Жирный</string>
+    <string name="composer_format_italic">Курсив</string>
+    <string name="composer_format_underline">Подчёркнутый</string>
+    <string name="composer_format_strikethrough">Зачёркнутый</string>
+    <string name="composer_format_monospace">Моноширинный</string>
+    <string name="composer_format_spoiler">Спойлер</string>
+    <string name="composer_format_link">Ссылка</string>
+    <!-- The dialog that links the selected text to a web address. -->
+    <string name="composer_link_title">Добавить ссылку</string>
+    <string name="composer_link_edit_title">Изменить ссылку</string>
+    <string name="composer_link_address">Адрес</string>
+    <string name="composer_link_save">Сохранить</string>
+    <string name="composer_link_remove">Удалить</string>
+    <string name="composer_cancel">Отмена</string>
+    <!-- The dialog that picks when a scheduled message is sent: a date, then a time. -->
+    <string name="composer_schedule_next">Далее</string>
+    <string name="composer_schedule_back">Назад</string>
+    <string name="composer_schedule_confirm">Отложить</string>
+    <string name="composer_schedule_past">Выберите время в будущем</string>
+    <!-- A snackbar after scheduling: %1$s is the date and time it will be sent, "Oct 19, 9:41 AM". -->
+    <string name="composer_scheduled">Сообщение будет отправлено %1$s</string>
+    <!-- The bar above the text field while replying: its close button. -->
+    <string name="composer_reply_cancel">Отменить ответ</string>
+    <!-- The bar above the text field while editing a message: its title and close button. -->
+    <string name="composer_edit_title">Редактирование</string>
+    <string name="composer_edit_cancel">Отменить редактирование</string>
+    <!-- The button that saves an edited message, in place of the send button. -->
+    <string name="composer_edit_save">Сохранить изменения</string>
+    <!-- What tapping the reply or edit bar does, for screen readers: scroll to its message. -->
+    <string name="composer_bar_show">Показать сообщение</string>
+
+    <!-- Send-as (FR-C5): the composer\'s avatar of who new messages go out as, for screen readers. -->
+    <string name="send_as_button">Отправлять как %1$s</string>
+    <string name="send_as_title">Отправлять сообщения как</string>
+    <string name="send_as_account">Ваш аккаунт</string>
+    <string name="send_as_channel">Канал</string>
+    <string name="send_as_anonymous">Анонимный администратор</string>
+    <string name="send_as_group">Группа</string>
+    <!-- A sender only Telegram Premium users can choose. Informational only, never an offer. -->
+    <string name="send_as_needs_premium">Нужен Telegram Premium</string>
+
+    <!-- Bots (REQUIREMENTS.md FR-C5): commands, the menu button, Start and the empty chat. -->
+    <string name="bot_commands_button">Команды бота</string>
+    <string name="bot_mini_app_button">%1$s, мини-приложение</string>
+    <string name="bot_mini_apps_unsupported">Pingogram пока не может открывать мини-приложения</string>
+    <string name="bot_commands_title">Команды</string>
+    <string name="bot_commands_search">Поиск команд</string>
+    <string name="bot_commands_none_found">Команды не найдены</string>
+    <string name="bot_command_insert">Вставить %1$s</string>
+    <plurals name="bot_command_suggestions">
+        <item quantity="one">%d команда</item>
+        <item quantity="few">%d команды</item>
+        <item quantity="many">%d команд</item>
+        <item quantity="other">%d команды</item>
+    </plurals>
+    <string name="bot_start">Начать</string>
+    <!-- Inline bots ("@gif cats"): results above the composer. -->
+    <string name="inline_result_send">Отправить</string>
+    <string name="inline_result_article">Статья</string>
+    <string name="inline_result_venue">Место</string>
+    <string name="inline_results_empty">Нет результатов</string>
+    <string name="inline_results_failed">Не удалось загрузить результаты</string>
+    <string name="inline_results_retry">Попробовать снова</string>
+    <plurals name="inline_results_title">
+        <item quantity="one">%1$s, %2$d результат</item>
+        <item quantity="few">%1$s, %2$d результата</item>
+        <item quantity="many">%1$s, %2$d результатов</item>
+        <item quantity="other">%1$s, %2$d результата</item>
+    </plurals>
+    <string name="inline_games_unsupported">TrueGram пока не умеет запускать игры</string>
+    <string name="inline_location_title">Поделиться местоположением с %1$s?</string>
+    <string name="inline_location_body">%1$s спрашивает, где вы находитесь, чтобы показать результаты рядом. Ваше местоположение отправляется этому боту вместе с тем, что вы ему пишете, и больше никому. Pingogram спросит снова после перезапуска.</string>
+    <string name="inline_location_share">Поделиться местоположением</string>
+    <string name="bot_intro_title">Что умеет этот бот?</string>
+
+    <!-- The emoji and sticker panel, which takes the keyboard\'s place below the composer -->
+    <!-- The button at the start of the text field that opens the panel, for screen readers. -->
+    <string name="panel_open">Эмодзи и стикеры</string>
+    <!-- The same button while the panel shows: it brings the keyboard back. -->
+    <string name="panel_keyboard">Показать клавиатуру</string>
+    <!-- The panel\'s tabs. -->
+    <string name="panel_tab_emoji">Эмодзи</string>
+    <string name="panel_tab_stickers">Стикеры</string>
+    <string name="panel_tab_gifs">GIF</string>
+    <string name="panel_gifs_search">Поиск GIF</string>
+    <string name="panel_gifs_clear">Очистить поиск</string>
+    <string name="panel_gifs_empty_title">Нет сохранённых GIF</string>
+    <string name="panel_gifs_empty_body">Здесь появляются GIF, которые вы отправили. Найдите нужный через поиск выше.</string>
+    <string name="panel_gifs_no_results">GIF не найдены</string>
+    <string name="panel_gifs_error_title">Не удалось загрузить GIF</string>
+    <string name="panel_gifs_retry">Попробовать снова</string>
+    <string name="panel_gifs_send">Отправить</string>
+    <string name="panel_gifs_remove">Удалить из сохранённых GIF</string>
+    <!-- The panel\'s backspace key, which deletes the character before the cursor. -->
+    <string name="panel_backspace">Удалить</string>
+    <!-- The emoji the user picked last, first in the emoji tab. -->
+    <string name="panel_emoji_recent">Недавние</string>
+    <!-- Unicode\'s emoji groups, as section titles and for screen readers on the category buttons. -->
+    <string name="panel_emoji_smileys">Смайлы и эмоции</string>
+    <string name="panel_emoji_people">Люди</string>
+    <string name="panel_emoji_animals">Животные и природа</string>
+    <string name="panel_emoji_food">Еда и напитки</string>
+    <string name="panel_emoji_travel">Путешествия и места</string>
+    <string name="panel_emoji_activities">Занятия</string>
+    <string name="panel_emoji_objects">Предметы</string>
+    <string name="panel_emoji_symbols">Символы</string>
+    <string name="panel_emoji_flags">Флаги</string>
+    <!-- Sticker sections: the user\'s favorite stickers, and those they sent last. -->
+    <string name="panel_stickers_favorites">Избранное</string>
+    <string name="panel_stickers_recent">Недавно использованные</string>
+    <!-- The stickers tab when the account has no stickers at all. -->
+    <string name="panel_stickers_empty_title">Стикеров пока нет</string>
+    <string name="panel_stickers_empty_body">Здесь появятся наборы стикеров, которые вы добавили в Telegram.</string>
+    <!-- The stickers tab when they could not be loaded. -->
+    <string name="panel_stickers_error_title">Не удалось загрузить стикеры</string>
+    <string name="panel_stickers_retry">Попробовать снова</string>
+    <!-- What tapping a sticker does, for screen readers. -->
+    <string name="panel_sticker_send">Отправить</string>
+    <!-- Voice messages (the composer\'s microphone, in the send button\'s place while the field is empty) -->
+    <!-- The microphone, for screen readers, which record without holding it. -->
+    <string name="voice_record">Записать голосовое сообщение</string>
+    <!-- What activating the microphone does, for screen readers. -->
+    <string name="voice_record_action">Записать</string>
+    <!-- While holding the microphone: slide toward the start to throw the recording away. -->
+    <string name="voice_slide_to_cancel">Смахните, чтобы отменить</string>
+    <!-- The lock beside it, for screen readers: slide up to record hands-free. -->
+    <string name="voice_slide_to_lock">Смахните вверх, чтобы записывать без удержания</string>
+    <!-- The buttons of a recording that goes on hands-free. -->
+    <string name="voice_send">Отправить голосовое сообщение</string>
+    <string name="voice_delete">Удалить запись</string>
+    <!-- For screen readers, announced as it changes: what the recording bar\'s dot shows while a voice message records. -->
+    <string name="voice_state_recording">Запись</string>
+    <string name="voice_state_paused">Пауза</string>
+    <string name="voice_pause">Приостановить запись</string>
+    <string name="voice_resume">Продолжить запись</string>
+    <!-- Snackbar before the system asks for the microphone, with an action that asks. -->
+    <string name="voice_permission_rationale">Для голосовых сообщений нужен доступ к микрофону</string>
+    <string name="voice_permission_allow">Разрешить</string>
+    <!-- Snackbar after the microphone permission was refused, with an action that opens the app\'s settings. -->
+    <string name="voice_permission_denied">Разрешите доступ к микрофону в настройках, чтобы записывать голосовые сообщения</string>
+    <string name="voice_permission_settings">Настройки</string>
+    <!-- Snackbar after a tap on the microphone, or a recording too short to send. -->
+    <string name="voice_hold_to_record">Удерживайте, чтобы записать, отпустите, чтобы отправить</string>
+    <!-- Snackbar when the microphone cannot be used, or the recording cannot be finished. -->
+    <string name="voice_recording_failed">Не удалось записать. Микрофон может использовать другое приложение.</string>
+
+    <!-- Attach menu (the composer\'s attach button) -->
+    <string name="attach">Прикрепить</string>
+    <string name="attach_gallery">Галерея</string>
+    <string name="attach_camera">Камера</string>
+    <string name="attach_file">Файл</string>
+    <string name="attach_location">Местоположение</string>
+    <string name="attach_contact">Контакт</string>
+    <string name="attach_poll">Опрос</string>
+    <!-- The button of the attach menu that shows the options that do not fit. -->
+    <string name="attach_more">Ещё</string>
+    <!-- Snackbars when no app on the device opens for an attach option. -->
+    <string name="attach_no_camera_app">Приложение камеры не найдено</string>
+    <string name="attach_no_picker_app">Нет приложения, которое может это выбрать</string>
+    <!-- The title of the preview of picked items before they are sent. -->
+    <plurals name="attach_preview_photos">
+        <item quantity="one">%d фото</item>
+        <item quantity="few">%d фото</item>
+        <item quantity="many">%d фото</item>
+        <item quantity="other">%d фото</item>
+    </plurals>
+    <plurals name="attach_preview_videos">
+        <item quantity="one">%d видео</item>
+        <item quantity="few">%d видео</item>
+        <item quantity="many">%d видео</item>
+        <item quantity="other">%d видео</item>
+    </plurals>
+    <!-- Photos and videos together, or items still being prepared. -->
+    <plurals name="attach_preview_items">
+        <item quantity="one">%d элемент</item>
+        <item quantity="few">%d элемента</item>
+        <item quantity="many">%d элементов</item>
+        <item quantity="other">%d элемента</item>
+    </plurals>
+    <plurals name="attach_preview_files">
+        <item quantity="one">%d файл</item>
+        <item quantity="few">%d файла</item>
+        <item quantity="many">%d файлов</item>
+        <item quantity="other">%d файла</item>
+    </plurals>
+    <!-- The hint in the empty caption field of the preview. -->
+    <string name="attach_original">Отправить без сжатия</string>
+    <string name="attach_original_summary">Как файлы, в полном размере и качестве. Данные о местоположении и камере будут удалены.</string>
+    <string name="attach_caption">Добавить подпись</string>
+    <!-- Screen readers: an item of the preview. %1$d is its place, %2$d how many there are. -->
+    <string name="attach_item_photo">Фото %1$d из %2$d</string>
+    <!-- %3$s is the video\'s length, "0:42". -->
+    <string name="attach_item_video">Видео %1$d из %2$d, %3$s</string>
+    <string name="attach_item_preparing">Подготовка элемента %1$d из %2$d</string>
+    <!-- A file among photos and videos: %1$s is its name. -->
+    <string name="attach_item_file">Файл %1$s</string>
+    <!-- The remove button of an item of the preview: %1$s is the item, "Photo 2 of 3" or a file\'s name. -->
+    <string name="attach_remove">Удалить: %1$s</string>
+    <!-- The button over a photo, video or file being sent that stops sending it. -->
+    <string name="attach_cancel_upload">Отменить отправку</string>
+
+    <!-- The sheet that sends the device\'s location (the attach menu\'s "Location") -->
+    <string name="location_title">Отправить местоположение</string>
+    <!-- Before Android asks for the location permission. -->
+    <string name="location_permission_body">TrueGram использует ваше местоположение только для отправки в этом чате и только пока открыт этот экран.</string>
+    <string name="location_permission_continue">Продолжить</string>
+    <!-- After the user refused the permission for good: it can only be allowed in the system settings. -->
+    <string name="location_permission_denied_body">Чтобы отправить местоположение, разрешите Pingogram его использовать в настройках приложения.</string>
+    <string name="location_permission_settings">Открыть настройки</string>
+    <string name="location_not_now">Не сейчас</string>
+    <string name="location_searching">Определяем ваше местоположение…</string>
+    <!-- Under a location found while a more accurate one is still being looked for. -->
+    <string name="location_refining">Уточняем местоположение…</string>
+    <!-- %1$s is a distance with its unit, "12 m" or "1.5 km". -->
+    <string name="location_accuracy">Точность %1$s</string>
+    <!-- For screen readers, the location found: %1$s its coordinates in words, %2$s its accuracy (location_accuracy). -->
+    <string name="location_found_description">%1$s. %2$s</string>
+    <!-- The user allowed only an approximate location (Android 12 and later), which is what is sent. -->
+    <string name="location_approximate">Примерное местоположение</string>
+</resources>
