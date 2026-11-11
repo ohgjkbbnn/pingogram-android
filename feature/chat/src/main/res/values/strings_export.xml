@@ -79,7 +79,7 @@
 
     <!-- When it failed. -->
     <string name="chat_export_failed_title">Couldn\'t export the chat</string>
-    <string name="chat_export_folder_unavailable">The folder is gone, or Pingogram may no longer write to it. Choose another folder.</string>
+    <string name="chat_export_folder_unavailable">The folder is gone, or TrueGram may no longer write to it. Choose another folder.</string>
     <string name="chat_export_storage_full">The storage is full. Free some space, or leave out some media.</string>
     <string name="chat_export_try_again">Try again</string>
     <string name="chat_export_folder_unusable">This folder can\'t be used. Choose another one.</string>
