@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spoken by screen readers for the back button of a profile. -->
+    <string name="profile_back">Назад</string>
+    <!-- Spoken by screen readers for the progress indicator while a profile loads. -->
+    <string name="profile_loading">Загрузка профиля</string>
+    <string name="profile_error_title">Не удаётся показать этот профиль</string>
+    <string name="profile_not_found_body">Telegram не знает этот аккаунт или он вам больше недоступен.</string>
+    <string name="profile_retry">Попробовать снова</string>
+    <!-- Spoken by screen readers for the profile\'s avatar. %1$s is the person\'s name. -->
+    <string name="profile_photo_description">Фото профиля: %1$s</string>
+
+    <!-- Under the name -->
+    <string name="profile_status_bot">бот</string>
+    <string name="profile_status_support">Поддержка Telegram</string>
+    <!-- Labels after the name: a status, never an offer. -->
+    <string name="profile_badge_premium">Premium</string>
+    <string name="profile_badge_scam">Мошенник</string>
+    <string name="profile_badge_fake">Подделка</string>
+    <!-- Spoken by screen readers for the verified badge after the name. -->
+    <string name="profile_badge_verified">Подтверждён</string>
+
+    <!-- Actions under the header -->
+    <string name="profile_action_message">Написать</string>
+    <!-- On one\'s own profile: the chat with oneself. -->
+    <string name="profile_action_saved_messages">Избранное</string>
+    <string name="profile_action_mute">Выключить звук</string>
+    <string name="profile_action_unmute">Включить звук</string>
+    <string name="profile_action_secret_chat">Секретный чат</string>
+
+    <!-- Profile photos -->
+    <string name="profile_section_photos">Фото</string>
+    <!-- Spoken by screen readers for one photo of the carousel. %1$d is its position, %2$d how many there are. -->
+    <string name="profile_photo_position">Фото профиля %1$d из %2$d</string>
+
+    <!-- Information rows; each label goes under its value. -->
+    <string name="profile_section_info">Информация</string>
+    <string name="profile_bio">О себе</string>
+    <!-- Under a bot\'s description. -->
+    <string name="profile_bot_about">Описание</string>
+    <string name="profile_username">Имя пользователя</string>
+    <!-- %1$s is the username, without @. -->
+    <string name="profile_username_value">\@%1$s</string>
+    <string name="profile_phone">Телефон</string>
+    <string name="profile_birthday">День рождения</string>
+    <!-- The offer on a contact\'s profile without a birthday (board 16a): %1$s is the contact\'s first name. -->
+    <string name="profile_birthday_suggest_title">У %1$s не указан день рождения</string>
+    <!-- %1$s is the contact\'s first name. -->
+    <string name="profile_birthday_suggest_text">Предложите дату. %1$s решает, оставить её и кто её увидит.</string>
+    <!-- The button that opens the date picker, and the picker\'s title. -->
+    <string name="profile_birthday_suggest_action">Предложить день рождения</string>
+    <!-- The date picker\'s confirm button. -->
+    <string name="profile_birthday_suggest_confirm">Предложить</string>
+    <!-- A snackbar once Telegram sent the suggestion: %1$s is the contact\'s first name. -->
+    <string name="profile_birthday_suggested">День рождения предложен: %1$s</string>
+    <!-- The label of the note the user keeps about a contact, on their profile and in its dialog. -->
+    <string name="profile_note">Заметка</string>
+    <!-- Between "Note" and "Only you see this" in the note row\'s supporting text. -->
+    <string name="profile_note_separator" translatable="false">·</string>
+    <!-- After "Note" in the note row: the note is private. -->
+    <string name="profile_note_private">Видна только вам</string>
+    <!-- The note row of a contact without a note. -->
+    <string name="profile_note_add">Добавить заметку</string>
+    <!-- Spoken by screen readers for what tapping the note row does. -->
+    <string name="profile_note_edit">Изменить заметку</string>
+    <!-- The note dialog\'s title: %1$s is the contact\'s first name. -->
+    <string name="profile_note_title">Заметка о %1$s</string>
+    <string name="profile_note_text">Эту заметку видите только вы. Она хранится вместе с контактами на всех ваших устройствах.</string>
+    <!-- The note\'s character counter: %1$d characters typed of at most %2$d. -->
+    <string name="profile_note_counter">%1$d / %2$d</string>
+    <!-- Spoken by screen readers for the note\'s counter: %1$d characters typed of at most %2$d (the quantity). -->
+    <plurals name="profile_note_counter_description">
+        <item quantity="one">%1$d из %2$d символа</item>
+        <item quantity="few">%1$d из %2$d символов</item>
+        <item quantity="many">%1$d из %2$d символов</item>
+        <item quantity="other">%1$d из %2$d символа</item>
+    </plurals>
+    <string name="profile_note_cancel">Отмена</string>
+    <string name="profile_note_save">Сохранить</string>
+    <!-- Spoken by screen readers for the button after a username. -->
+    <string name="profile_share_username">Поделиться ссылкой</string>
+    <!-- Spoken by screen readers for the button after the phone number. -->
+    <string name="profile_copy_phone">Скопировать номер телефона</string>
+    <!-- What tapping the rows does, spoken by screen readers ("double-tap to copy"). -->
+    <string name="profile_copy">Копировать</string>
+    <!-- What tapping the phone number does, spoken by screen readers ("double-tap to call"). -->
+    <string name="profile_call">Позвонить</string>
+    <!-- What tapping a photo, video or file of the shared media does, spoken by screen readers ("double-tap to open"). -->
+    <string name="profile_shared_media_open">Открыть</string>
+    <!-- The label of what Pingogram puts on the clipboard, which Android may show. -->
+    <string name="profile_copy_label">Скопировано из TrueGram</string>
+    <!-- Snackbars before Android 13, which confirms copies itself. -->
+    <string name="profile_username_copied">Имя пользователя скопировано</string>
+    <string name="profile_phone_copied">Номер телефона скопирован</string>
+    <string name="profile_id">ID</string>
+    <string name="profile_id_copied">ID скопирован</string>
+    <string name="profile_bio_copied">Скопировано</string>
+    <string name="profile_no_dialer">На этом устройстве нет приложения для звонков</string>
+    <!-- The title of the system\'s share sheet for a username\'s link. -->
+    <string name="profile_share_title">Поделиться ссылкой</string>
+
+    <!-- More actions -->
+    <string name="profile_section_more">Ещё</string>
+    <string name="profile_add_contact">Добавить в контакты</string>
+    <string name="profile_edit_contact">Изменить контакт</string>
+    <string name="profile_block">Заблокировать</string>
+    <string name="profile_unblock">Разблокировать</string>
+    <string name="profile_report">Пожаловаться</string>
+    <!-- Opens the export page of the chat (Export chat): its history into a folder the user picks. -->
+    <string name="profile_export_chat">Экспорт чата</string>
+
+    <!-- Block confirmation. %1$s is the person\'s name. -->
+    <string name="profile_block_title">Заблокировать %1$s?</string>
+    <string name="profile_block_text">Пользователь не сможет писать вам сообщения и звонить, а также не увидит, когда вы были в сети, и изменения вашего фото профиля.</string>
+    <string name="profile_block_confirm">Заблокировать</string>
+    <string name="profile_dialog_dismiss">Отмена</string>
+    <!-- Snackbars after blocking. %1$s is the person\'s name. -->
+    <string name="profile_blocked">%1$s заблокирован</string>
+    <string name="profile_unblocked">%1$s разблокирован</string>
+
+    <!-- Secret chat confirmation -->
+    <string name="profile_secret_chat_title">Начать секретный чат?</string>
+    <string name="profile_secret_chat_text">Секретные чаты защищены сквозным шифрованием и хранятся только на этом устройстве и на устройстве собеседника. Они не привязаны к вашему аккаунту Telegram, поэтому на других устройствах вы их не увидите, а выход из TrueGram удаляет их.</string>
+    <string name="profile_secret_chat_confirm">Начать</string>
+
+    <!-- Report sheet -->
+    <string name="profile_report_title">Жалоба</string>
+    <string name="profile_report_comment_title">Расскажите Telegram подробнее</string>
+    <string name="profile_report_comment_body">Модераторы Telegram читают то, что вы пишете.</string>
+    <string name="profile_report_comment_label">Комментарий</string>
+    <string name="profile_report_comment_label_optional">Комментарий (необязательно)</string>
+    <string name="profile_report_send">Отправить жалобу</string>
+    <string name="profile_reported">Спасибо, модераторы Telegram рассмотрят жалобу</string>
+    <!-- Telegram wants messages to go with a report: they are reported from the chat. -->
+    <string name="profile_report_needs_messages">Чтобы пожаловаться на этот аккаунт, выберите его сообщения в чате и отправьте жалобу на них</string>
+
+    <!-- Shared media -->
+    <string name="profile_section_media">Общие медиафайлы</string>
+    <string name="profile_media_photos">Фото и видео</string>
+    <string name="profile_media_files">Файлы</string>
+    <string name="profile_media_links">Ссылки</string>
+    <string name="profile_media_voice">Голосовые</string>
+    <string name="profile_media_music">Музыка</string>
+    <string name="profile_media_gifs">GIF</string>
+    <!-- Spoken by screen readers while a tab\'s media loads. -->
+    <string name="profile_media_loading">Загрузка общих медиафайлов</string>
+    <string name="profile_media_empty_photos">Нет фото и видео</string>
+    <string name="profile_media_empty_files">Нет файлов</string>
+    <string name="profile_media_empty_links">Нет ссылок</string>
+    <string name="profile_media_empty_voice">Нет голосовых сообщений</string>
+    <string name="profile_media_empty_music">Нет музыки</string>
+    <string name="profile_media_empty_gifs">Нет GIF</string>
+    <string name="profile_media_empty_body">Здесь появится то, чем вы делились в чате с этим пользователем.</string>
+    <string name="profile_media_error">Не удалось загрузить общие медиафайлы</string>
+    <!-- Spoken by screen readers for an item of the grid. %1$s is the date it was sent. -->
+    <string name="profile_media_photo">Фото, %1$s</string>
+    <!-- %1$s is the date, %2$s the length ("0:42"). -->
+    <string name="profile_media_video">Видео, %2$s, %1$s</string>
+    <string name="profile_media_gif">GIF, %1$s</string>
+    <!-- Voice message row: %1$s is the length ("0:42"). -->
+    <string name="profile_media_voice_title">Голосовое сообщение, %1$s</string>
+    <!-- Under a row: %1$s is a size or length, %2$s the date it was sent. -->
+    <string name="profile_media_detail">%1$s · %2$s</string>
+    <!-- A song without a title or performer. -->
+    <string name="profile_media_unknown_audio">Аудио</string>
+
+    <!-- Group and channel info (REQUIREMENTS.md FR-P3, FR-P4) -->
+    <!-- Spoken by screen readers for the progress indicator while a page loads. -->
+    <string name="chat_info_loading">Загрузка</string>
+    <string name="chat_info_error_title">Не удаётся показать этот чат</string>
+    <string name="chat_info_not_found_body">Telegram не знает эту группу или канал либо они вам больше недоступны.</string>
+    <string name="chat_info_page_error">Не удалось загрузить эту страницу</string>
+    <!-- Under the title: the kind of chat, then how many are in it ("Public group · 1,024 members"). -->
+    <string name="chat_info_public_group">Публичная группа</string>
+    <string name="chat_info_private_group">Приватная группа</string>
+    <string name="chat_info_public_channel">Публичный канал</string>
+    <string name="chat_info_private_channel">Приватный канал</string>
+    <!-- %1$s is the kind of chat, %2$s how many members or subscribers. -->
+    <string name="chat_info_status">%1$s · %2$s</string>
+    <plurals name="chat_info_members">
+        <item quantity="one">%1$s участник</item>
+        <item quantity="few">%1$s участника</item>
+        <item quantity="many">%1$s участников</item>
+        <item quantity="other">%1$s участника</item>
+    </plurals>
+    <plurals name="chat_info_subscribers">
+        <item quantity="one">%1$s подписчик</item>
+        <item quantity="few">%1$s подписчика</item>
+        <item quantity="many">%1$s подписчиков</item>
+        <item quantity="other">%1$s подписчика</item>
+    </plurals>
+    <!-- Joins the group\'s or channel\'s voice chat (docs/adr/0023-group-voice-chats-and-live-streams.md). -->
+    <string name="chat_info_action_voice_chat">Голосовой чат</string>
+    <string name="chat_info_action_live_stream">Трансляция</string>
+    <!-- Starts a voice chat in the group or channel, for administrators who may. -->
+    <string name="chat_info_action_start_voice_chat">Начать голосовой чат</string>
+    <string name="chat_info_action_leave">Покинуть</string>
+
+    <!-- Information rows; each label goes under its value. -->
+    <string name="chat_info_description">Описание</string>
+    <string name="chat_info_link">Ссылка</string>
+    <string name="chat_info_invite_link">Ссылка-приглашение</string>
+    <string name="chat_info_qr_code">QR-код</string>
+    <string name="chat_info_share_link">Поделиться ссылкой</string>
+    <string name="chat_info_link_copied">Ссылка скопирована</string>
+    <string name="chat_info_qr_title">QR-код</string>
+    <!-- Spoken by screen readers for the QR code. -->
+    <string name="chat_info_qr_description">QR-код ссылки</string>
+    <string name="chat_info_media_empty_body">Здесь появится то, чем участники делятся в чате.</string>
+
+    <!-- Members -->
+    <string name="chat_info_section_members">Участники</string>
+    <string name="chat_info_section_subscribers">Подписчики</string>
+    <plurals name="chat_info_all_members">
+        <item quantity="one">Показать %1$s участника</item>
+        <item quantity="few">Показать %1$s участника</item>
+        <item quantity="many">Показать всех участников: %1$s</item>
+        <item quantity="other">Показать всех участников: %1$s</item>
+    </plurals>
+    <plurals name="chat_info_all_subscribers">
+        <item quantity="one">Показать %1$s подписчика</item>
+        <item quantity="few">Показать %1$s подписчиков</item>
+        <item quantity="many">Показать всех подписчиков: %1$s</item>
+        <item quantity="other">Показать всех подписчиков: %1$s</item>
+    </plurals>
+    <string name="chat_info_members_hidden">Список участников этой группы видят только администраторы.</string>
+    <string name="chat_info_role_owner">Владелец</string>
+    <string name="chat_info_role_admin">Администратор</string>
+    <string name="chat_info_role_restricted">Ограничен</string>
+    <string name="chat_info_role_removed">Исключён</string>
+    <!-- What a long press on a member does, spoken by screen readers. -->
+    <string name="chat_info_member_menu">Показать действия</string>
+    <string name="chat_info_member_promote">Назначить администратором</string>
+    <string name="chat_info_member_edit_rights">Изменить права администратора</string>
+    <string name="chat_info_member_dismiss">Снять с администратора</string>
+    <string name="chat_info_member_restrict">Ограничить</string>
+    <string name="chat_info_member_unrestrict">Снять ограничения</string>
+    <string name="chat_info_member_remove">Удалить</string>
+    <string name="chat_info_member_unban">Разрешить вернуться</string>
+    <!-- Snackbars after a change. %1$s is the member\'s name. -->
+    <string name="chat_info_member_dismissed">%1$s больше не администратор</string>
+    <string name="chat_info_member_unrestricted">Ограничения для %1$s сняты</string>
+    <string name="chat_info_member_unbanned">%1$s может снова вступить</string>
+    <string name="chat_info_member_removed">%1$s исключён</string>
+    <!-- Removing a member. %1$s is their name. -->
+    <string name="chat_info_remove_title">Удалить %1$s?</string>
+    <string name="chat_info_remove_text">Пользователь будет удалён из группы и не сможет вступить снова, пока администратор не разрешит.</string>
+    <string name="chat_info_remove_text_channel">Пользователь будет удалён из канала и не сможет подписаться снова, пока администратор не разрешит.</string>
+    <string name="chat_info_members_search">Поиск участников</string>
+    <!-- Spoken by screen readers for the button that clears the search. -->
+    <string name="chat_info_members_search_clear">Очистить поиск</string>
+    <string name="chat_info_members_loading">Загрузка участников</string>
+    <string name="chat_info_members_empty">Здесь никого нет</string>
+    <string name="chat_info_members_empty_body">В этом чате нет никого, кто подходит под этот список.</string>
+    <string name="chat_info_members_none_found">Участники не найдены</string>
+    <!-- %1$s is what was searched for. -->
+    <string name="chat_info_members_none_found_body">Никто не подходит под запрос «%1$s».</string>
+    <string name="chat_info_members_error">Не удалось загрузить участников</string>
+    <string name="chat_info_filter_all">Все</string>
+    <string name="chat_info_filter_subscribers">Подписчики</string>
+    <string name="chat_info_filter_admins">Администраторы</string>
+    <string name="chat_info_filter_restricted">Ограниченные</string>
+    <string name="chat_info_filter_removed">Исключённые</string>
+
+    <!-- Administration -->
+    <string name="chat_info_section_administration">Администрирование</string>
+    <string name="chat_info_edit">Фото, название и описание</string>
+    <string name="chat_info_permissions">Права</string>
+    <string name="chat_info_administrators">Администраторы</string>
+    <string name="chat_info_invite_links">Ссылки-приглашения</string>
+    <string name="chat_info_restricted">Ограниченные пользователи</string>
+    <string name="chat_info_removed">Исключённые пользователи</string>
+    <string name="chat_info_save">Сохранить</string>
+    <!-- Spoken by screen readers while a change is on its way. -->
+    <string name="chat_info_saving">Сохранение</string>
+    <!-- Spoken by screen readers for the photo on the page that edits it. -->
+    <string name="chat_info_group_photo">Фото группы</string>
+    <string name="chat_info_channel_photo">Фото канала</string>
+    <string name="chat_info_remove_photo_title">Удалить фото группы?</string>
+    <string name="chat_info_remove_photo_title_channel">Удалить фото канала?</string>
+    <string name="chat_info_remove_photo_text">Вместо фото участники увидят инициалы группы.</string>
+    <string name="chat_info_remove_photo_text_channel">Вместо фото подписчики увидят инициалы канала.</string>
+    <string name="chat_info_remove_photo_confirm">Удалить</string>
+    <string name="chat_info_group_name">Название группы</string>
+    <string name="chat_info_channel_name">Название канала</string>
+    <string name="chat_info_description_note">Описание этого чата может прочитать каждый, кто его найдёт.</string>
+
+    <!-- Rights and restrictions of a member -->
+    <string name="chat_info_promote_title">Назначить администратором</string>
+    <string name="chat_info_rights_title">Права администратора</string>
+    <string name="chat_info_restrictions_title">Ограничения</string>
+    <string name="chat_info_rights_header">Что может делать этот администратор</string>
+    <string name="chat_info_restrictions_header">Что может делать этот участник</string>
+    <string name="chat_info_right_change_info">Изменять информацию о чате</string>
+    <string name="chat_info_right_post_messages">Публиковать сообщения</string>
+    <string name="chat_info_right_edit_messages">Редактировать чужие сообщения</string>
+    <string name="chat_info_right_delete_messages">Удалять сообщения</string>
+    <string name="chat_info_right_restrict_members">Блокировать и ограничивать участников</string>
+    <string name="chat_info_right_invite_users">Приглашать пользователей</string>
+    <string name="chat_info_right_pin_messages">Закреплять сообщения</string>
+    <string name="chat_info_right_manage_video_chats">Управлять видеочатами</string>
+    <string name="chat_info_right_post_stories">Публиковать истории</string>
+    <string name="chat_info_right_edit_stories">Редактировать чужие истории</string>
+    <string name="chat_info_right_delete_stories">Удалять чужие истории</string>
+    <string name="chat_info_right_manage_direct_messages">Управлять личными сообщениями</string>
+    <string name="chat_info_right_manage_tags">Редактировать теги участников</string>
+    <string name="chat_info_right_promote_members">Добавлять новых администраторов</string>
+    <string name="chat_info_right_anonymous">Оставаться анонимным</string>
+
+    <!-- What members may do -->
+    <string name="chat_info_permissions_header">Что могут делать участники</string>
+    <string name="chat_info_permission_send_messages">Отправлять сообщения</string>
+    <string name="chat_info_permission_send_photos">Отправлять фото</string>
+    <string name="chat_info_permission_send_videos">Отправлять видео</string>
+    <string name="chat_info_permission_send_files">Отправлять файлы</string>
+    <string name="chat_info_permission_send_music">Отправлять музыку</string>
+    <string name="chat_info_permission_send_voice">Отправлять голосовые сообщения</string>
+    <string name="chat_info_permission_send_video_messages">Отправлять видеосообщения</string>
+    <string name="chat_info_permission_send_stickers">Отправлять стикеры и GIF</string>
+    <string name="chat_info_permission_send_polls">Отправлять опросы</string>
+    <string name="chat_info_permission_link_previews">Добавлять превью ссылок</string>
+    <string name="chat_info_permission_react">Ставить реакции на сообщения</string>
+    <string name="chat_info_permission_add_members">Добавлять участников</string>
+    <string name="chat_info_permission_pin_messages">Закреплять сообщения</string>
+    <string name="chat_info_permission_change_info">Изменять информацию о чате</string>
+    <string name="chat_info_slow_mode">Медленный режим</string>
+    <string name="chat_info_slow_mode_summary">Сколько участники ждут между своими сообщениями</string>
+    <string name="chat_info_slow_mode_off">Выкл.</string>
+    <plurals name="chat_info_slow_mode_seconds">
+        <item quantity="one">Каждую %1$d секунду</item>
+        <item quantity="few">Каждые %1$d секунды</item>
+        <item quantity="many">Каждые %1$d секунд</item>
+        <item quantity="other">Каждые %1$d секунды</item>
+    </plurals>
+    <plurals name="chat_info_slow_mode_minutes">
+        <item quantity="one">Каждую минуту</item>
+        <item quantity="few">Каждые %1$d минуты</item>
+        <item quantity="many">Каждые %1$d минут</item>
+        <item quantity="other">Каждые %1$d минуты</item>
+    </plurals>
+    <plurals name="chat_info_slow_mode_hours">
+        <item quantity="one">Каждый час</item>
+        <item quantity="few">Каждые %1$d часа</item>
+        <item quantity="many">Каждые %1$d часов</item>
+        <item quantity="other">Каждые %1$d часа</item>
+    </plurals>
+
+    <!-- Invite links -->
+    <string name="chat_info_primary_link">Основная ссылка</string>
+    <string name="chat_info_your_links">Ваши ссылки</string>
+    <string name="chat_info_revoked_links">Отозванные ссылки</string>
+    <string name="chat_info_link_create">Создать новую ссылку</string>
+    <string name="chat_info_link_copy">Копировать</string>
+    <string name="chat_info_link_share">Поделиться</string>
+    <string name="chat_info_link_edit">Изменить</string>
+    <string name="chat_info_link_revoke">Отозвать ссылку</string>
+    <string name="chat_info_link_delete">Удалить</string>
+    <!-- Spoken by screen readers for a revoked link\'s button. %1$s is the link\'s name. -->
+    <string name="chat_info_link_delete_named">Удалить %1$s</string>
+    <string name="chat_info_links_delete_all">Удалить все отозванные ссылки</string>
+    <plurals name="chat_info_link_joined">
+        <item quantity="one">Вступил: %1$d</item>
+        <item quantity="few">Вступили: %1$d</item>
+        <item quantity="many">Вступили: %1$d</item>
+        <item quantity="other">Вступили: %1$d</item>
+    </plurals>
+    <plurals name="chat_info_link_requests">
+        <item quantity="one">%1$d ждёт одобрения</item>
+        <item quantity="few">%1$d ждут одобрения</item>
+        <item quantity="many">%1$d ждут одобрения</item>
+        <item quantity="other">%1$d ждут одобрения</item>
+    </plurals>
+    <!-- Under a link: how many joined, then its state ("3 joined · Expires Oct 30"). -->
+    <string name="chat_info_link_detail">%1$s · %2$s</string>
+    <!-- %1$s is a date. -->
+    <string name="chat_info_link_expires">Действует до %1$s</string>
+    <string name="chat_info_link_state_expired">Истекла</string>
+    <string name="chat_info_link_state_full">Заполнена</string>
+    <string name="chat_info_link_state_revoked">Отозвана</string>
+    <string name="chat_info_link_revoke_title">Отозвать эту ссылку?</string>
+    <string name="chat_info_link_revoke_text">По ней больше нельзя будет вступить. Те, кто уже вступил, останутся.</string>
+    <string name="chat_info_link_revoke_primary_text">По ней больше нельзя будет вступить, а вместо неё станет новая основная ссылка. Те, кто уже вступил, останутся.</string>
+    <string name="chat_info_link_revoke_confirm">Отозвать</string>
+    <string name="chat_info_link_delete_title">Удалить эту ссылку?</string>
+    <string name="chat_info_links_delete_all_title">Удалить все отозванные ссылки?</string>
+    <string name="chat_info_link_delete_text">Удалённые ссылки нельзя восстановить.</string>
+    <string name="chat_info_link_revoked">Ссылка отозвана</string>
+    <string name="chat_info_link_deleted">Ссылка удалена</string>
+    <string name="chat_info_links_deleted">Отозванные ссылки удалены</string>
+    <string name="chat_info_link_new_title">Новая ссылка-приглашение</string>
+    <string name="chat_info_link_edit_title">Изменить ссылку-приглашение</string>
+    <string name="chat_info_link_name">Название (необязательно)</string>
+    <!-- Under the name: who sees it, and %1$d of %2$d characters. -->
+    <string name="chat_info_link_name_note">Видят только администраторы. %1$d/%2$d</string>
+    <string name="chat_info_link_expires_header">Срок действия</string>
+    <string name="chat_info_link_never">Бессрочно</string>
+    <string name="chat_info_link_in_hour">Через 1 час</string>
+    <string name="chat_info_link_in_day">Через 1 день</string>
+    <string name="chat_info_link_in_week">Через 1 неделю</string>
+    <!-- An edited link\'s own expiry. %1$s is a date and time. -->
+    <string name="chat_info_link_on">До %1$s</string>
+    <string name="chat_info_link_limit_header">Ограничить число участников</string>
+    <string name="chat_info_link_no_limit">Без ограничений</string>
+    <plurals name="chat_info_link_limit">
+        <item quantity="one">%1$s человек</item>
+        <item quantity="few">%1$s человека</item>
+        <item quantity="many">%1$s человек</item>
+        <item quantity="other">%1$s человека</item>
+    </plurals>
+    <string name="chat_info_link_requests_switch">Одобрение администратором</string>
+    <string name="chat_info_link_requests_summary">Администраторы одобряют каждого, кто вступает по этой ссылке</string>
+    <string name="chat_info_link_create_button">Создать ссылку</string>
+
+    <!-- Leaving, deleting and clearing -->
+    <string name="chat_info_clear_history">Очистить историю</string>
+    <string name="chat_info_delete_group">Удалить группу</string>
+    <string name="chat_info_delete_channel">Удалить канал</string>
+    <string name="chat_info_leave_group_title">Покинуть группу?</string>
+    <string name="chat_info_leave_channel_title">Отписаться от канала?</string>
+    <!-- %1$s is the chat\'s title. -->
+    <string name="chat_info_leave_text">Вы покинете %1$s, и этот чат исчезнет из ваших чатов.</string>
+    <string name="chat_info_delete_group_title">Удалить группу для всех?</string>
+    <string name="chat_info_delete_channel_title">Удалить канал для всех?</string>
+    <string name="chat_info_delete_text">%1$s и все её сообщения будут удалены для каждого участника. Это нельзя отменить.</string>
+    <string name="chat_info_delete_confirm">Удалить</string>
+    <string name="chat_info_clear_history_title">Очистить историю?</string>
+    <string name="chat_info_clear_history_text">Сообщения в %1$s будут удалены только у вас. Другие участники их по-прежнему видят.</string>
+    <string name="chat_info_clear_history_confirm">Очистить</string>
+    <string name="chat_info_history_cleared">История очищена</string>
+
+    <!-- The join sheet of an invite link (REQUIREMENTS.md FR-P5). -->
+    <string name="invite_join_group">Вступить в группу</string>
+    <string name="invite_join_channel">Подписаться на канал</string>
+    <string name="invite_request_to_join">Отправить заявку</string>
+    <string name="invite_cancel">Отмена</string>
+    <string name="invite_joining">Вступаем…</string>
+    <!-- %1$s: the names of a few members, separated by commas. -->
+    <string name="invite_members_include">Среди участников: %1$s</string>
+    <string name="invite_request_note_group">Чтобы вступить в эту группу, администратор должен принять вашу заявку.</string>
+    <string name="invite_request_note_channel">Чтобы подписаться на этот канал, администратор должен принять вашу заявку.</string>
+    <string name="invite_needs_subscription">Для вступления нужна платная подписка, которую Pingogram не предоставляет.</string>
+    <string name="invite_needs_bot_approval">Эта группа проверяет новых участников с помощью бота, который TrueGram пока не может показать.</string>
+    <string name="invite_declined">Telegram не разрешил вам вступить.</string>
+    <string name="invite_request_sent_title">Заявка отправлена</string>
+    <string name="invite_request_sent_group">Вы сможете вступить в группу, когда администратор примет заявку.</string>
+    <string name="invite_request_sent_channel">Вы сможете читать канал, когда администратор примет заявку.</string>
+    <string name="invite_done">Готово</string>
+    <string name="invite_failed_title">Не удаётся открыть это приглашение</string>
+    <string name="invite_try_again">Попробовать снова</string>
+    <string name="invite_close">Закрыть</string>
+    <!-- The boosts of a channel or group, read only (REQUIREMENTS.md FR-P5). -->
+    <string name="chat_info_boosts">Бусты</string>
+    <string name="boost_title">Бусты</string>
+    <string name="boost_section_level">Уровень</string>
+    <string name="boost_section_overview">Обзор</string>
+    <!-- %1$s: the level. -->
+    <string name="boost_level">Уровень %1$s</string>
+    <plurals name="boost_count">
+        <item quantity="one">%1$s буст</item>
+        <item quantity="few">%1$s буста</item>
+        <item quantity="many">%1$s бустов</item>
+        <item quantity="other">%1$s буста</item>
+    </plurals>
+    <!-- %1$s: the boosts still needed, %2$s: the next level. -->
+    <plurals name="boost_to_next_level">
+        <item quantity="one">Ещё %1$s буст до уровня %2$s</item>
+        <item quantity="few">Ещё %1$s буста до уровня %2$s</item>
+        <item quantity="many">Ещё %1$s бустов до уровня %2$s</item>
+        <item quantity="other">Ещё %1$s буста до уровня %2$s</item>
+    </plurals>
+    <string name="boost_max_level">Достигнут максимальный уровень</string>
+    <string name="boost_row_boosts">Бусты</string>
+    <string name="boost_row_premium_subscribers">Подписчики с Telegram Premium</string>
+    <string name="boost_row_premium_members">Участники с Telegram Premium</string>
+    <!-- %1$s: how many, %2$s: their share ("312 · 2.5%"). -->
+    <string name="boost_premium_value">%1$s · %2$s</string>
+    <string name="boost_row_you">Вы</string>
+    <string name="boost_you_boost_channel">Вы бустите этот канал</string>
+    <string name="boost_you_boost_group">Вы бустите эту группу</string>
+    <string name="boost_note_channel">Подписчики с Telegram Premium могут бустить канал, чтобы открыть для него функции. Pingogram показывает бусты, но не может их выдавать.</string>
+    <string name="boost_note_group">Участники с Telegram Premium могут бустить группу, чтобы открыть для неё функции. Pingogram показывает бусты, но не может их выдавать.</string>
+    <plurals name="boost_unused">
+        <item quantity="one">У вас есть %1$s неиспользованный буст.</item>
+        <item quantity="few">У вас есть %1$s неиспользованных буста.</item>
+        <item quantity="many">У вас есть %1$s неиспользованных бустов.</item>
+        <item quantity="other">У вас есть %1$s неиспользованного буста.</item>
+    </plurals>
+    <!-- The profile\'s call pill (REQUIREMENTS.md FR-V1). -->
+    <string name="profile_action_call">Позвонить</string>
+
+    <!-- A group\'s or channel\'s settings (REQUIREMENTS.md FR-P3) -->
+    <string name="chat_settings_group">Настройки группы</string>
+    <string name="chat_settings_channel">Настройки канала</string>
+    <string name="chat_settings_reactions">Реакции</string>
+    <string name="chat_settings_reactions_all">Все реакции</string>
+    <string name="chat_settings_reactions_some">Некоторые реакции</string>
+    <string name="chat_settings_reactions_none">Без реакций</string>
+    <string name="chat_settings_reactions_pick">Участники могут ставить только выбранные вами реакции.</string>
+    <!-- Spoken by screen readers for a reaction that can be picked. %1$s is the emoji. -->
+    <string name="chat_settings_reaction">Реакция %1$s</string>
+    <string name="chat_settings_content">Содержимое</string>
+    <string name="chat_settings_protected">Запретить сохранение содержимого</string>
+    <string name="chat_settings_protected_summary">Участники не смогут пересылать, сохранять или копировать сообщения и делать скриншоты в приложениях Telegram</string>
+    <string name="chat_settings_posts">Публикации</string>
+    <string name="chat_settings_sign">Подписывать сообщения</string>
+    <string name="chat_settings_sign_summary">В публикациях видно, кто их написал</string>
+    <string name="chat_settings_show_profiles">Показывать профили авторов</string>
+    <string name="chat_settings_show_profiles_summary">Имена в подписанных публикациях открывают профиль автора</string>
+    <string name="chat_settings_topics">Темы</string>
+    <string name="chat_settings_topics_on">Темы</string>
+    <string name="chat_settings_topics_summary">Участники общаются в отдельных темах</string>
+    <string name="chat_settings_topic_tabs">Показывать темы вкладками</string>
+    <string name="chat_settings_topic_tabs_summary">Вместо списка тем</string>
+    <string name="chat_settings_discussion">Обсуждение</string>
+    <string name="chat_settings_discussion_group">Группа обсуждения</string>
+    <string name="chat_settings_linked_channel">Связанный канал</string>
+    <string name="chat_settings_discussion_none">Нет · к публикациям нельзя оставлять комментарии</string>
+    <string name="chat_settings_unlink">Отвязать</string>
+    <string name="chat_settings_unlink_title">Отвязать обсуждение?</string>
+    <string name="chat_settings_unlink_text">Под публикациями больше нельзя будет оставлять комментарии в группе. Сама группа и её сообщения останутся.</string>
+    <string name="chat_settings_unlink_confirm">Отвязать</string>
+    <string name="chat_settings_picker_title">Группа обсуждения</string>
+    <string name="chat_settings_picker_text">Комментарии к публикациям появятся в выбранной группе. Её участники смогут видеть, кто комментирует.</string>
+    <string name="chat_settings_picker_none">У вас нет группы, которую можно связать. Сначала создайте группу.</string>
+    <!-- Spoken by screen readers for the progress indicator while the groups load. -->
+    <string name="chat_settings_picker_loading">Загрузка групп</string>
+    <string name="chat_settings_upgrade_section">Тип группы</string>
+    <string name="chat_settings_upgrade">Преобразовать в супергруппу</string>
+    <string name="chat_settings_upgrade_summary">До 200 000 участников, администраторы с правами и не только</string>
+    <string name="chat_settings_upgrade_title">Преобразовать в супергруппу?</string>
+    <string name="chat_settings_upgrade_text">Группа станет новым чатом. Участники и сообщения перейдут в него. Это нельзя отменить.</string>
+    <string name="chat_settings_upgrade_confirm">Преобразовать</string>
+
+    <!-- The requests to join a group or channel (REQUIREMENTS.md FR-P3) -->
+    <string name="join_requests">Заявки на вступление</string>
+    <string name="join_requests_none">Никто не ждёт вступления.</string>
+    <string name="join_requests_footer_group">Люди, которые открывают ссылку-приглашение с одобрением, ждут здесь, пока администратор их не добавит.</string>
+    <string name="join_requests_footer_channel">Люди, которые открывают ссылку-приглашение с одобрением, ждут здесь, пока администратор не разрешит им подписаться.</string>
+    <!-- A request\'s supporting text: when it came, e.g. "Requested Oct 30". -->
+    <string name="join_requests_date">Заявка: %1$s</string>
+    <string name="join_requests_add">Добавить</string>
+    <!-- The approve button for screen readers. %1$s is the person\'s name. -->
+    <string name="join_requests_add_named">Добавить: %1$s</string>
+    <!-- The dismiss button for screen readers. %1$s is the person\'s name. -->
+    <string name="join_requests_dismiss_named">Отклонить: %1$s</string>
+    <string name="join_requests_add_all">Добавить всех</string>
+    <string name="join_requests_dismiss_all">Отклонить все</string>
+    <string name="join_requests_dismiss_all_title">Отклонить все заявки?</string>
+    <string name="join_requests_dismiss_all_text">Никто из ожидающих не вступит. Они смогут подать заявку снова по ссылке.</string>
+    <string name="join_requests_dismiss_all_confirm">Отклонить все</string>
+    <!-- Snackbar. %1$s is the person\'s name. -->
+    <string name="join_requests_added">%1$s вступил</string>
+    <!-- Spoken by screen readers for the progress indicator while requests are processed. -->
+    <string name="join_requests_more_error">Не удалось загрузить другие заявки</string>
+    <string name="join_requests_retry">Попробовать снова</string>
+    <string name="join_requests_more">Загрузить ещё</string>
+    <!-- Transferring the ownership of a supergroup or channel, from a member\'s rights page. -->
+    <string name="chat_info_transfer">Передать владение</string>
+    <string name="chat_info_transfer_summary">%1$s станет владельцем. Вы останетесь администратором.</string>
+    <string name="chat_info_transfer_title">Передать владение пользователю %1$s?</string>
+    <string name="chat_info_transfer_text">%1$s станет владельцем группы и сможет менять или отбирать ваши права. Вернуть владение может только %1$s. Чтобы подтвердить, введите пароль двухэтапной проверки.</string>
+    <string name="chat_info_transfer_text_channel">%1$s станет владельцем канала и сможет менять или отбирать ваши права. Вернуть владение может только %1$s. Чтобы подтвердить, введите пароль двухэтапной проверки.</string>
+    <string name="chat_info_transfer_password">Пароль</string>
+    <string name="chat_info_transfer_confirm">Передать</string>
+    <string name="chat_info_transfer_checking">Проверяем, можно ли передать владение</string>
+    <string name="chat_info_transfer_password_needed">Чтобы передать владение, включите двухэтапную проверку в разделе Настройки → Конфиденциальность и безопасность.</string>
+    <string name="chat_info_transfer_password_too_new">Telegram позволяет передать владение только спустя некоторое время после установки пароля двухэтапной проверки. Попробуйте снова через %1$s.</string>
+    <string name="chat_info_transfer_session_too_new">Telegram позволяет передать владение только с устройства, на котором вы вошли достаточно давно. Попробуйте снова через %1$s.</string>
+    <!-- Recent actions of a supergroup or channel, from the info page\'s Administration. -->
+    <string name="recent_actions">Последние действия</string>
+    <string name="recent_actions_footer">Что администраторы и участники делали за последние 48 часов. Это видят только администраторы.</string>
+    <string name="recent_actions_none">За последние 48 часов действий не было</string>
+    <string name="recent_actions_loading">Загрузка действий</string>
+    <string name="recent_actions_more_error">Не удалось загрузить более ранние действия</string>
+    <string name="recent_actions_retry">Попробовать снова</string>
+    <string name="recent_actions_filter_messages">Сообщения</string>
+    <string name="recent_actions_filter_members">Участники</string>
+    <string name="recent_actions_filter_admins">Администраторы</string>
+    <string name="recent_actions_filter_restrictions">Ограничения</string>
+    <string name="recent_actions_filter_settings">Информация и настройки</string>
+    <string name="recent_actions_filter_links">Ссылки-приглашения</string>
+    <string name="recent_actions_filter_voice_chats">Голосовые чаты</string>
+    <string name="recent_actions_edited">Изменил сообщение</string>
+    <string name="recent_actions_deleted">Удалил сообщение</string>
+    <string name="recent_actions_pinned">Закрепил сообщение</string>
+    <string name="recent_actions_unpinned">Открепил сообщение</string>
+    <string name="recent_actions_joined">Вступил</string>
+    <string name="recent_actions_joined_link">Вступил по ссылке-приглашению</string>
+    <string name="recent_actions_joined_approved">Вступил, одобрил: %1$s</string>
+    <string name="recent_actions_left">Вышел</string>
+    <string name="recent_actions_invited">Добавил: %1$s</string>
+    <string name="recent_actions_promoted">Назначил администратором: %1$s</string>
+    <string name="recent_actions_rights_changed">Изменил права администратора: %1$s</string>
+    <string name="recent_actions_dismissed">Снял с администратора: %1$s</string>
+    <string name="recent_actions_banned">Удалил: %1$s</string>
+    <string name="recent_actions_restricted">Ограничил: %1$s</string>
+    <string name="recent_actions_unrestricted">Снял ограничения с: %1$s</string>
+    <string name="recent_actions_unbanned">Разрешил вернуться: %1$s</string>
+    <string name="recent_actions_title">Изменил название на «%1$s»</string>
+    <string name="recent_actions_description">Изменил описание</string>
+    <string name="recent_actions_username">Изменил ссылку на %1$s</string>
+    <string name="recent_actions_username_removed">Удалил публичную ссылку</string>
+    <string name="recent_actions_photo">Изменил фото</string>
+    <string name="recent_actions_photo_removed">Удалил фото</string>
+    <string name="recent_actions_linked">Связал: %1$s</string>
+    <string name="recent_actions_unlinked">Отвязал обсуждение</string>
+    <string name="recent_actions_link_edited">Изменил ссылку-приглашение %1$s</string>
+    <string name="recent_actions_link_revoked">Отозвал ссылку-приглашение %1$s</string>
+    <string name="recent_actions_link_deleted">Удалил ссылку-приглашение %1$s</string>
+    <string name="recent_actions_voice_chat_started">Начал голосовой чат</string>
+    <string name="recent_actions_voice_chat_ended">Завершил голосовой чат</string>
+    <string name="recent_actions_topic">Изменил тему</string>
+    <string name="recent_actions_permissions">Изменил права участников</string>
+    <string name="recent_actions_reactions">Изменил реакции</string>
+    <string name="recent_actions_slow_mode">Включил медленный режим: %1$s</string>
+    <string name="recent_actions_slow_mode_off">Выключил медленный режим</string>
+    <string name="recent_actions_signatures_on">Включил подписи сообщений</string>
+    <string name="recent_actions_signatures_off">Выключил подписи сообщений</string>
+    <string name="recent_actions_profiles_on">Включил профили авторов</string>
+    <string name="recent_actions_profiles_off">Выключил профили авторов</string>
+    <string name="recent_actions_protected_on">Запретил сохранение содержимого</string>
+    <string name="recent_actions_protected_off">Разрешил сохранение содержимого</string>
+    <string name="recent_actions_topics_on">Включил темы</string>
+    <string name="recent_actions_topics_off">Выключил темы</string>
+    <string name="recent_actions_invites_on">Разрешил участникам добавлять людей</string>
+    <string name="recent_actions_invites_off">Запретил участникам добавлять людей</string>
+    <string name="recent_actions_history_on">Открыл историю новым участникам</string>
+    <string name="recent_actions_history_off">Скрыл историю от новых участников</string>
+    <string name="recent_actions_other">Совершено действие, которое Pingogram пока не может показать</string>
+    <!-- Statistics of a supergroup or channel, from the info page\'s Administration. -->
+    <string name="statistics">Статистика</string>
+    <string name="statistics_period">%1$s, как считает Telegram</string>
+    <string name="statistics_overview">Обзор</string>
+    <string name="statistics_top_members">Самые активные участники</string>
+    <plurals name="statistics_messages">
+        <item quantity="one">%1$d сообщение</item>
+        <item quantity="few">%1$d сообщения</item>
+        <item quantity="many">%1$d сообщений</item>
+        <item quantity="other">%1$d сообщения</item>
+    </plurals>
+    <string name="statistics_members">Участники</string>
+    <string name="statistics_messages">Сообщения</string>
+    <string name="statistics_viewers">Участники, которые читают</string>
+    <string name="statistics_senders">Участники, которые пишут</string>
+    <string name="statistics_views_per_post">Просмотры на публикацию</string>
+    <string name="statistics_shares_per_post">Репосты на публикацию</string>
+    <string name="statistics_reactions_per_post">Реакции на публикацию</string>
+    <string name="statistics_views_per_story">Просмотры на историю</string>
+    <string name="statistics_shares_per_story">Репосты на историю</string>
+    <string name="statistics_reactions_per_story">Реакции на историю</string>
+    <string name="statistics_notifications">Подписчики с включёнными уведомлениями</string>
+    <string name="statistics_graph_members">Рост</string>
+    <string name="statistics_graph_joins">Вступления и выходы</string>
+    <string name="statistics_graph_joins_by_source">Новые участники по источнику</string>
+    <string name="statistics_graph_languages">Языки</string>
+    <string name="statistics_graph_messages">Сообщения</string>
+    <string name="statistics_graph_actions">Действия</string>
+    <string name="statistics_graph_by_hour">Активность по часам</string>
+    <string name="statistics_graph_by_weekday">Активность по дням недели</string>
+    <string name="statistics_graph_muted">Уведомления</string>
+    <string name="statistics_graph_views_by_hour">Просмотры по часам</string>
+    <string name="statistics_graph_views_by_source">Просмотры по источнику</string>
+    <string name="statistics_graph_interactions">Взаимодействия</string>
+    <string name="statistics_graph_reactions">Реакции</string>
+    <string name="statistics_graph_story_interactions">Взаимодействия с историями</string>
+    <string name="statistics_graph_story_reactions">Реакции на истории</string>
+    <string name="statistics_graph_instant_view">Взаимодействия через Мгновенный просмотр</string>
+    <string name="statistics_graph_loading">Загрузка графика</string>
+    <string name="statistics_graph_empty">Недостаточно данных для этого графика</string>
+    <string name="statistics_chart_series">%1$s: с %2$s по %3$s, максимум %4$s</string>
+    <string name="profile_personal_channel">Канал</string>
+</resources>
