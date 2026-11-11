@@ -105,10 +105,10 @@ internal fun ProfileScreen(
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     twoPanes: Boolean = rememberTwoPanes(),
     gridState: LazyGridState = rememberLazyGridState(),
-    music: (@Composable () -> Unit)? = null,
+    showMusic: Boolean = false,
 ) {
     val page =
-        ProfilePageParts(state, media, onEvent, onMediaEvent, mediaActions, onEditContact, onExportChat, music)
+        ProfilePageParts(state, media, onEvent, onMediaEvent, mediaActions, onEditContact, onExportChat, showMusic)
     if (twoPanes) {
         ProfilePanes(page, onBack, snackbarHostState, modifier, gridState)
     } else {
@@ -125,7 +125,7 @@ internal class ProfilePageParts(
     val mediaActions: SharedMediaActions,
     val onEditContact: (() -> Unit)?,
     val onExportChat: (() -> Unit)? = null,
-    val music: (@Composable () -> Unit)? = null,
+    val showMusic: Boolean = false,
 )
 
 /** Whether the window has room for the supporting pane beside the profile: expanded and wider. */
@@ -246,9 +246,10 @@ private fun LazyGridScope.profileItems(
     fullWidth(key = ACTIONS, inset = inset) {
         ProfileActionsRow(state.actions, page.onEvent, Modifier.padding(top = MaterialTheme.spacing.small))
     }
-    val music = page.music
-    if (music != null) {
-        fullWidth(key = MUSIC, inset = inset, top = MaterialTheme.spacing.small) { music() }
+    if (page.showMusic) {
+        fullWidth(key = MUSIC, inset = inset, top = MaterialTheme.spacing.small) {
+            ProfileMusicCard()
+        }
     }
     if (state.photos.totalCount > 1) {
         item(key = PHOTOS, span = { GridItemSpan(maxLineSpan) }, contentType = PHOTOS) {
