@@ -6,7 +6,7 @@
     <string name="error_unauthorized">You\'re logged out. Log in again to continue.</string>
     <string name="error_not_found">This couldn\'t be found.</string>
     <string name="error_already_requested">This was already requested. Please wait.</string>
-    <string name="error_app_update_required">Telegram requires a newer app to log in. Update Pingogram and try again.</string>
+    <string name="error_app_update_required">Telegram requires a newer app to log in. Update TrueGram and try again.</string>
     <string name="error_unknown">Something went wrong. Please try again.</string>
     <string name="error_input_rejected">Telegram didn\'t accept this. Check what you entered and try again.</string>
     <!-- Debug builds only: %1$d is TDLib's error code, %2$s its message. -->
@@ -288,7 +288,7 @@
          and when must stay honest: the phone's names and numbers go to Telegram, which finds who uses it. -->
     <string name="contact_sync_rationale_title">Find your contacts on Telegram</string>
     <string name="contact_sync_rationale_what">The names and phone numbers of your phone\'s contacts are sent to Telegram, which finds who of them uses Telegram and adds them to your Telegram contacts. This is Telegram\'s own contact import, the same as in Telegram\'s apps.</string>
-    <string name="contact_sync_rationale_when">Pingogram reads your contacts only when you turn this on, when you open Contacts while it\'s on, and when you tap Sync now. It never reads them in the background, and keeps no copy.</string>
+    <string name="contact_sync_rationale_when">TrueGram reads your contacts only when you turn this on, when you open Contacts while it\'s on, and when you tap Sync now. It never reads them in the background, and keeps no copy.</string>
     <string name="contact_sync_rationale_off">You can turn it off any time in Settings, Privacy and security. Telegram then deletes the phone numbers it imported. People already in your Telegram contacts stay there.</string>
     <string name="contact_sync_not_now">Not now</string>
     <string name="contact_sync_continue">Continue</string>
