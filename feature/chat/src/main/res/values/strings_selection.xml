@@ -49,7 +49,7 @@
     <string name="save_open">Open</string>
     <string name="save_failed">Couldn\'t save to Downloads</string>
     <!-- Android 8 and 9 only: why saving needs the storage permission, before the system asks for it. -->
-    <string name="save_storage_rationale">To save files to Downloads, Pingogram needs access to your storage</string>
+    <string name="save_storage_rationale">To save files to Downloads, TrueGram needs access to your storage</string>
     <string name="save_storage_continue">Continue</string>
     <string name="save_storage_denied">Saving to Downloads needs access to your storage</string>
     <string name="save_storage_settings">Settings</string>
