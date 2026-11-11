@@ -67,6 +67,15 @@ data class UserProfilePhotosPage(
     val totalCount: Int,
 )
 
+/**
+ * The music a user chose for their profile (td_api.tl `getUserProfileAudios`): [audios] after the first offset, and
+ * how many there are in all ([totalCount]) so the list knows when to stop asking for more.
+ */
+data class ProfileAudiosPage(
+    val audios: ImmutableList<Audio>,
+    val totalCount: Int,
+)
+
 /** Who has a public username (`SearchRepository.publicChat`): a user (or bot), or a group or channel. */
 sealed interface UsernameOwner {
     /** User [userId], whose private chat is [chatId]. */
