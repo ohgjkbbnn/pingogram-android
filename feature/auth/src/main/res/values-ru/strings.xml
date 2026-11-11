@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shared -->
+    <string name="auth_back">Назад</string>
+    <string name="auth_next">Далее</string>
+    <string name="auth_loading">Загрузка</string>
+    <string name="auth_logging_out">Выход из аккаунта…</string>
+    <string name="auth_connection_waiting_for_network">Ожидание сети…</string>
+    <string name="auth_connection_connecting_to_proxy">Подключение к прокси…</string>
+    <string name="auth_connection_connecting">Подключение…</string>
+    <string name="auth_connection_updating">Обновление…</string>
+    <string name="auth_offline_banner">Нет подключения к интернету. TrueGram продолжит работу, как только сеть появится.</string>
+    <!-- %1$s: the remaining time, e.g. "5 minutes". -->
+    <string name="auth_flood_wait">Слишком много попыток. Попробуйте снова через %1$s.</string>
+    <string name="auth_terms_of_service">Условия использования</string>
+    <string name="auth_privacy_policy">Политика конфиденциальности</string>
+    <!-- On the first screen, after Telegram's Terms of Service and Privacy Policy: opens Pingogram's own privacy
+         policy (its website), which says what the app does with your data. -->
+    <string name="auth_pingogram_privacy_policy">Политика конфиденциальности TrueGram</string>
+
+    <!-- Welcome (FR-A1) -->
+    <string name="auth_welcome_title" translatable="false">TrueGram</string>
+    <string name="auth_welcome_tagline">Быстрый и приватный клиент Telegram для Android.</string>
+    <string name="auth_welcome_disclaimer">TrueGram — независимое приложение с открытым исходным кодом. Его создала не компания Telegram.</string>
+    <string name="auth_start_messaging">Начать общение</string>
+    <string name="auth_welcome_agreement">Продолжая, вы соглашаетесь с Условиями использования и Политикой конфиденциальности Telegram.</string>
+
+    <!-- Phone number (FR-A2). "Calling code", the "+44" part, never "country code": some places are regions. -->
+    <string name="auth_phone_title">Ваш номер телефона</string>
+    <string name="auth_phone_change_title">Изменить номер телефона</string>
+    <string name="auth_phone_description">Проверьте код страны и введите свой номер телефона. Telegram отправит вам код для входа.</string>
+    <string name="auth_qr_login">Войти по QR-коду</string>
+    <!-- Between the phone number step's two ways in: Next, then signing in with a passkey. -->
+    <string name="auth_or">или</string>
+    <string name="auth_passkey_sign_in">Войти с помощью ключа доступа</string>
+    <string name="auth_passkey_note">Использует ключ доступа, который вы добавили в «Конфиденциальность и безопасность». Код не нужен.</string>
+    <string name="auth_passkey_not_found">Ключ доступа для этого аккаунта не найден. Добавьте его в «Конфиденциальность и безопасность» после входа.</string>
+    <string name="auth_passkey_unavailable">Ключи доступа пока недоступны в Pingogram</string>
+    <string name="auth_passkey_failed">Не удалось войти с помощью ключа доступа. Попробуйте снова.</string>
+
+    <!-- Login code (FR-A3); %1$s is the phone number. -->
+    <string name="auth_code_title">Введите код</string>
+    <string name="auth_code_open_fragment">Открыть Fragment</string>
+    <string name="auth_change_number">Неправильный номер?</string>
+
+    <!-- 2-step verification password (FR-A4) -->
+    <string name="auth_password_title">Двухэтапная проверка</string>
+    <string name="auth_password_description">Ваш аккаунт защищён дополнительным паролем.</string>
+    <string name="auth_password_label">Пароль</string>
+    <!-- The password visibility toggle; screen readers add whether it is on. -->
+    <string name="auth_password_show">Показать пароль</string>
+    <string name="auth_password_hint">Подсказка: %1$s</string>
+    <string name="auth_forgot_password">Забыли пароль?</string>
+    <string name="auth_password_no_recovery_email">К этому аккаунту не привязана почта для восстановления, поэтому пароль здесь сбросить нельзя. Попробуйте вспомнить его, подсказка может помочь. Pingogram не предлагает сброс аккаунта.</string>
+    <string name="auth_recovery_title">Восстановление пароля</string>
+    <string name="auth_recovery_description">Мы отправили код восстановления на %1$s.</string>
+    <string name="auth_recovery_description_unknown">Мы отправили код восстановления на вашу почту для восстановления.</string>
+    <string name="auth_recovery_code_label">Код восстановления</string>
+    <string name="auth_new_password_title">Новый пароль</string>
+    <string name="auth_new_password_description">Код верный. Придумайте новый пароль для вашего аккаунта.</string>
+    <string name="auth_new_password_label">Новый пароль</string>
+    <string name="auth_new_password_confirmation_label">Повторите новый пароль</string>
+    <string name="auth_new_password_mismatch">Пароли не совпадают</string>
+    <string name="auth_new_password_hint_label">Подсказка (необязательно)</string>
+    <string name="auth_new_password_submit">Сохранить и войти</string>
+
+    <!-- Registration (FR-A5) -->
+    <string name="auth_registration_title">Ваше имя</string>
+    <string name="auth_registration_description">У этого номера пока нет аккаунта Telegram. Введите имя, чтобы его создать.</string>
+    <string name="auth_first_name">Имя</string>
+    <string name="auth_last_name">Фамилия (необязательно)</string>
+    <string name="auth_accept_terms">Я принимаю Условия использования Telegram</string>
+    <string name="auth_read_terms">Прочитать Условия использования</string>
+    <string name="auth_create_account">Создать аккаунт</string>
+    <plurals name="auth_terms_min_age">
+        <item quantity="one">Чтобы пользоваться Telegram, вам должно быть не меньше %d года.</item>
+        <item quantity="few">Чтобы пользоваться Telegram, вам должно быть не меньше %d лет.</item>
+        <item quantity="many">Чтобы пользоваться Telegram, вам должно быть не меньше %d лет.</item>
+        <item quantity="other">Чтобы пользоваться Telegram, вам должно быть не меньше %d лет.</item>
+    </plurals>
+    <string name="auth_terms_accept">Принять</string>
+    <string name="auth_terms_decline">Отклонить</string>
+
+    <!-- QR code login (FR-A6) -->
+    <string name="auth_qr_title">Вход по QR-коду</string>
+    <!-- The steps of Telegram's own QR login screens; "Telegram" names the user's other app (descriptive text). -->
+    <string name="auth_qr_step_open">Откройте Telegram на телефоне</string>
+    <string name="auth_qr_step_settings">Перейдите в Настройки › Устройства › Подключить настольное устройство</string>
+    <string name="auth_qr_step_confirm">Наведите телефон на этот экран, чтобы подтвердить вход</string>
+    <string name="auth_qr_code_description">QR-код для входа. Отсканируйте его через Telegram на телефоне.</string>
+    <string name="auth_qr_use_phone">Войти по номеру телефона</string>
+
+    <!-- Email address (FR-A7) -->
+    <string name="auth_email_title">Ваш адрес электронной почты</string>
+    <string name="auth_email_change_title">Изменить адрес электронной почты</string>
+    <string name="auth_email_description">Для этого аккаунта Telegram нужен адрес электронной почты. Код для входа придёт на него.</string>
+    <string name="auth_email_label">Адрес электронной почты</string>
+    <string name="auth_email_code_title">Проверьте почту</string>
+    <!-- %1$s: the email address with most of it hidden, e.g. "a***@example.org". -->
+    <string name="auth_email_code_description">Мы отправили код на %1$s.</string>
+    <string name="auth_email_resend">Отправить код повторно</string>
+    <string name="auth_email_change">Использовать другую почту</string>
+    <string name="auth_email_reset">Сбросить адрес почты</string>
+    <string name="auth_email_reset_available">Не можете открыть это письмо? Сбросьте адрес, чтобы получить код по SMS.</string>
+    <!-- %1$s: how long a reset takes, e.g. "7 hours". -->
+    <string name="auth_email_reset_wait">Не можете открыть это письмо? Его можно сбросить, это займёт %1$s.</string>
+    <string name="auth_email_reset_pending">Адрес почты будет сброшен через %1$s.</string>
+    <string name="auth_email_reset_check">Проверить снова</string>
+
+    <!-- Telegram Premium required -->
+    <string name="auth_premium_title">Нужен Telegram Premium</string>
+    <string name="auth_premium_description">Telegram разрешает входить в этот аккаунт только после покупки Telegram Premium.</string>
+    <string name="auth_premium_not_offered">Pingogram не продаёт подписки. Telegram Premium можно купить в одном из приложений Telegram, а затем войти здесь.</string>
+    <!-- %1$s: Telegram's support email address. -->
+    <string name="auth_premium_support">Вопросы по покупке? Напишите в поддержку Telegram: %1$s.</string>
+    <string name="auth_premium_contact_support">Написать в поддержку</string>
+    <string name="auth_premium_change_number">Использовать другой номер</string>
+    <!-- The hidden way into the demo for app store reviewers: holding the Welcome screen's logo asks this. The demo shows sample chats stored on the phone and does not connect to Telegram. -->
+    <string name="auth_demo_title">Открыть демо?</string>
+    <string name="auth_demo_text">Будут показаны примеры чатов, которые хранятся на этом телефоне, без аккаунта Telegram.</string>
+    <string name="auth_demo_cancel">Отмена</string>
+    <string name="auth_demo_open">Открыть</string>
+</resources>
