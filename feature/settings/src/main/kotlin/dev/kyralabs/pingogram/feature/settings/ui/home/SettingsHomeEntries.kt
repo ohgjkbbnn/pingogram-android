@@ -136,7 +136,6 @@ internal val HomeGroups: List<HomeGroup> =
                     R.string.settings_power_saving_summary,
                     R.drawable.ic_energy_savings_leaf,
                 ),
-                page(SettingsPage.About, R.string.settings_about, R.string.settings_about_summary, R.drawable.ic_info),
             ),
         ),
     )
