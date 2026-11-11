@@ -8,7 +8,7 @@
     <!-- The info button of a sponsored message's card, for screen readers, and the title of the sheet it opens. -->
     <string name="sponsored_about">About this ad</string>
     <string name="sponsored_about_recommended">About this recommendation</string>
-    <string name="sponsored_about_text">Telegram shows sponsored messages in some channels and bots. Pingogram shows them as Telegram sends them: it does not choose or change them.</string>
+    <string name="sponsored_about_text">Telegram shows sponsored messages in some channels and bots. TrueGram shows them as Telegram sends them: it does not choose or change them.</string>
     <!-- Above who placed the ad (legal information from Telegram). -->
     <string name="sponsored_advertiser">Advertiser</string>
     <!-- Above more information Telegram gives about the ad. -->
