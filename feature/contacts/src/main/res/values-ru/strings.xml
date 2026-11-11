@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Contacts tab (ContactsScreen) -->
+    <string name="contacts_title">Контакты</string>
+    <string name="contacts_search">Поиск контактов</string>
+    <string name="contacts_search_clear">Очистить поиск</string>
+    <string name="contacts_add">Добавить контакт</string>
+    <string name="contacts_loading">Загрузка контактов</string>
+    <string name="contacts_no_results">Ни один контакт не подходит под поиск</string>
+    <string name="contacts_empty_title">Контактов пока нет</string>
+    <string name="contacts_empty_body">Добавьте людей по номеру телефона или имени пользователя, чтобы найти их здесь и начать чат.</string>
+    <string name="contacts_error_title">Не удалось загрузить контакты</string>
+    <string name="contacts_retry">Попробовать снова</string>
+    <!-- The fast-scroll index along the list's edge, for screen readers: its value is a letter. -->
+    <string name="contacts_index">Алфавитный указатель</string>
+    <!-- What a long press on a contact does, for screen readers. -->
+    <string name="contacts_row_menu">Изменить или удалить</string>
+    <string name="contacts_edit">Изменить</string>
+    <string name="contacts_delete">Удалить</string>
+    <string name="contacts_delete_title">Удалить контакт?</string>
+    <!-- %1$s is the contact's name. -->
+    <string name="contacts_delete_text">%1$s будет удалён из ваших контактов Telegram на всех ваших устройствах. Чат с ним останется.</string>
+    <string name="contacts_delete_confirm">Удалить</string>
+    <string name="contacts_dialog_cancel">Отмена</string>
+    <!-- Snackbar; %1$s is the contact's name. -->
+    <string name="contacts_deleted">%1$s удалён из контактов</string>
+    <!-- Under a contact's name: what Telegram tells about when they were last online. -->
+    <string name="contacts_status_online">в сети</string>
+    <string name="contacts_status_just_now">был(а) в сети только что</string>
+    <plurals name="contacts_status_minutes">
+        <item quantity="one">был(а) в сети %d минуту назад</item>
+        <item quantity="few">был(а) в сети %d минуты назад</item>
+        <item quantity="many">был(а) в сети %d минут назад</item>
+        <item quantity="other">был(а) в сети %d минуты назад</item>
+    </plurals>
+    <!-- %1$s is a time of day, "9:41 AM". -->
+    <string name="contacts_status_today">был(а) в сети сегодня в %1$s</string>
+    <!-- %1$s is a time of day, "9:41 AM". -->
+    <string name="contacts_status_yesterday">был(а) в сети вчера в %1$s</string>
+    <!-- %1$s is a date, "Mar 17" or "3/17/2024". -->
+    <string name="contacts_status_date">был(а) в сети %1$s</string>
+    <!-- The contact's privacy settings hide when they were last online; Telegram tells roughly. -->
+    <string name="contacts_status_recently">был(а) в сети недавно</string>
+    <string name="contacts_status_week">был(а) в сети в течение недели</string>
+    <string name="contacts_status_month">был(а) в сети в течение месяца</string>
+    <string name="contacts_status_long_ago">был(а) в сети очень давно</string>
+    <string name="contacts_status_bot">бот</string>
+
+    <!-- Inviting someone to Telegram through Android's share sheet. It invites to Telegram, not to this app. -->
+    <string name="contacts_invite_title">Пригласить в Telegram</string>
+    <!-- %1$s is the link to download Telegram. -->
+    <string name="contacts_invite_text">Я в Telegram, это бесплатный мессенджер. Присоединяйся, чтобы мы могли переписываться: %1$s</string>
+
+    <!-- Add contact and Edit contact (NewContactScreen, EditContactScreen) -->
+    <string name="contacts_back">Назад</string>
+    <string name="contacts_method_phone">Номер телефона</string>
+    <string name="contacts_method_username">Имя пользователя</string>
+    <string name="contacts_first_name">Имя</string>
+    <string name="contacts_first_name_optional">Имя (необязательно)</string>
+    <string name="contacts_last_name_optional">Фамилия (необязательно)</string>
+    <!-- The field of the note the user keeps about a contact, which only they see. -->
+    <string name="contacts_note">Заметка</string>
+    <string name="contacts_note_private">Эту заметку видите только вы. Она хранится вместе с контактами на всех ваших устройствах.</string>
+    <!-- The note's character counter: %1$d characters typed of at most %2$d. -->
+    <string name="contacts_note_counter">%1$d / %2$d</string>
+    <!-- Spoken by screen readers for the note's counter: %1$d characters typed of at most %2$d (the quantity). -->
+    <plurals name="contacts_note_counter_description">
+        <item quantity="one">%1$d из %2$d символа</item>
+        <item quantity="few">%1$d из %2$d символов</item>
+        <item quantity="many">%1$d из %2$d символов</item>
+        <item quantity="other">%1$d из %2$d символа</item>
+    </plurals>
+    <string name="contacts_phone_number">Номер телефона</string>
+    <!-- "Calling code", the "+44" part, never "country code": some places are regions. -->
+    <string name="contacts_phone_number_note">С кодом страны, например +44 7911 123456</string>
+    <string name="contacts_username">Имя пользователя</string>
+    <string name="contacts_username_note">Без имени контакт сохранит имя, которое выбрал сам</string>
+    <string name="contacts_add_action">Добавить</string>
+    <string name="contacts_save">Сохранить</string>
+    <string name="contacts_error_first_name">Введите имя</string>
+    <string name="contacts_error_phone_number">Введите полный номер вместе с кодом страны</string>
+    <string name="contacts_error_username">Ни у кого в Telegram нет такого имени пользователя</string>
+    <!-- %1$s is how long to wait, "1 minute 20 seconds". -->
+    <string name="contacts_flood_wait">Слишком много попыток. Попробуйте снова через %1$s.</string>
+    <!-- %1$s is the phone number that was entered. -->
+    <string name="contacts_not_on_telegram_title">%1$s пока нет в Telegram</string>
+    <string name="contacts_not_on_telegram_body">Пригласите его в Telegram. Когда он присоединится, вы сможете добавить его в контакты и начать чат.</string>
+    <string name="contacts_change_number">Изменить номер</string>
+    <string name="contacts_invite_action">Пригласить</string>
+    <string name="contacts_edit_title">Изменить контакт</string>
+    <string name="contacts_add_to_contacts">Добавить в контакты</string>
+    <string name="contacts_edit_loading">Загрузка контакта</string>
+    <string name="contacts_edit_error_title">Не удалось загрузить этого человека</string>
+    <string name="contacts_share_phone_number">Поделиться моим номером телефона</string>
+    <!-- %1$s is the contact's first name. -->
+    <string name="contacts_share_phone_number_summary">%1$s сможет увидеть ваш номер</string>
+    <string name="contacts_delete_contact">Удалить контакт</string>
+
+    <!-- Contacts sync on the Contacts tab (ContactSyncItems). It sends the phone's names and numbers to Telegram. -->
+    <string name="contacts_sync_offer_title">Найдите контакты телефона в Telegram</string>
+    <string name="contacts_sync_offer_body">Включите синхронизацию контактов, чтобы увидеть, кто из людей в вашем телефоне пользуется Telegram.</string>
+    <string name="contacts_sync_not_now">Не сейчас</string>
+    <string name="contacts_sync_turn_on">Включить</string>
+    <string name="contacts_sync_paused_title">Синхронизация контактов приостановлена</string>
+    <string name="contacts_sync_paused_body">TrueGram больше не может читать контакты вашего телефона. Разрешите доступ снова, чтобы продолжить синхронизацию, или выключите её.</string>
+    <string name="contacts_sync_turn_off">Выключить</string>
+    <string name="contacts_sync_allow">Разрешить</string>
+    <string name="contacts_sync_open_settings">Открыть настройки</string>
+    <string name="contacts_sync_on_title">Синхронизировано с контактами телефона</string>
+    <string name="contacts_sync_syncing">Синхронизация…</string>
+    <!-- %1$s says what went wrong. -->
+    <string name="contacts_sync_failed">Не удалось синхронизировать. %1$s</string>
+    <string name="contacts_sync_never">Ещё не синхронизировано</string>
+    <string name="contacts_sync_now">Синхронизировать сейчас</string>
+    <string name="contacts_sync_last_just_now">Последняя синхронизация: только что</string>
+    <plurals name="contacts_sync_last_minutes">
+        <item quantity="one">Последняя синхронизация %d минуту назад</item>
+        <item quantity="few">Последняя синхронизация %d минуты назад</item>
+        <item quantity="many">Последняя синхронизация %d минут назад</item>
+        <item quantity="other">Последняя синхронизация %d минуты назад</item>
+    </plurals>
+    <!-- %1$s is a time of day, "9:41 AM". -->
+    <string name="contacts_sync_last_today">Последняя синхронизация сегодня в %1$s</string>
+    <!-- %1$s is a date, "Mar 17". -->
+    <string name="contacts_sync_last_date">Последняя синхронизация: %1$s</string>
+    <!-- After a contact's status, for screen readers: contacts sync found them among the phone's contacts. -->
+    <string name="contacts_from_phone">в контактах вашего телефона</string>
+    <!-- The section of the phone's contacts no one uses Telegram with. -->
+    <string name="contacts_invite_section">Пригласить в Telegram</string>
+    <!-- For screen readers; %1$s is the contact's name. -->
+    <string name="contacts_invite_person">Пригласить %1$s в Telegram</string>
+    <string name="contacts_recent_calls">Недавние звонки</string>
+    <!-- The experimental look (docs/DESIGN_SYSTEM.md §13.8). -->
+    <plurals name="contacts_count">
+        <item quantity="one">%1$d в Telegram</item>
+        <item quantity="few">%1$d в Telegram</item>
+        <item quantity="many">%1$d в Telegram</item>
+        <item quantity="other">%1$d в Telegram</item>
+    </plurals>
+    <string name="contacts_status_separator">" · "</string>
+    <plurals name="contacts_online_count">
+        <item quantity="one">%1$d в сети</item>
+        <item quantity="few">%1$d в сети</item>
+        <item quantity="many">%1$d в сети</item>
+        <item quantity="other">%1$d в сети</item>
+    </plurals>
+    <string name="contacts_actions">Действия с контактами</string>
+    <string name="contacts_action_invite">Пригласить</string>
+    <string name="contacts_action_my_qr">Мой QR-код</string>
+    <string name="contacts_action_scan">Сканировать</string>
+    <string name="contacts_online_now">Сейчас в сети</string>
+    <string name="contacts_online_person">%1$s, в сети</string>
+</resources>
