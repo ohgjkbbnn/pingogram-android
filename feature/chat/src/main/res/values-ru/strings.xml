@@ -378,4 +378,382 @@
     <string name="location_found_description">%1$s. %2$s</string>
     <!-- The user allowed only an approximate location (Android 12 and later), which is what is sent. -->
     <string name="location_approximate">Примерное местоположение</string>
+    <string name="location_use_precise">Использовать точное местоположение</string>
+    <string name="location_open_in_maps">Открыть в картах</string>
+    <string name="location_not_found_title">Не удалось определить местоположение</string>
+    <string name="location_not_found_body">Убедитесь, что геолокация включена, или подойдите ближе к окну, и попробуйте снова.</string>
+    <string name="location_try_again">Попробовать снова</string>
+    <!-- Coordinates: %1$s is the angle in degrees without its sign, "48.85837". -->
+    <string name="location_north">%1$s° с. ш.</string>
+    <string name="location_south">%1$s° ю. ш.</string>
+    <string name="location_east">%1$s° в. д.</string>
+    <string name="location_west">%1$s° з. д.</string>
+    <!-- %1$s is the latitude, %2$s the longitude, as above. -->
+    <string name="location_coordinates">%1$s, %2$s</string>
+    <!-- Screen readers: the coordinates. %1$s and %2$s are the angles in degrees without their signs. -->
+    <string name="location_north_spoken">%1$s градусов северной широты</string>
+    <string name="location_south_spoken">%1$s градусов южной широты</string>
+    <string name="location_east_spoken">%1$s градусов восточной долготы</string>
+    <string name="location_west_spoken">%1$s градусов западной долготы</string>
+    <!-- Snackbar when the device\'s location is off, with an action that opens the location settings. -->
+    <string name="location_off">Геолокация выключена</string>
+    <string name="location_off_settings">Настройки</string>
+
+    <!-- The form of a new poll -->
+    <string name="poll_title">Новый опрос</string>
+    <string name="poll_question">Вопрос</string>
+    <string name="poll_options">Варианты ответа</string>
+    <!-- An answer option\'s field: %1$d is its number. -->
+    <string name="poll_option">Вариант %1$d</string>
+    <string name="poll_option_repeated">Такой вариант уже есть</string>
+    <string name="poll_add_option">Добавить вариант</string>
+    <string name="poll_remove_option">Удалить вариант %1$d</string>
+    <!-- Screen readers: the radio button that marks option %1$d as the quiz\'s correct answer. -->
+    <string name="poll_correct_option">Вариант %1$d — правильный ответ</string>
+    <string name="poll_choose_correct">Выберите правильный ответ</string>
+    <string name="poll_settings">Настройки</string>
+    <string name="poll_anonymous">Анонимное голосование</string>
+    <string name="poll_anonymous_channel">Опросы в каналах всегда анонимные</string>
+    <string name="poll_multiple">Несколько ответов</string>
+    <string name="poll_quiz">Режим викторины</string>
+    <string name="poll_quiz_note">Один ответ правильный, и голос нельзя изменить</string>
+
+    <!-- Message actions (the sheet a long press opens) -->
+    <!-- What a long press on a message does, for screen readers; also their action that opens the sheet. -->
+    <string name="message_actions">Действия с сообщением</string>
+    <!-- The dimmed background behind a long-pressed message and its menu, for screen readers: tapping it closes them. -->
+    <string name="message_actions_close">Закрыть действия с сообщением</string>
+    <!-- Sends a message that failed to send again. -->
+    <string name="message_action_resend">Отправить снова</string>
+    <string name="message_action_reply">Ответить</string>
+    <string name="message_action_copy">Копировать текст</string>
+    <!-- Opens the forward sheet, to send the message on to other chats. -->
+    <string name="message_action_forward">Переслать</string>
+    <string name="message_action_edit">Изменить</string>
+    <string name="message_action_pin">Закрепить</string>
+    <!-- Pins a message of a private chat for the user alone; the other person does not see it pinned. -->
+    <string name="message_action_pin_for_self">Закрепить только для меня</string>
+    <string name="message_action_unpin">Открепить</string>
+    <string name="message_action_delete">Удалить</string>
+    <!-- Screen readers: what a quick reaction or a reaction under a message does; %1$s is the emoji. -->
+    <string name="message_reaction_add">Отреагировать: %1$s</string>
+    <string name="message_reaction_remove">Убрать реакцию %1$s</string>
+    <!-- Screen readers: how often a reaction on the message was added, after what tapping it does. -->
+    <plurals name="message_reaction_count">
+        <item quantity="one">%1$s, %2$d реакция</item>
+        <item quantity="few">%1$s, %2$d реакции</item>
+        <item quantity="many">%1$s, %2$d реакций</item>
+        <item quantity="other">%1$s, %2$d реакции</item>
+    </plurals>
+    <!-- The button at the end of the quick reactions that opens every reaction (the reactions picker). -->
+    <string name="message_reactions_more">Больше реакций</string>
+    <!-- Screen readers: opens every reaction of a message, as its "+N" badge does. -->
+    <string name="message_reactions_all">Все реакции</string>
+    <!-- The title of the reactions picker in the message actions sheet. -->
+    <string name="reaction_picker_title">Реакции</string>
+    <!-- The reactions picker\'s back button: back to the quick reactions and the message actions. -->
+    <string name="reaction_picker_back">Назад к действиям с сообщением</string>
+    <!-- Reactions picker sections: the reactions already on the message, those most used in the chat, those the user
+         used recently, and those most used on Telegram. -->
+    <string name="reaction_picker_on_message">На этом сообщении</string>
+    <string name="reaction_picker_top">Часто используемые</string>
+    <string name="reaction_picker_recent">Недавние</string>
+    <string name="reaction_picker_popular">Популярные</string>
+    <!-- The label of a copied message text on the clipboard. -->
+    <string name="message_copy_label">Текст сообщения</string>
+    <!-- A snackbar after copying a message\'s text, before Android 13, which confirms copies itself. -->
+    <string name="message_copied">Текст скопирован</string>
+    <!-- A snackbar when an action is no longer allowed for a message, e.g. the time to edit it ran out. -->
+    <string name="message_action_unavailable">Для этого сообщения это уже невозможно</string>
+    <!-- The confirmation before a message is deleted. -->
+    <string name="message_delete_title">Удалить сообщение?</string>
+    <!-- The same for the photos and videos of an album, deleted together: %d is how many. -->
+    <plurals name="message_delete_title_many">
+        <item quantity="one">Удалить %d сообщение?</item>
+        <item quantity="few">Удалить %d сообщения?</item>
+        <item quantity="many">Удалить %d сообщений?</item>
+        <item quantity="other">Удалить %d сообщения?</item>
+    </plurals>
+    <string name="message_delete_for_me_body">Оно будет удалено только у вас.</string>
+    <string name="message_delete_for_everyone_body">Оно будет удалено для всех в этом чате.</string>
+    <!-- When the user may also delete it for the others, with the check box below. -->
+    <string name="message_delete_choice_body">Оно будет удалено у вас.</string>
+    <!-- The check box in a private chat: %1$s is the other person\'s name. -->
+    <string name="message_delete_also_for">Также удалить у: %1$s</string>
+    <!-- The check box in a group. -->
+    <string name="message_delete_for_everyone">Удалить у всех</string>
+    <string name="message_delete_confirm">Удалить</string>
+    <string name="message_delete_cancel">Отмена</string>
+
+    <!-- The forward sheet: the chats a message can be forwarded to -->
+    <!-- Its title when one message (or an album as one) is forwarded. -->
+    <string name="forward_title">Переслать в</string>
+    <!-- Its title for several messages: %d is how many. -->
+    <plurals name="forward_title_many">
+        <item quantity="one">Переслать %d сообщение в</item>
+        <item quantity="few">Переслать %d сообщения в</item>
+        <item quantity="many">Переслать %d сообщений в</item>
+        <item quantity="other">Переслать %d сообщения в</item>
+    </plurals>
+    <!-- Below the title once chats are picked: %d is how many. -->
+    <plurals name="forward_selected">
+        <item quantity="one">Выбран %d чат</item>
+        <item quantity="few">Выбрано чатов: %d</item>
+        <item quantity="many">Выбрано чатов: %d</item>
+        <item quantity="other">Выбрано чатов: %d</item>
+    </plurals>
+    <string name="forward_search">Поиск чатов</string>
+    <string name="forward_search_clear">Очистить поиск</string>
+    <!-- When the user can send messages in none of their chats. -->
+    <string name="forward_no_chats">Нет чатов, куда можно переслать</string>
+    <!-- When the search finds no chat the messages can go to. -->
+    <string name="forward_nothing_found">Чаты не найдены</string>
+    <!-- The switch that sends copies, without "Forwarded from". -->
+    <string name="forward_hide_sender">Скрыть имя отправителя</string>
+    <!-- The switch that leaves the captions of photos, videos and files out. -->
+    <string name="forward_hide_captions">Скрыть подписи</string>
+    <!-- The field for a message sent before the forwarded ones. -->
+    <string name="forward_comment">Добавить комментарий</string>
+    <string name="forward_send">Отправить</string>
+    <!-- Screen readers: the send button, with %d the number of chats picked. -->
+    <plurals name="forward_send_description">
+        <item quantity="one">Отправить в %d чат</item>
+        <item quantity="few">Отправить в %d чата</item>
+        <item quantity="many">Отправить в %d чатов</item>
+        <item quantity="other">Отправить в %d чата</item>
+    </plurals>
+    <!-- Snackbars after forwarding: to %d chats, to the one chat named %1$s, and the action that opens it. -->
+    <plurals name="forward_done">
+        <item quantity="one">Переслано в %d чат</item>
+        <item quantity="few">Переслано в %d чата</item>
+        <item quantity="many">Переслано в %d чатов</item>
+        <item quantity="other">Переслано в %d чата</item>
+    </plurals>
+    <string name="forward_done_to">Переслано в: %1$s</string>
+    <string name="forward_open_chat">Открыть</string>
+    <!-- A snackbar when forwarding to some of the chats failed: %1$d is how many, %2$s says why. -->
+    <plurals name="forward_failed_some">
+        <item quantity="one">Не переслано в %1$d чат. %2$s</item>
+        <item quantity="few">Не переслано в %1$d чата. %2$s</item>
+        <item quantity="many">Не переслано в %1$d чатов. %2$s</item>
+        <item quantity="other">Не переслано в %1$d чата. %2$s</item>
+    </plurals>
+
+    <!-- The share sheet: the chats what another app shared (or a t.me/share link) can go to -->
+    <string name="share_title">Отправить в</string>
+    <!-- Below the title, what is shared: %d photos and videos, or %d files. -->
+    <plurals name="share_media">
+        <item quantity="one">%d фото или видео</item>
+        <item quantity="few">%d фото или видео</item>
+        <item quantity="many">%d фото и видео</item>
+        <item quantity="other">%d фото и видео</item>
+    </plurals>
+    <plurals name="share_files">
+        <item quantity="one">%d файл</item>
+        <item quantity="few">%d файла</item>
+        <item quantity="many">%d файлов</item>
+        <item quantity="other">%d файла</item>
+    </plurals>
+    <!-- Screen readers: the shared text shown below the title, %1$s. -->
+    <string name="share_text_description">Текст для отправки: %1$s</string>
+    <!-- When the user can send messages in none of their chats. -->
+    <string name="share_no_chats">Нет чатов, куда можно отправить</string>
+    <!-- With one chat picked: opens it with the shared text or files in its composer, where the user sends them. -->
+    <string name="share_open_chat">Открыть чат</string>
+    <!-- Below the button with one chat picked. -->
+    <string name="share_open_chat_hint">Вы можете проверить и дополнить перед отправкой</string>
+    <!-- The field for a message sent before the shared one to several chats. -->
+    <string name="share_comment">Добавить комментарий</string>
+    <string name="share_send">Отправить</string>
+    <!-- Snackbars after sending to several chats: to %d chats; or, when some refused, %1$d of %2$d and %3$s why. -->
+    <plurals name="share_done">
+        <item quantity="one">Отправлено в %d чат</item>
+        <item quantity="few">Отправлено в %d чата</item>
+        <item quantity="many">Отправлено в %d чатов</item>
+        <item quantity="other">Отправлено в %d чата</item>
+    </plurals>
+    <plurals name="share_failed_some">
+        <item quantity="one">Не отправлено в %1$d из %2$d чатов. %3$s</item>
+        <item quantity="few">Не отправлено в %1$d из %2$d чатов. %3$s</item>
+        <item quantity="many">Не отправлено в %1$d из %2$d чатов. %3$s</item>
+        <item quantity="other">Не отправлено в %1$d из %2$d чатов. %3$s</item>
+    </plurals>
+    <!-- The conversation\'s call button (REQUIREMENTS.md FR-V1). -->
+    <string name="chat_call">Позвонить</string>
+    <!-- What tapping a call\'s service message does, for screen readers. -->
+    <string name="chat_call_back">Перезвонить</string>
+    <string name="chat_join_group_call">Присоединиться</string>
+
+    <!-- Bots\' buttons under messages (docs/DESIGN_SYSTEM.md §6 "Bot buttons"). %1$s is the button\'s text. -->
+    <string name="bot_button_link_action">%1$s, открывает ссылку</string>
+    <string name="bot_button_inline_action">%1$s, запускает встроенный запрос</string>
+    <plurals name="bot_buttons_count">
+        <item quantity="one">%d кнопка</item>
+        <item quantity="few">%d кнопки</item>
+        <item quantity="many">%d кнопок</item>
+        <item quantity="other">%d кнопки</item>
+    </plurals>
+    <string name="bot_unsupported_mini_app">TrueGram пока не может открывать мини-приложения</string>
+    <string name="bot_unsupported_game">TrueGram пока не может открывать игры</string>
+    <string name="bot_unsupported_payment">TrueGram пока не может проводить платежи</string>
+    <string name="bot_unsupported_inline_link">TrueGram пока не может открыть эту кнопку</string>
+    <string name="bot_alert_ok">OK</string>
+    <string name="bot_link_title">Открыть эту ссылку?</string>
+    <string name="bot_link_open">Открыть</string>
+    <string name="bot_dialog_cancel">Отмена</string>
+    <!-- %1$s is the site\'s domain, e.g. "example.org". -->
+    <string name="bot_login_title">Открыть %1$s?</string>
+    <!-- %1$s is the bot ("@examplebot"), %2$s the site\'s domain. -->
+    <string name="bot_login_text">%1$s может войти на %2$s с вашим аккаунтом Telegram: вашим именем, именем пользователя и фото.</string>
+    <!-- %1$s is the user\'s own name. -->
+    <string name="bot_login_as">Войти как %1$s</string>
+    <!-- %1$s is the bot ("@examplebot"). -->
+    <string name="bot_login_write">Разрешить %1$s писать мне сообщения</string>
+    <string name="bot_password_title">Введите пароль</string>
+    <!-- %1$s is the bot ("@examplebot"). -->
+    <string name="bot_password_text">%1$s просит ввести пароль двухэтапной проверки, чтобы подтвердить это действие.</string>
+    <string name="bot_password_label">Пароль</string>
+    <string name="bot_password_confirm">Подтвердить</string>
+    <string name="bot_chats_title">Выберите чат</string>
+    <!-- %1$s is the inline query that goes into the chat\'s composer, e.g. "@gif cats". -->
+    <string name="bot_chats_query">%1$s будет вставлено в выбранный чат. Ничего не отправится, пока вы сами не отправите.</string>
+    <string name="bot_chats_none">Нет чатов, где можно использовать этого бота</string>
+    <!-- Search in the chat (REQUIREMENTS.md §5.9). -->
+    <string name="search_open">Поиск в чате</string>
+    <string name="search_placeholder">Поиск</string>
+    <string name="search_close">Закрыть поиск</string>
+    <string name="search_clear">Очистить поиск</string>
+    <string name="search_older">Более раннее совпадение</string>
+    <string name="search_newer">Более позднее совпадение</string>
+    <!-- %1$d is the result shown (1 for the newest), %2$d how many were found. -->
+    <string name="search_position">%1$d из %2$d</string>
+    <!-- As search_position, where there are more results than counted so far. -->
+    <string name="search_position_more">%1$d из %2$d+</string>
+    <string name="search_no_results">Нет результатов</string>
+    <string name="search_searching">Поиск…</string>
+    <string name="search_failed">Не удалось выполнить поиск</string>
+    <string name="search_retry">Попробовать снова</string>
+    <string name="search_by_sender">Поиск по отправителю</string>
+    <string name="search_jump_to_date">Перейти к дате</string>
+    <!-- %1$s is the member whose messages search finds, e.g. "Ada Lovelace". -->
+    <string name="search_sender_chip">Сообщения от: %1$s</string>
+    <!-- The sender chip\'s close button. -->
+    <string name="search_sender_remove">Искать сообщения от всех</string>
+    <string name="search_sender_title">Искать сообщения от</string>
+    <string name="search_sender_search">Поиск участников</string>
+    <string name="search_sender_none">Участники не найдены</string>
+    <string name="search_sender_error">Не удалось загрузить участников</string>
+    <string name="search_sender_owner">Владелец</string>
+    <string name="search_sender_admin">Администратор</string>
+    <string name="search_date_title">Перейти к дате</string>
+    <string name="search_date_go">Перейти</string>
+    <string name="search_date_cancel">Отмена</string>
+    <string name="search_no_messages_for_day">Нет сообщений в этот день и раньше</string>
+    <!-- Screen readers hear this in the description of the message the search shows. -->
+    <string name="chat_bubble_search_match">совпадает с поиском</string>
+    <string name="bot_unsupported_managed_bot">Pingogram пока не может создавать ботов</string>
+    <string name="bot_keyboard_show">Показать клавиатуру бота</string>
+    <string name="bot_keyboard_hide">Показать клавиатуру</string>
+    <string name="bot_keyboard_pane">Клавиатура бота</string>
+    <!-- %1$s is the bot, e.g. "@shop_bot". -->
+    <string name="bot_phone_title">Поделиться номером телефона с %1$s?</string>
+    <!-- %1$s is the bot, %2$s the user\'s own phone number, e.g. "+44 7911 123456". -->
+    <string name="bot_phone_text">%1$s получит ваш номер телефона, %2$s, и ваше имя как контакт в этом чате.</string>
+    <string name="bot_phone_share">Поделиться</string>
+    <plurals name="bot_share_users_title">
+        <item quantity="one">Выберите человека</item>
+        <item quantity="few">Выберите до %1$d человек</item>
+        <item quantity="many">Выберите до %1$d человек</item>
+        <item quantity="other">Выберите до %1$d человек</item>
+    </plurals>
+    <string name="bot_share_group_title">Выберите группу</string>
+    <string name="bot_share_channel_title">Выберите канал</string>
+    <!-- %1$s is the bot, e.g. "@shop_bot". -->
+    <string name="bot_share_users_note">%1$s получит выбранных вами людей с их именами, именами пользователей и фото — в том объёме, в каком они их показывают.</string>
+    <!-- %1$s is the bot. -->
+    <string name="bot_share_chat_note">%1$s получит выбранный вами чат с его названием, именем пользователя и фото.</string>
+    <string name="bot_share_rights_note">Показываются только чаты, где вы администратор. Telegram проверяет права администратора, которые запрашивает бот, при отправке.</string>
+    <!-- %1$s is the bot. -->
+    <string name="bot_share_bot_admin_note">Если %1$s там не администратор, при отправке он станет им с запрошенными правами.</string>
+    <!-- %1$s is the bot. -->
+    <string name="bot_share_bot_member_note">Если %1$s нет в чате, при отправке он будет добавлен.</string>
+    <string name="bot_share_no_users">Никто здесь не подходит под требования бота</string>
+    <string name="bot_share_no_chats">Ни один из ваших чатов не подходит под требования бота</string>
+    <string name="bot_share">Поделиться</string>
+    <string name="poll_quiz_required">Бот просит создать викторину</string>
+    <string name="poll_regular_required">Бот просит создать опрос без правильного ответа</string>
+
+    <!-- Scheduled messages (ScheduledMessagesBar, ScheduledMessagesScreen) -->
+    <!-- The bar over the conversation: how many messages the user scheduled in the chat. -->
+    <plurals name="scheduled_bar_count">
+        <item quantity="one">%d отложенное сообщение</item>
+        <item quantity="few">%d отложенных сообщения</item>
+        <item quantity="many">%d отложенных сообщений</item>
+        <item quantity="other">%d отложенного сообщения</item>
+    </plurals>
+    <!-- Under the bar\'s count: when the first scheduled message goes out; %1$s is the day and time ("Today, 9:41 AM"). -->
+    <string name="scheduled_bar_next">Следующее: %1$s</string>
+    <!-- What tapping the bar does, spoken by screen readers ("double-tap to show scheduled messages"). -->
+    <string name="scheduled_bar_open_label">показать отложенные сообщения</string>
+    <string name="scheduled_title">Отложенные сообщения</string>
+    <string name="scheduled_back">Назад</string>
+    <string name="scheduled_empty_title">Нет отложенных сообщений</string>
+    <string name="scheduled_empty_body">Сообщения, которые вы отложили в этом чате, будут здесь, пока не отправятся. Чтобы отложить сообщение, удерживайте кнопку отправки.</string>
+    <string name="scheduled_error_title">Не удалось загрузить отложенные сообщения</string>
+    <string name="scheduled_retry">Попробовать снова</string>
+    <!-- The date separator above the messages sent once the other user comes online: %1$s is their name. -->
+    <string name="scheduled_when_user_online">Когда %1$s в сети</string>
+    <!-- The same without the other user\'s name. -->
+    <string name="scheduled_when_online">Когда в сети</string>
+    <!-- In a scheduled message\'s meta, in place of its time: it goes out once the other user comes online. -->
+    <string name="scheduled_meta_when_online">Когда в сети</string>
+    <!-- When a scheduled message goes out, at the top of its actions and for screen readers: %1$s is the date and time ("Oct 30, 9:41 AM"). -->
+    <string name="scheduled_sends_at">Отправится %1$s</string>
+    <!-- The same for a message that goes out once the other user comes online: %1$s is their name. -->
+    <string name="scheduled_sends_when_user_online">Отправится, когда %1$s будет в сети</string>
+    <string name="scheduled_sends_when_online">Отправится, когда собеседник будет в сети</string>
+    <!-- A day and a time: %1$s is the day ("Today", "Friday, October 30"), %2$s the time ("9:41 AM"). -->
+    <string name="scheduled_day_time">%1$s, %2$s</string>
+    <!-- How often a scheduled message repeats, in its meta and its actions. -->
+    <string name="scheduled_repeat_daily">Каждый день</string>
+    <string name="scheduled_repeat_weekly">Каждую неделю</string>
+    <string name="scheduled_repeat_two_weeks">Каждые 2 недели</string>
+    <string name="scheduled_repeat_monthly">Каждый месяц</string>
+    <string name="scheduled_repeat_three_months">Каждые 3 месяца</string>
+    <string name="scheduled_repeat_six_months">Каждые 6 месяцев</string>
+    <string name="scheduled_repeat_yearly">Каждый год</string>
+    <plurals name="scheduled_repeat_days">
+        <item quantity="one">Каждый %d день</item>
+        <item quantity="few">Каждые %d дня</item>
+        <item quantity="many">Каждые %d дней</item>
+        <item quantity="other">Каждые %d дня</item>
+    </plurals>
+    <plurals name="scheduled_repeat_minutes">
+        <item quantity="one">Каждую %d минуту</item>
+        <item quantity="few">Каждые %d минуты</item>
+        <item quantity="many">Каждые %d минут</item>
+        <item quantity="other">Каждые %d минуты</item>
+    </plurals>
+    <!-- Screen readers: how often a scheduled message repeats, in its description: %1$s is how often ("Daily"). -->
+    <string name="scheduled_bubble_repeats">повтор: %1$s</string>
+    <string name="scheduled_action_send_now">Отправить сейчас</string>
+    <string name="scheduled_action_reschedule">Перенести</string>
+    <string name="scheduled_action_edit">Изменить</string>
+    <string name="scheduled_action_copy">Копировать текст</string>
+    <string name="scheduled_action_delete">Удалить</string>
+    <string name="scheduled_delete_title">Удалить отложенное сообщение?</string>
+    <string name="scheduled_delete_body">Оно не будет отправлено.</string>
+    <string name="scheduled_delete_confirm">Удалить</string>
+    <string name="scheduled_delete_cancel">Отмена</string>
+    <!-- Snackbar after "Send now". -->
+    <string name="scheduled_sent">Сообщение отправлено</string>
+    <string name="scheduled_deleted">Отложенное сообщение удалено</string>
+    <!-- Snackbar after rescheduling: %1$s is the new date and time ("Oct 30, 9:41 AM"). -->
+    <string name="scheduled_rescheduled">Сообщение перенесено на %1$s</string>
+    <!-- Snackbar for an action on a message that was sent or deleted meanwhile. -->
+    <string name="scheduled_message_gone">Это сообщение уже отправлено или удалено</string>
+    <!-- The experimental look: a button on a member\'s join message that sends a greeting sticker in reply. -->
+    <string name="chat_wave">Помахать</string>
+    <!-- Screen readers: the pane of stickers suggested above the composer for the emoji typed alone. -->
+    <string name="panel_sticker_suggestions">Предложенные стикеры</string>
 </resources>
