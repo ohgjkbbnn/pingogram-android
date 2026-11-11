@@ -3,7 +3,7 @@
     <!-- Send feedback (FeedbackScreen, docs/TESTING_GUIDE.md) -->
     <string name="feedback_title">Send feedback</string>
     <string name="feedback_back">Back</string>
-    <string name="feedback_intro">Say what happened, then share the report with an app you choose or open an issue on GitHub. Pingogram sends nothing by itself, and you can read the whole report first.</string>
+    <string name="feedback_intro">Say what happened, then share the report with an app you choose or open an issue on GitHub. TrueGram sends nothing by itself, and you can read the whole report first.</string>
     <string name="feedback_description">What happened?</string>
     <string name="feedback_description_hint">What you did, what you expected and what happened instead</string>
     <string name="feedback_section_report">In the report</string>
