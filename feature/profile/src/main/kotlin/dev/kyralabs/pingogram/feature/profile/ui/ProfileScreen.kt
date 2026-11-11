@@ -246,7 +246,8 @@ private fun LazyGridScope.profileItems(
     fullWidth(key = ACTIONS, inset = inset) {
         ProfileActionsRow(state.actions, page.onEvent, Modifier.padding(top = MaterialTheme.spacing.small))
     }
-    page.music?.let { music ->
+    val music = page.music
+    if (music != null) {
         fullWidth(key = MUSIC, inset = inset, top = MaterialTheme.spacing.small) { music() }
     }
     if (state.photos.totalCount > 1) {
