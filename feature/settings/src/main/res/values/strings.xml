@@ -45,7 +45,7 @@
 
     <!-- Log out confirmation (FR-A8) -->
     <string name="settings_log_out_dialog_title">Log out?</string>
-    <string name="settings_log_out_dialog_text">Pingogram will delete this account\'s data from this device, including secret chats, which exist only here. Your other chats stay in your Telegram account, and you can log in again at any time.</string>
+    <string name="settings_log_out_dialog_text">TrueGram will delete this account\'s data from this device, including secret chats, which exist only here. Your other chats stay in your Telegram account, and you can log in again at any time.</string>
     <string name="settings_log_out_dialog_confirm">Log out</string>
 
     <!-- Appearance (FR-S2) -->
@@ -152,7 +152,7 @@
     <string name="settings_section_app_language">App language</string>
     <!-- The choice that follows the device's language; the device's language, named in itself, shows below it. -->
     <string name="settings_language_system">System default</string>
-    <string name="settings_language_footer">Text that Pingogram has no translation for yet shows in English.</string>
+    <string name="settings_language_footer">Text that TrueGram has no translation for yet shows in English.</string>
     <!-- Android 13+: the heading above the row that opens Android's own app language settings. -->
     <string name="settings_section_android">Android</string>
     <string name="settings_language_android_settings">App language in Android settings</string>
@@ -292,7 +292,7 @@
     <!-- Privacy and security → Contacts: TDLib's option disable_top_chats. -->
     <string name="settings_frequent_contacts">Suggest frequent contacts</string>
     <string name="settings_frequent_contacts_summary">Search shows the people you write to most. Turning this off clears them.</string>
-    <string name="settings_contact_sync_paused">Paused: Pingogram can no longer read your contacts. Allow it on the Contacts tab or in Android\'s settings</string>
+    <string name="settings_contact_sync_paused">Paused: TrueGram can no longer read your contacts. Allow it on the Contacts tab or in Android\'s settings</string>
     <string name="settings_privacy_phone_number">Phone number</string>
     <string name="settings_privacy_last_seen">Last seen and online</string>
     <string name="settings_privacy_profile_photo">Profile photos</string>
@@ -539,24 +539,24 @@
 
     <!-- About -->
     <string name="settings_section_app">App</string>
-    <string name="settings_about_app_name" translatable="false">Pingogram</string>
+    <string name="settings_about_app_name" translatable="false">TrueGram</string>
     <!-- %1$s is the version, such as "0.3.0". -->
     <string name="settings_about_version">Version %1$s</string>
     <string name="settings_about_source_code">Source code</string>
-    <string name="settings_about_source_code_summary">github.com/kyra-labs/pingogram-android</string>
+    <string name="settings_about_source_code_summary">telegram.com</string>
     <!-- Opens Pingogram's own privacy policy (its website) in the browser; Telegram's has its own on the first screen. -->
     <string name="settings_about_privacy_policy">Privacy policy</string>
     <!-- Under "Privacy policy" in About. -->
-    <string name="settings_about_privacy_policy_summary">What Pingogram does with your data</string>
+    <string name="settings_about_privacy_policy_summary">What TrueGram does with your data</string>
     <string name="settings_about_license">License</string>
     <string name="settings_about_license_summary">GNU General Public License v3.0 or later</string>
-    <string name="settings_about_unofficial">Pingogram is an unofficial Telegram client built on TDLib. It is not affiliated with Telegram.</string>
+    <string name="settings_about_unofficial">TrueGram is an unofficial Telegram client built on TDLib. It is not affiliated with Telegram.</string>
     <string name="settings_about_licenses">Open-source licenses</string>
     <string name="settings_about_licenses_summary">Libraries, fonts and icons</string>
     <!-- Android 12+: opens Android's "Open by default" settings, where "Open supported links" lets Pingogram open
          t.me links instead of the browser (docs/adr/0013-deep-links.md) -->
     <string name="settings_about_open_links">Open Telegram links</string>
-    <string name="settings_about_open_links_summary">Let Pingogram open t.me links: turn on \"Open supported links\" in Android\'s settings</string>
+    <string name="settings_about_open_links_summary">Let TrueGram open t.me links: turn on \"Open supported links\" in Android\'s settings</string>
     <string name="settings_about_feedback">Send feedback or report a bug</string>
     <string name="settings_about_feedback_summary">Prepares a report that you read and share yourself</string>
 
@@ -570,7 +570,7 @@
     </plurals>
     <!-- Below a library's name. %1$s is its version, such as "1.5.0", %2$s its licenses, such as "Apache License 2.0". -->
     <string name="settings_licenses_library_summary">%1$s · %2$s</string>
-    <string name="settings_licenses_intro">Pingogram is built with these open-source libraries, fonts and icons. Tap one to read its license.</string>
+    <string name="settings_licenses_intro">TrueGram is built with these open-source libraries, fonts and icons. Tap one to read its license.</string>
     <!-- Spoken by screen readers for the progress indicator while a library's page loads. -->
     <string name="settings_license_loading">Loading license</string>
     <string name="settings_license_version">Version</string>
@@ -750,7 +750,7 @@
     <string name="settings_passcode_lock_off">Off</string>
     <string name="settings_passcode_lock_loading">Loading passcode lock settings</string>
     <string name="settings_passcode_turn_on">Turn passcode on</string>
-    <string name="settings_passcode_off_footer">Ask for a passcode whenever you come back to Pingogram, so nobody else who uses this device can read your chats. If you forget it, you\'ll have to log out and log in again, and secret chats will be lost.</string>
+    <string name="settings_passcode_off_footer">Ask for a passcode whenever you come back to TrueGram, so nobody else who uses this device can read your chats. If you forget it, you\'ll have to log out and log in again, and secret chats will be lost.</string>
     <string name="settings_passcode_section_passcode">Passcode</string>
     <string name="settings_passcode_change">Change passcode</string>
     <string name="settings_passcode_turn_off">Turn passcode off</string>
@@ -760,18 +760,18 @@
     <string name="settings_passcode_auto_lock_one_minute">After 1 minute</string>
     <string name="settings_passcode_auto_lock_five_minutes">After 5 minutes</string>
     <string name="settings_passcode_auto_lock_one_hour">After 1 hour</string>
-    <string name="settings_passcode_auto_lock_footer">How long Pingogram can stay in the background before it asks for the passcode again. It always asks after a restart.</string>
+    <string name="settings_passcode_auto_lock_footer">How long TrueGram can stay in the background before it asks for the passcode again. It always asks after a restart.</string>
     <string name="settings_passcode_section_unlock">Unlock and privacy</string>
     <string name="settings_passcode_biometric">Unlock with fingerprint or face</string>
     <string name="settings_passcode_biometric_summary">Use the biometrics set up on this device instead of the passcode</string>
     <!-- Unlocking Pingogram with the phone's own PIN, pattern or password (Android 11 and later). -->
     <string name="settings_passcode_screen_lock">Unlock with screen lock</string>
-    <string name="settings_passcode_screen_lock_summary">Your phone\'s PIN, pattern or password opens Pingogram too. Anyone who knows it can open your chats.</string>
+    <string name="settings_passcode_screen_lock_summary">Your phone\'s PIN, pattern or password opens TrueGram too. Anyone who knows it can open your chats.</string>
     <string name="settings_passcode_hide_content">Hide content in recent apps</string>
-    <string name="settings_passcode_hide_content_summary">Recent apps show Pingogram without your chats</string>
-    <string name="settings_passcode_hide_content_summary_secure">Recent apps show Pingogram without your chats. This also blocks screenshots in Pingogram.</string>
+    <string name="settings_passcode_hide_content_summary">Recent apps show TrueGram without your chats</string>
+    <string name="settings_passcode_hide_content_summary_secure">Recent apps show TrueGram without your chats. This also blocks screenshots in TrueGram.</string>
     <string name="settings_passcode_turn_off_dialog_title">Turn passcode off?</string>
-    <string name="settings_passcode_turn_off_dialog_text">Anyone who uses this device will be able to open Pingogram and read your chats.</string>
+    <string name="settings_passcode_turn_off_dialog_text">Anyone who uses this device will be able to open TrueGram and read your chats.</string>
     <string name="settings_passcode_turn_off_dialog_confirm">Turn off</string>
     <string name="settings_passcode_set_title">Set passcode</string>
     <string name="settings_passcode_create_pin">Choose a PIN</string>
@@ -1188,7 +1188,7 @@
     <string name="settings_proxy_use_summary">Connect to Telegram through a proxy server</string>
     <string name="settings_proxy_add">Add proxy</string>
     <string name="settings_proxy_section">Your proxies</string>
-    <string name="settings_proxy_footer">Pingogram connects to Telegram through the proxy you pick. The proxy’s owner can see that you use Telegram, and from which address, but not your messages.</string>
+    <string name="settings_proxy_footer">TrueGram connects to Telegram through the proxy you pick. The proxy’s owner can see that you use Telegram, and from which address, but not your messages.</string>
     <!-- A proxy's address and port, e.g. "proxy.example.org:1080". -->
     <string name="settings_proxy_address" translatable="false">%1$s:%2$s</string>
     <string name="settings_proxy_kind_socks5">SOCKS5</string>
@@ -1209,7 +1209,7 @@
     <string name="settings_proxy_delete">Delete</string>
     <string name="settings_proxy_delete_title">Delete this proxy?</string>
     <!-- %1$s is the proxy's name or address. -->
-    <string name="settings_proxy_delete_text">%1$s will be removed from Pingogram. If you use it now, Pingogram connects directly.</string>
+    <string name="settings_proxy_delete_text">%1$s will be removed from TrueGram. If you use it now, Pingogram connects directly.</string>
     <string name="settings_proxy_delete_confirm">Delete</string>
     <string name="settings_proxy_none_text">Add a proxy if Telegram is blocked or slow where you are.</string>
     <!-- Adding or editing a proxy -->
@@ -1235,19 +1235,19 @@
     <string name="settings_proxy_saving">Saving the proxy</string>
     <!-- The sheet a proxy link opens -->
     <string name="settings_proxy_link_title">Connect through this proxy?</string>
-    <string name="settings_proxy_link_text">Pingogram will connect to Telegram through this server. Its owner can see that you use Telegram, and from which address, but not your messages. Only use proxies you trust.</string>
+    <string name="settings_proxy_link_text">TrueGram will connect to Telegram through this server. Its owner can see that you use Telegram, and from which address, but not your messages. Only use proxies you trust.</string>
     <string name="settings_proxy_link_in_use">You already use this proxy.</string>
     <string name="settings_proxy_link_connect">Connect</string>
     <string name="settings_proxy_link_cancel">Cancel</string>
     <!-- Spoken by screen readers for the progress indicator while the proxy is added. -->
     <string name="settings_proxy_link_connecting">Connecting through the proxy</string>
     <string name="settings_proxy_link_connected">Proxy turned on</string>
-    <string name="settings_proxy_link_connected_text">Pingogram now connects through this proxy. You can turn it off in Settings → Data and storage → Proxy.</string>
+    <string name="settings_proxy_link_connected_text">TrueGram now connects through this proxy. You can turn it off in Settings → Data and storage → Proxy.</string>
     <string name="settings_proxy_link_done">Done</string>
 
     <!-- Data and storage → Network usage -->
     <string name="settings_network_usage">Network usage</string>
-    <string name="settings_network_usage_summary">How much data Pingogram sent and received</string>
+    <string name="settings_network_usage_summary">How much data TrueGram sent and received</string>
     <!-- Data and storage → Network: TDLib's option prefer_ipv6. -->
     <string name="settings_prefer_ipv6">Prefer IPv6</string>
     <string name="settings_prefer_ipv6_summary">Connect over IPv6 where your network and Telegram offer it</string>
@@ -1255,7 +1255,7 @@
     <string name="settings_network_usage_loading">Loading network usage</string>
     <!-- A section header. %1$s is a date such as "Oct 1, 2026". -->
     <string name="settings_network_usage_since">Since %1$s</string>
-    <string name="settings_network_usage_footer">Counted on this device. Pingogram counts its own traffic only, not other apps’.</string>
+    <string name="settings_network_usage_footer">Counted on this device. TrueGram counts its own traffic only, not other apps’.</string>
     <string name="settings_network_usage_total">Total</string>
     <!-- %1$s and %2$s are sizes such as "1.2 MB". -->
     <string name="settings_network_usage_amount">Sent %1$s · Received %2$s</string>
@@ -1335,8 +1335,8 @@
     </plurals>
     <string name="settings_section_passkeys">Your passkeys</string>
     <string name="settings_passkeys_none">You have no passkeys yet.</string>
-    <string name="settings_passkeys_footer">Passkeys are kept by your password manager, not by Pingogram. Removing one here stops it from signing in to this account.</string>
-    <string name="settings_passkeys_footer_old_android">Passkeys are kept by your password manager, not by Pingogram. Removing one here stops it from signing in to this account. Adding a passkey needs Android 14 or later.</string>
+    <string name="settings_passkeys_footer">Passkeys are kept by your password manager, not by TrueGram. Removing one here stops it from signing in to this account.</string>
+    <string name="settings_passkeys_footer_old_android">Passkeys are kept by your password manager, not by TrueGram. Removing one here stops it from signing in to this account. Adding a passkey needs Android 14 or later.</string>
     <string name="settings_passkey_add">Add passkey</string>
     <string name="settings_passkey_adding">Adding a passkey</string>
     <!-- %1$s is a short date such as "Oct 14". -->
@@ -1387,7 +1387,7 @@
     <!-- Settings → Appearance → Chat list. -->
     <string name="settings_section_chat_list">Chat list</string>
     <string name="settings_show_stories">Show stories</string>
-    <string name="settings_show_stories_summary">Story rings above your chats. Turned off, Pingogram loads no stories there</string>
+    <string name="settings_show_stories_summary">Story rings above your chats. Turned off, TrueGram loads no stories there</string>
     <string name="settings_edit_folders_button">Edit folders button</string>
     <string name="settings_edit_folders_button_summary">Shows a button at the end of the folder tabs</string>
     <string name="settings_chat_type_icons">Chat type icons</string>
@@ -1446,7 +1446,7 @@
     <string name="settings_leave_demo">Leave demo</string>
     <string name="settings_leave_demo_summary">Deletes what you did in it and goes back to the start</string>
     <string name="settings_leave_demo_dialog_title">Leave the demo?</string>
-    <string name="settings_leave_demo_dialog_text">What you did in the demo is deleted, and Pingogram goes back to its first screen.</string>
+    <string name="settings_leave_demo_dialog_text">What you did in the demo is deleted, and TrueGram goes back to its first screen.</string>
     <string name="settings_leave_demo_dialog_confirm">Leave</string>
     <!-- Settings home in the experimental look (docs/DESIGN_SYSTEM.md §13.9). -->
     <string name="settings_home_make_it_yours">Make it yours</string>
