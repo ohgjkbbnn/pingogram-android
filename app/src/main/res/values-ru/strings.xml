@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_chats">Чаты</string>
+    <string name="nav_contacts">Контакты</string>
+    <string name="nav_settings">Настройки</string>
+    <string name="account_menu_switch">Переключиться на %1$s</string>
+    <string name="account_menu_add">Добавить аккаунт</string>
+    <string name="account_menu_current">Текущий аккаунт</string>
+    <plurals name="account_menu_unread_chats">
+        <item quantity="one">%1$d непрочитанный чат</item>
+        <item quantity="few">%1$d непрочитанных чата</item>
+        <item quantity="many">%1$d непрочитанных чатов</item>
+        <item quantity="other">%1$d непрочитанных чата</item>
+    </plurals>
+
+    <string name="shortcut_new_chat">Новый чат</string>
+    <string name="shortcut_new_chat_long">Начать новый чат</string>
+    <string name="shortcut_search">Поиск</string>
+    <string name="shortcut_search_long">Поиск чатов и сообщений</string>
+    <string name="shortcut_saved_messages">Избранное</string>
+    <string name="shortcut_saved_messages_long">Избранные сообщения</string>
+
+    <string name="widget_recent_chats_label">Недавние чаты</string>
+    <string name="widget_recent_chats_description">Последние чаты и их непрочитанные сообщения</string>
+    <string name="widget_title">Чаты</string>
+    <string name="widget_new_chat">Новый чат</string>
+    <string name="widget_signed_out">Войдите в TrueGram, чтобы видеть здесь свои чаты</string>
+    <string name="widget_locked">TrueGram заблокирован. Откройте его, чтобы увидеть чаты.</string>
+    <string name="widget_no_chats">Чатов пока нет</string>
+    <string name="widget_secret_chat">Секретный чат</string>
+    <string name="widget_preview_sender">%1$s: %2$s</string>
+    <string name="widget_muted">Без звука</string>
+    <string name="widget_unread_mention">Непрочитанное упоминание</string>
+    <plurals name="widget_unread_messages">
+        <item quantity="one">%d непрочитанное сообщение</item>
+        <item quantity="few">%d непрочитанных сообщения</item>
+        <item quantity="many">%d непрочитанных сообщений</item>
+        <item quantity="other">%d непрочитанных сообщения</item>
+    </plurals>
+
+    <string name="chats_no_chat_selected_title">Выберите чат, чтобы начать читать</string>
+    <string name="chats_no_chat_selected_body">Его сообщения появятся здесь, рядом с чатами.</string>
+
+    <string name="link_opening">Открываем ссылку…</string>
+    <string name="link_opening_cancel">Отмена</string>
+    <string name="link_not_supported">TrueGram пока не может открыть этот тип ссылки</string>
+    <string name="link_not_yet">TrueGram пока не может открыть эту ссылку здесь</string>
+    <string name="link_open_in_browser">Открыть в браузере</string>
+    <string name="link_no_browser">На этом устройстве нет приложения, которое открывает эту ссылку</string>
+    <string name="link_login_code">TrueGram никогда не использует коды входа из ссылок. Не передавайте этот код никому.</string>
+    <string name="link_not_found_username">Такого имени пользователя не существует</string>
+    <string name="link_not_found_phone_number">В Telegram никто не найден по этому номеру телефона</string>
+    <string name="link_not_found_user_token">Срок действия этой ссылки на контакт истёк</string>
+    <string name="link_not_found_message">Это сообщение недоступно</string>
+    <string name="link_not_found_chat">Этот канал или группа недоступны</string>
+    <string name="demo_banner_label">Демо</string>
+    <string name="demo_banner_text">Примеры чатов на этом устройстве. Не подключено к Telegram.</string>
+</resources>
