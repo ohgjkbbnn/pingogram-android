@@ -84,6 +84,7 @@ internal fun ProfileRoute(
         onEditContact = if (onEditContact != null && userId != null) ({ onEditContact(userId) }) else null,
         onExportChat = if (onExportChat != null && exportChatId != null) ({ onExportChat(exportChatId) }) else null,
         snackbarHostState = snackbarHostState,
+        music = { ProfileMusicCard() },
     )
     ProfileDialogs((state as? ProfileUiState.Content)?.dialog, viewModel::onEvent)
     reportSheet?.let { ReportProfileSheet(it, viewModel.reportComment, viewModel::onEvent) }
