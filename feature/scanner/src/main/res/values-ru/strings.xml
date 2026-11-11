@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The QR code scanner (REQUIREMENTS.md FR-P5). -->
+    <string name="scanner_title">Сканировать QR-код</string>
+    <string name="scanner_close">Закрыть</string>
+    <string name="scanner_torch">Фонарик</string>
+    <string name="scanner_from_image">Сканировать из изображения</string>
+    <string name="scanner_hint_any">Наведите камеру на QR-код Telegram</string>
+    <string name="scanner_hint_device">Наведите камеру на QR-код, который Telegram показывает на компьютере</string>
+    <string name="scanner_rationale_title">Сканирование QR-кодов</string>
+    <string name="scanner_rationale_body">TrueGram использует камеру только для чтения QR-кодов. Ничего из того, что видит камера, не покидает ваш телефон.</string>
+    <string name="scanner_denied_body">Чтобы сканировать камерой, разрешите TrueGram её использовать в настройках приложения. Также можно сканировать QR-код из изображения.</string>
+    <string name="scanner_continue">Продолжить</string>
+    <string name="scanner_open_settings">Открыть настройки</string>
+    <string name="scanner_no_camera_title">Нет камеры</string>
+    <string name="scanner_no_camera_body">На этом устройстве нет камеры, которую может использовать TrueGram. Можно сканировать QR-код из изображения.</string>
+    <string name="scanner_resolving">Открываем ссылку…</string>
+    <string name="scanner_not_telegram">Этот QR-код не является ссылкой Telegram</string>
+    <string name="scanner_not_login">Это не код для входа</string>
+    <string name="scanner_not_login_body">На компьютере откройте Telegram, выберите вход по QR-коду и отсканируйте показанный код.</string>
+    <string name="scanner_login_code">Это код для входа</string>
+    <string name="scanner_login_code_body">Никому его не передавайте: кто-то может пытаться войти в ваш аккаунт.</string>
+    <string name="scanner_not_found">Эта ссылка ведёт на страницу, которую не удаётся открыть</string>
+    <string name="scanner_unsupported">TrueGram пока не может открыть такую ссылку</string>
+    <string name="scanner_no_code">QR-код не найден</string>
+    <string name="scanner_no_code_body">Выберите изображение, где QR-код чёткий и занимает больше места на картинке.</string>
+    <string name="scanner_image_unreadable">Не удалось прочитать это изображение</string>
+    <string name="scanner_failed">Не удалось открыть эту ссылку</string>
+    <string name="scanner_copy">Копировать</string>
+    <string name="scanner_scan_again">Сканировать снова</string>
+</resources>
