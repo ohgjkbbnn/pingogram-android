@@ -247,8 +247,10 @@ private fun LazyGridScope.profileItems(
         ProfileActionsRow(state.actions, page.onEvent, Modifier.padding(top = MaterialTheme.spacing.small))
     }
     if (page.showMusic) {
-        fullWidth(key = MUSIC, inset = inset, top = MaterialTheme.spacing.small) {
-            ProfileMusicCard()
+        item(key = MUSIC, span = { GridItemSpan(maxLineSpan) }, contentType = MUSIC) {
+            ProfileMusicCard(
+                modifier = Modifier.padding(start = inset, end = inset, top = MaterialTheme.spacing.small),
+            )
         }
     }
     if (state.photos.totalCount > 1) {
