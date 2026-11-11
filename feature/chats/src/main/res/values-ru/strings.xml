@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Chat list (ChatListScreen) -->
+    <!-- The Chats tab's title, in its header. -->
+    <string name="chat_list_title">Чаты</string>
+    <!-- The status line under the title, e.g. "12 unread · 3 mentions": [chat_list_status_unread], then
+         [chat_list_status_mentions]. -->
+    <string name="chat_list_status">%1$s · %2$s</string>
+    <!-- Chats with unread messages, in the status line under the title. -->
+    <plurals name="chat_list_status_unread">
+        <item quantity="one">%d непрочитанный</item>
+        <item quantity="few">%d непрочитанных</item>
+        <item quantity="many">%d непрочитанных</item>
+        <item quantity="other">%d непрочитанного</item>
+    </plurals>
+    <!-- Chats where someone mentioned the user and they have not read it yet, in the status line under the title. -->
+    <plurals name="chat_list_status_mentions">
+        <item quantity="one">%d упоминание</item>
+        <item quantity="few">%d упоминания</item>
+        <item quantity="many">%d упоминаний</item>
+        <item quantity="other">%d упоминания</item>
+    </plurals>
+    <!-- The heading above the pinned chats, which the list shows as one group. -->
+    <string name="chat_list_pinned">Закреплённые</string>
+    <!-- The header's search button, for its tooltip and screen readers. -->
+    <string name="chat_list_search">Поиск</string>
+    <!-- The header's avatar of the signed-in user, which opens Settings, for its tooltip and screen readers. -->
+    <string name="chat_list_your_profile">Ваш профиль</string>
+    <!-- The connection pill under the title while not connected. -->
+    <string name="chat_list_waiting_for_network">Ожидание сети…</string>
+    <string name="chat_list_connecting_to_proxy">Подключение к прокси…</string>
+    <string name="chat_list_connecting">Подключение…</string>
+    <string name="chat_list_updating">Обновление…</string>
+    <!-- For screen readers, announced once when the connection is back after one of the states above showed. -->
+    <string name="chat_list_connected">Подключено</string>
+    <string name="chat_list_loading">Загрузка чатов</string>
+    <!-- The folder tab of the main chat list. -->
+    <string name="chat_list_all_chats">Все чаты</string>
+    <string name="chat_list_empty_title">Чатов пока нет</string>
+    <string name="chat_list_empty_body">Когда вы начнёте переписку или вступите в группу, она появится здесь.</string>
+    <string name="chat_list_folder_empty_title">В этой папке нет чатов</string>
+    <string name="chat_list_folder_empty_body">Чаты, которые входят в эту папку, появятся здесь.</string>
+    <string name="chat_list_error_title">Не удалось загрузить ваши чаты</string>
+    <string name="chat_list_retry">Попробовать снова</string>
+
+    <!-- Rows of the chat list (ChatListItem) -->
+    <!-- Before the preview of a message in a group: %1$s is "You" or the sender's first name. -->
+    <string name="chat_list_sender">%1$s:</string>
+    <!-- For screen readers: a message's sender ("Alice:", chat_list_sender) before its text, as a search result shows them. -->
+    <string name="chat_list_a11y_sender_text">%1$s %2$s</string>
+    <!-- Before the preview of a message the user started and did not send. -->
+    <string name="chat_list_draft">Черновик:</string>
+    <!-- Warning badges after the name of a chat that many users reported. -->
+    <string name="chat_list_badge_scam">Мошенничество</string>
+    <string name="chat_list_badge_fake">Подделка</string>
+    <!-- An unread count in a badge. -->
+    <string name="chat_list_unread_count">%1$d</string>
+    <!-- An unread count above the badge's limit: %1$d is the limit, 999. -->
+    <string name="chat_list_unread_overflow">%1$d+</string>
+
+    <!-- What screen readers say for a row, after the chat's name. -->
+    <string name="chat_list_a11y_verified">Подтверждён</string>
+    <string name="chat_list_a11y_secret">Секретный чат</string>
+    <string name="chat_list_a11y_online">В сети</string>
+    <string name="chat_list_a11y_muted">Без звука</string>
+    <string name="chat_list_a11y_pinned">Закреплён</string>
+    <string name="chat_list_a11y_pending">Отправляется</string>
+    <string name="chat_list_a11y_failed">Не отправлено</string>
+    <string name="chat_list_a11y_sent">Отправлено</string>
+    <string name="chat_list_a11y_read">Прочитано</string>
+    <string name="chat_list_a11y_marked_unread">Отмечено как непрочитанное</string>
+    <string name="chat_list_a11y_mention">Непрочитанное упоминание</string>
+    <string name="chat_list_a11y_reaction">Непрочитанная реакция</string>
+    <plurals name="chat_list_a11y_unread">
+        <item quantity="one">%d непрочитанное сообщение</item>
+        <item quantity="few">%d непрочитанных сообщения</item>
+        <item quantity="many">%d непрочитанных сообщений</item>
+        <item quantity="other">%d непрочитанного сообщения</item>
+    </plurals>
+    <!-- A folder tab for screen readers: %1$s is its name, %2$s its unread chats ("2 unread chats"). -->
+    <string name="chat_list_a11y_tab">%1$s, %2$s</string>
+    <plurals name="chat_list_a11y_unread_chats">
+        <item quantity="one">%d непрочитанный чат</item>
+        <item quantity="few">%d непрочитанных чата</item>
+        <item quantity="many">%d непрочитанных чатов</item>
+        <item quantity="other">%d непрочитанного чата</item>
+    </plurals>
+
+    <!-- Actions on a chat (ChatRowAction): screen reader actions on a row, the selection toolbar's buttons. -->
+    <string name="chat_list_action_mark_read">Отметить как прочитанное</string>
+    <string name="chat_list_action_mark_unread">Отметить как непрочитанное</string>
+    <string name="chat_list_action_archive">В архив</string>
+    <string name="chat_list_action_unarchive">Из архива</string>
+    <string name="chat_list_action_pin">Закрепить</string>
+    <string name="chat_list_action_unpin">Открепить</string>
+    <string name="chat_list_action_mute">Выключить звук</string>
+    <string name="chat_list_action_unmute">Включить звук</string>
+    <string name="chat_list_action_delete">Удалить</string>
+    <!-- Revealed behind a row while it is swiped to mark it as read or unread. -->
+    <string name="chat_list_swipe_read">Прочитано</string>
+    <string name="chat_list_swipe_unread">Не прочитано</string>
+    <!-- Snackbars after archiving: one chat, or %d chats. -->
+    <string name="chat_list_archived_one">Чат перемещён в архив</string>
+    <plurals name="chat_list_archived_many">
+        <item quantity="one">%d чат перемещён в архив</item>
+        <item quantity="few">%d чата перемещено в архив</item>
+        <item quantity="many">%d чатов перемещено в архив</item>
+        <item quantity="other">%d чата перемещено в архив</item>
+    </plurals>
+    <string name="chat_list_undo">Отменить</string>
+
+    <!-- Selection mode: the title with the number of selected chats, and the button that leaves it. -->
+    <plurals name="chat_list_selected">
+        <item quantity="one">Выбран %d</item>
+        <item quantity="few">Выбрано: %d</item>
+        <item quantity="many">Выбрано: %d</item>
+        <item quantity="other">Выбрано: %d</item>
+    </plurals>
+    <string name="chat_list_clear_selection">Снять выбор</string>
+    <!-- What long-pressing a row does, for screen readers ("Double-tap and hold to select"). -->
+    <string name="chat_list_select">Выбрать</string>
+
+    <!-- Deleting chats (DeleteChatDialog). %1$s is the chat's name. -->
+    <string name="chat_list_delete_title">Удалить чат?</string>
+    <string name="chat_list_leave_group_title">Покинуть группу?</string>
+    <string name="chat_list_leave_channel_title">Отписаться от канала?</string>
+    <plurals name="chat_list_delete_chats_title">
+        <item quantity="one">Удалить %d чат?</item>
+        <item quantity="few">Удалить %d чата?</item>
+        <item quantity="many">Удалить %d чатов?</item>
+        <item quantity="other">Удалить %d чата?</item>
+    </plurals>
+    <string name="chat_list_delete_body">%1$s будет удалён из списка чатов.</string>
+    <string name="chat_list_leave_body">Вы покинете %1$s, и он будет удалён из списка чатов.</string>
+    <string name="chat_list_delete_chats_body">Они будут удалены из списка чатов, а вы покинете группы и каналы среди них.</string>
+    <string name="chat_list_delete_for_user">Также удалить у: %1$s</string>
+    <string name="chat_list_delete_for_members">Удалить для всех участников</string>
+    <string name="chat_list_delete_for_subscribers">Удалить для всех подписчиков</string>
+    <string name="chat_list_delete_confirm">Удалить</string>
+    <string name="chat_list_leave_confirm">Покинуть</string>
+    <string name="chat_list_cancel">Отмена</string>
+
+    <!-- The archive (FR-L3, FR-L9): its row at the top of the chat list, and its screen. -->
+    <string name="chat_list_archived_chats">Архив</string>
+    <!-- The row at the end of the chat list that opens the chats kept behind the passcode (docs/adr/0029-locked-chats.md). -->
+    <string name="chat_list_locked_chats">Закрытые чаты</string>
+    <string name="chat_list_locked_chats_summary">Откроется по вашему коду доступа</string>
+    <!-- The archive row's second line before its chats are loaded: how many chats it has. -->
+    <plurals name="chat_list_archive_chat_count">
+        <item quantity="one">%d чат</item>
+        <item quantity="few">%d чата</item>
+        <item quantity="many">%d чатов</item>
+        <item quantity="other">%d чата</item>
+    </plurals>
+    <string name="chat_list_archive_back">Назад</string>
+    <string name="chat_list_archive_empty_title">Архив пуст</string>
+    <string name="chat_list_archive_empty_body">Чаты, которые вы архивируете, появятся здесь и не будут мешать.</string>
+    <!-- The archive row's menu (a long press) and its swipe, and the snackbar after it was hidden. -->
+    <string name="chat_list_archive_row_menu">Показать параметры</string>
+    <string name="chat_list_archive_row_collapse">Сделать компактным</string>
+    <string name="chat_list_archive_row_expand">Показать названия чатов</string>
+    <string name="chat_list_archive_row_hide">Скрыть из списка чатов</string>
+    <string name="chat_list_archive_row_swipe_hide">Скрыть</string>
+    <string name="chat_list_archive_row_hidden">Архив скрыт. Откройте его кнопкой на верхней панели.</string>
+    <!-- A folder tab's menu (a long press): edit the folder ("All chats": the folders), and mark its chats as read. -->
+    <string name="chat_list_edit_folder">Изменить папку</string>
+    <string name="chat_list_edit_folders">Изменить папки</string>
+    <string name="chat_list_mark_all_as_read">Отметить всё как прочитанное</string>
+
+    <!-- The archive's settings (FR-L9): what Telegram archives and keeps archived, and the archive row. -->
+    <string name="archive_settings_title">Настройки архива</string>
+    <string name="archive_settings_loading">Загрузка настроек архива</string>
+    <string name="archive_settings_error">Не удалось загрузить настройки архива</string>
+    <string name="archive_settings_new_chats_header">Новые чаты</string>
+    <string name="archive_settings_new_chats">Архивировать и выключать звук у новых чатов</string>
+    <string name="archive_settings_new_chats_summary">От людей, которых нет в контактах</string>
+    <string name="archive_settings_new_chats_footer">Такие чаты сразу попадают в архив без уведомлений. Чаты с вашими контактами остаются на месте.</string>
+    <!-- Telegram's option can_archive_and_mute_new_chats_from_unknown_users is off for the account. -->
+    <string name="archive_settings_new_chats_unavailable">Telegram сейчас не предлагает это для вашего аккаунта.</string>
+    <string name="archive_settings_kept_header">Когда приходит новое сообщение</string>
+    <string name="archive_settings_keep_unmuted">Оставлять в архиве чаты со звуком</string>
+    <string name="archive_settings_keep_unmuted_summary">Они остаются в архиве</string>
+    <string name="archive_settings_keep_folders">Оставлять в архиве чаты из папок</string>
+    <string name="archive_settings_keep_folders_summary">Чаты со звуком, которые входят в папку или закреплены в ней, остаются в архиве</string>
+    <string name="archive_settings_keep_folders_implied">Включено, как и для всех чатов со звуком</string>
+    <string name="archive_settings_kept_footer">Иначе новое сообщение возвращает чат из архива в обычные, если только он не выключен. Эти настройки относятся к вашему аккаунту Telegram.</string>
+    <string name="archive_settings_row_header">В списке чатов</string>
+    <string name="archive_settings_row_full">Полная</string>
+    <string name="archive_settings_row_full_summary">С названиями чатов из архива</string>
+    <string name="archive_settings_row_compact">Компактная</string>
+    <string name="archive_settings_row_compact_summary">Одна строка с числом непрочитанных</string>
+    <string name="archive_settings_row_hidden">Скрыта</string>
+    <string name="archive_settings_row_hidden_summary">Открывайте архив кнопкой на верхней панели</string>
+    <string name="archive_settings_row_footer">Сохраняется на этом устройстве. Долгое нажатие на строку тоже её меняет, а смахивание скрывает.</string>
+
+    <!-- Global search (SearchScreen, FR-L6): the search field. -->
+    <string name="search_placeholder">Поиск чатов, людей и сообщений</string>
+    <string name="search_back">Назад</string>
+    <string name="search_clear">Очистить поиск</string>
+    <!-- The filter chips under the search field: everything, or one kind of result. -->
+    <string name="search_filter_all">Все</string>
+    <string name="search_filter_chats">Чаты</string>
+    <string name="search_filter_contacts">Контакты</string>
+    <string name="search_filter_messages">Сообщения</string>
+    <string name="search_filter_media">Медиа</string>
+    <string name="search_filter_links">Ссылки</string>
+    <!-- A filter chip with how many messages, photos and videos, or links match the query, for screen readers: "Messages, 42 results". -->
+    <plurals name="search_filter_count">
+        <item quantity="one">%1$s, %2$d результат</item>
+        <item quantity="few">%1$s, %2$d результата</item>
+        <item quantity="many">%1$s, %2$d результатов</item>
+        <item quantity="other">%1$s, %2$d результата</item>
+    </plurals>
+    <!-- Section headers. -->
+    <string name="search_section_recent">Недавние</string>
+    <string name="search_section_chats">Чаты</string>
+    <string name="search_section_contacts">Контакты</string>
+    <!-- Public chats, channels and users found by username, outside the user's chats and contacts. -->
+    <string name="search_section_global">Глобальный поиск</string>
+    <string name="search_section_messages">Сообщения</string>
+    <!-- The messages section under the Media and Links filters. -->
+    <string name="search_section_media">Фото и видео</string>
+    <string name="search_section_links">Ссылки</string>
+    <!-- Recent searches: the button that empties them, and the button that removes one (%1$s is its name). -->
+    <string name="search_clear_recents">Очистить всё</string>
+    <string name="search_remove_recent">Удалить %1$s из недавних поисков</string>
+    <!-- The second line of a result: a username, or how many members or subscribers ("1,204"). -->
+    <string name="search_username" translatable="false">\@%1$s</string>
+    <plurals name="search_members">
+        <item quantity="one">%1$s участник</item>
+        <item quantity="few">%1$s участника</item>
+        <item quantity="many">%1$s участников</item>
+        <item quantity="other">%1$s участника</item>
+    </plurals>
+    <plurals name="search_subscribers">
+        <item quantity="one">%1$s подписчик</item>
+        <item quantity="few">%1$s подписчика</item>
+        <item quantity="many">%1$s подписчиков</item>
+        <item quantity="other">%1$s подписчика</item>
+    </plurals>
+    <!-- Before anything is typed, without recent searches. -->
+    <string name="search_hint_title">Найдите что угодно</string>
+    <string name="search_hint_body">Ищите в своих чатах и контактах, публичных каналах и группах по имени пользователя, а также в сообщениях всех ваших чатов.</string>
+    <!-- A query that found nothing: %1$s is the query. -->
+    <string name="search_no_results_title">Ничего не найдено по запросу «%1$s»</string>
+    <string name="search_no_results_body">Проверьте написание или попробуйте другие слова.</string>
+    <!-- The Media or Links filter without a query, when the chats have none. -->
+    <string name="search_no_media_title">Нет фото и видео</string>
+    <string name="search_no_media_body">Фото и видео из ваших чатов появятся здесь.</string>
+    <string name="search_no_links_title">Нет ссылок</string>
+    <string name="search_no_links_body">Сообщения со ссылками из ваших чатов появятся здесь.</string>
+    <string name="search_retry">Попробовать снова</string>
+    <!-- A section that is still searching, for screen readers. -->
+    <string name="search_searching">Поиск…</string>
+    <!-- How many results a query found, announced to screen readers once every section has searched. -->
+    <plurals name="search_a11y_results">
+        <item quantity="one">%d результат</item>
+        <item quantity="few">%d результата</item>
+        <item quantity="many">%d результатов</item>
+        <item quantity="other">%d результата</item>
+    </plurals>
+    <string name="search_a11y_no_results">Ничего не найдено</string>
+
+    <!-- The request to allow notifications above the chat list (Android 13+). -->
+    <string name="notification_prompt_title">Включите уведомления</string>
+    <string name="notification_prompt_body">Получайте уведомления о новых сообщениях и звонках. Звук чатов можно выключить в любой момент.</string>
+    <string name="notification_prompt_blocked_title">Уведомления выключены</string>
+    <string name="notification_prompt_blocked_body">Чтобы получать уведомления о новых сообщениях и звонках, разрешите уведомления для Pingogram в настройках устройства.</string>
+    <string name="notification_prompt_not_now">Не сейчас</string>
+    <string name="notification_prompt_allow">Разрешить</string>
+    <string name="notification_prompt_open_settings">Открыть настройки</string>
+    <!-- Starting a chat (FR-L7): the Chats tab's button and its empty state's, and the New chat screen. -->
+    <string name="new_chat">Новый чат</string>
+    <string name="new_chat_back">Назад</string>
+    <string name="new_chat_group">Новая группа</string>
+    <string name="new_chat_channel">Новый канал</string>
+    <string name="new_chat_contact">Новый контакт</string>
+    <string name="new_chat_contacts">Контакты</string>
+    <string name="new_chat_loading">Загрузка контактов</string>
+    <string name="new_chat_no_contacts">Контактов пока нет. Люди, которых вы добавите в контакты, появятся здесь.</string>
+
+    <!-- Creating a group or a channel (FR-P4). -->
+    <string name="create_next">Далее</string>
+    <string name="create_skip">Пропустить</string>
+    <string name="create_add">Добавить</string>
+    <string name="create_search">Поиск контактов</string>
+    <string name="create_search_clear">Очистить поиск</string>
+    <!-- Screen readers: tapping a picked person's chip. %1$s is their name. -->
+    <string name="create_member_remove">Удалить: %1$s</string>
+    <string name="create_no_contacts">Контактов пока нет. Людей можно добавить позже по ссылке-приглашению.</string>
+    <string name="create_no_results">Ни один контакт не подходит под поиск.</string>
+    <plurals name="create_too_many_members">
+        <item quantity="one">Сейчас можно добавить до %d человека. Остальных позже можно пригласить по ссылке.</item>
+        <item quantity="few">Сейчас можно добавить до %d человек. Остальных позже можно пригласить по ссылке.</item>
+        <item quantity="many">Сейчас можно добавить до %d человек. Остальных позже можно пригласить по ссылке.</item>
+        <item quantity="other">Сейчас можно добавить до %d человек. Остальных позже можно пригласить по ссылке.</item>
+    </plurals>
+    <string name="create_photo_remove">Удалить фото</string>
+    <string name="create_flood_wait">Слишком много попыток. Попробуйте снова через %1$s.</string>
+    <string name="create_group_photo">Выбрать фото группы</string>
+    <string name="create_group_name">Название группы</string>
+    <string name="create_group_name_error">Введите название группы.</string>
+    <string name="create_group_no_members">Пока только вы. Людей можно добавить позже.</string>
+    <plurals name="create_group_members">
+        <item quantity="one">Будет добавлен %d человек.</item>
+        <item quantity="few">Будут добавлены %d человека.</item>
+        <item quantity="many">Будут добавлены %d человек.</item>
+        <item quantity="other">Будут добавлены %d человека.</item>
+    </plurals>
+    <string name="create_auto_delete">Автоудаление сообщений</string>
+    <string name="create_auto_delete_off">Выкл.</string>
+    <string name="create_auto_delete_day">1 день</string>
+    <string name="create_auto_delete_week">1 неделя</string>
+    <string name="create_auto_delete_month">1 месяц</string>
+    <string name="create_auto_delete_off_note">Сообщения хранятся, пока их кто-нибудь не удалит.</string>
+    <string name="create_auto_delete_note">Новые сообщения будут удаляться для всех через это время.</string>
+    <string name="create_group">Создать</string>
+    <string name="create_channel_photo">Выбрать фото канала</string>
+    <string name="create_channel_name">Название канала</string>
+    <string name="create_channel_name_error">Введите название канала.</string>
+    <string name="create_channel_description">Описание (необязательно)</string>
+    <string name="create_channel_description_note">Расскажите людям, о чём ваш канал.</string>
+    <string name="create_channel_type">Тип канала</string>
+    <string name="create_private">Приватный</string>
+    <string name="create_public">Публичный</string>
+    <string name="create_private_note">Вступить смогут только люди, у которых есть ссылка-приглашение.</string>
+    <string name="create_public_note">Любой сможет найти канал в поиске и подписаться на него.</string>
+    <string name="create_link">Ссылка</string>
+    <string name="create_link_prefix" translatable="false">t.me/</string>
+    <string name="create_link_note">Люди смогут поделиться этой ссылкой и найти ваш канал по ней.</string>
+    <string name="create_link_checking">Проверяем…</string>
+    <string name="create_link_check_failed">Не удалось проверить эту ссылку. Всё равно можно попробовать.</string>
+    <plurals name="create_link_too_short">
+        <item quantity="one">В ссылке должен быть минимум %d символ.</item>
+        <item quantity="few">В ссылке должно быть минимум %d символа.</item>
+        <item quantity="many">В ссылке должно быть минимум %d символов.</item>
+        <item quantity="other">В ссылке должно быть минимум %d символа.</item>
+    </plurals>
+    <plurals name="create_link_too_long">
+        <item quantity="one">В ссылке может быть максимум %d символ.</item>
+        <item quantity="few">В ссылке может быть максимум %d символа.</item>
+        <item quantity="many">В ссылке может быть максимум %d символов.</item>
+        <item quantity="other">В ссылке может быть максимум %d символа.</item>
+    </plurals>
+    <string name="create_link_characters">Используйте только a–z, 0–9 и подчёркивания.</string>
+    <string name="create_link_first_letter">Ссылка должна начинаться с буквы.</string>
+    <string name="create_link_ends_with_underscore">Ссылка не может заканчиваться подчёркиванием.</string>
+    <string name="create_link_consecutive_underscores">В ссылке не может быть двух подчёркиваний подряд.</string>
+    <!-- %1$s is the username, without @. -->
+    <string name="create_link_available">t.me/%1$s свободна.</string>
+    <string name="create_link_invalid">Telegram не принимает эту ссылку.</string>
+    <string name="create_link_taken">Эта ссылка уже занята.</string>
+    <string name="create_link_for_sale">Эта ссылка продаётся на Fragment.</string>
+    <string name="create_link_unavailable">Эту ссылку нельзя использовать. Возможно, у вас слишком много публичных ссылок.</string>
+    <string name="create_link_loading">Загрузка ссылки-приглашения</string>
+    <string name="create_link_copy">Копировать</string>
+    <string name="create_link_share">Поделиться</string>
+    <string name="create_link_copied">Ссылка скопирована</string>
+    <string name="create_channel_members">Добавить подписчиков</string>
+    <plurals name="create_not_added_title">
+        <item quantity="one">%d человек не добавлен</item>
+        <item quantity="few">%d человека не добавлены</item>
+        <item quantity="many">%d человек не добавлены</item>
+        <item quantity="other">%d человека не добавлены</item>
+    </plurals>
+    <string name="create_not_added_text">Их настройки приватности не позволяют добавлять их в группы. Вместо этого можно отправить им ссылку-приглашение.</string>
+    <string name="create_not_added_text_channel">Их настройки приватности не позволяют добавлять их в каналы. Вместо этого можно отправить им ссылку-приглашение.</string>
+    <string name="create_not_added_share">Поделиться ссылкой-приглашением</string>
+    <string name="create_not_added_ok">OK</string>
+    <!-- Story rings above the chat list. -->
+    <string name="stories_your_story">Ваша история</string>
+    <string name="stories_add_story">Добавить историю</string>
+    <!-- The user's own ring while their stories are being posted (board 10c): "Posting 62%". -->
+    <string name="stories_posting_percent">Публикация %1$d%%</string>
+    <string name="stories_posting">Публикация…</string>
+    <string name="stories_not_posted">Не опубликовано</string>
+    <plurals name="stories_upload_title">
+        <item quantity="one">Публикуется ваша история</item>
+        <item quantity="few">Публикуются истории: %1$d</item>
+        <item quantity="many">Публикуются истории: %1$d</item>
+        <item quantity="other">Публикуются истории: %1$d</item>
+    </plurals>
+    <plurals name="stories_upload_failed_title">
+        <item quantity="one">Ваша история не опубликована</item>
+        <item quantity="few">%1$d истории не опубликованы</item>
+        <item quantity="many">%1$d историй не опубликовано</item>
+        <item quantity="other">%1$d истории не опубликованы</item>
+    </plurals>
+    <!-- How much of the stories being posted is sent: "62% sent". -->
+    <string name="stories_upload_sent">Отправлено %1$d%%</string>
+    <string name="stories_upload_waiting">Ожидание отправки</string>
+    <string name="stories_upload_note">Не закрывайте Pingogram, пока идёт публикация. Если остановить, неопубликованное удалится.</string>
+    <string name="stories_upload_stop">Остановить публикацию</string>
+    <string name="stories_upload_remove">Удалить</string>
+    <string name="stories_upload_view">Посмотреть вашу историю</string>
+    <plurals name="stories_count">
+        <item quantity="one">%d история</item>
+        <item quantity="few">%d истории</item>
+        <item quantity="many">%d историй</item>
+        <item quantity="other">%d истории</item>
+    </plurals>
+    <string name="stories_a11y_unseen">не просмотрено</string>
+    <string name="stories_a11y_seen">просмотрено</string>
+</resources>
