@@ -11,6 +11,8 @@ dependencies {
     implementation(libs.androidx.hilt.lifecycle.viewmodel.compose)
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.lifecycle.viewmodel.savedstate)
+    // The profile's music plays on an ExoPlayer (ProfileMusicViewModel), as the conversation's voice messages do.
+    implementation(libs.media3.exoplayer)
 
     // ProfileViewModel is tested through the real TDLib repositories on FakeTdlibClient (docs/TESTING.md).
     testImplementation(projects.core.data)
