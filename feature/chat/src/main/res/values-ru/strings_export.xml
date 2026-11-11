@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Export chat (REQUIREMENTS.md §5.9): a page that writes a chat's history into a folder the user picks. -->
+    <string name="chat_export_title">Экспорт чата</string>
+    <string name="chat_export_back">Назад</string>
+    <!-- Under the chat's name, at the top of the page. -->
+    <string name="chat_export_intro">Экспорт сохраняется только в выбранную вами папку. Ничего не загружается в интернет.</string>
+
+    <string name="chat_export_section_format">Формат</string>
+    <string name="chat_export_format_html">HTML</string>
+    <string name="chat_export_format_json">JSON</string>
+    <string name="chat_export_format_html_summary">Одна страница, которую можно открыть в любом браузере</string>
+    <string name="chat_export_format_json_summary">Все сообщения с подробностями, для программ</string>
+
+    <string name="chat_export_section_media">Медиафайлы</string>
+    <string name="chat_export_media_photos">Фото</string>
+    <string name="chat_export_media_videos">Видео</string>
+    <string name="chat_export_media_videos_summary">Видео, GIF и видеосообщения</string>
+    <string name="chat_export_media_voice">Голосовые сообщения</string>
+    <string name="chat_export_media_files">Файлы</string>
+    <string name="chat_export_media_files_summary">Документы и музыка</string>
+    <string name="chat_export_size_limit">Максимальный размер файла</string>
+    <!-- %1$s is a size, e.g. "50 MB". -->
+    <string name="chat_export_size_up_to">До %1$s</string>
+    <string name="chat_export_size_any">Любой размер</string>
+    <string name="chat_export_media_footer">Медиафайлы, которые вы не выбрали, будут упомянуты в экспорте, но без самих файлов.</string>
+
+    <string name="chat_export_section_messages">Сообщения</string>
+    <string name="chat_export_all_messages">Все сообщения</string>
+    <string name="chat_export_since">С определённой даты</string>
+    <!-- %1$s is a date, e.g. "Oct 1, 2026". -->
+    <string name="chat_export_since_date">С %1$s</string>
+    <string name="chat_export_since_choose">Выберите дату</string>
+    <string name="chat_export_since_dialog">Экспортировать сообщения с</string>
+    <string name="chat_export_date_cancel">Отмена</string>
+    <string name="chat_export_date_ok">OK</string>
+
+    <string name="chat_export_section_folder">Папка</string>
+    <string name="chat_export_folder_none">Папка не выбрана</string>
+    <string name="chat_export_folder_checking">Проверяем папку…</string>
+    <string name="chat_export_folder_summary">Внутри неё для этого экспорта создастся новая папка</string>
+    <string name="chat_export_folder_choose">Выбрать</string>
+    <string name="chat_export_folder_change">Изменить</string>
+    <!-- For screen readers, the button beside the folder. -->
+    <string name="chat_export_folder_choose_description">Выбрать папку</string>
+    <string name="chat_export_folder_change_description">Изменить папку</string>
+    <string name="chat_export_start">Экспортировать</string>
+
+    <!-- While the export runs. %1$s is the chat's name. -->
+    <string name="chat_export_running">Экспорт: %1$s</string>
+    <plurals name="chat_export_messages_read">
+        <item quantity="one">%s сообщение обработано</item>
+        <item quantity="few">%s сообщения обработано</item>
+        <item quantity="many">%s сообщений обработано</item>
+        <item quantity="other">%s сообщения обработано</item>
+    </plurals>
+    <!-- %d is the seconds Telegram asked to wait. -->
+    <string name="chat_export_flood_wait">Telegram попросил подождать %d с</string>
+    <string name="chat_export_running_note">Можно уйти с этой страницы: экспорт продолжится в фоне, с уведомлением. Если отменить, записанное будет удалено.</string>
+    <string name="chat_export_cancel">Отменить экспорт</string>
+    <string name="chat_export_cancelled">Экспорт отменён</string>
+
+    <!-- Once it is done. -->
+    <string name="chat_export_done_title">Чат экспортирован</string>
+    <!-- Each a line of its own below "Chat exported". -->
+    <plurals name="chat_export_done_messages">
+        <item quantity="one">%s сообщение</item>
+        <item quantity="few">%s сообщения</item>
+        <item quantity="many">%s сообщений</item>
+        <item quantity="other">%s сообщения</item>
+    </plurals>
+    <plurals name="chat_export_done_media">
+        <item quantity="one">Скопирован %s файл</item>
+        <item quantity="few">Скопировано %s файла</item>
+        <item quantity="many">Скопировано %s файлов</item>
+        <item quantity="other">Скопировано %s файла</item>
+    </plurals>
+    <plurals name="chat_export_done_skipped">
+        <item quantity="one">Пропущен %s файл, он упомянут в экспорте</item>
+        <item quantity="few">Пропущено %s файла, они упомянуты в экспорте</item>
+        <item quantity="many">Пропущено %s файлов, они упомянуты в экспорте</item>
+        <item quantity="other">Пропущено %s файла, они упомянуты в экспорте</item>
+    </plurals>
+    <string name="chat_export_open_folder">Открыть папку</string>
+    <string name="chat_export_no_folder_app">На этом телефоне нет приложения, которое открывает папки</string>
+    <string name="chat_export_again">Экспортировать снова</string>
+
+    <!-- When it failed. -->
+    <string name="chat_export_failed_title">Не удалось экспортировать чат</string>
+    <string name="chat_export_folder_unavailable">Папка пропала или TrueGram больше не может в неё писать. Выберите другую папку.</string>
+    <string name="chat_export_storage_full">Память заполнена. Освободите место или исключите некоторые медиафайлы.</string>
+    <string name="chat_export_try_again">Попробовать снова</string>
+    <string name="chat_export_folder_unusable">Эту папку нельзя использовать. Выберите другую.</string>
+
+    <!-- When the chat cannot be exported. -->
+    <string name="chat_export_not_allowed_title">Этот чат нельзя экспортировать</string>
+    <string name="chat_export_secret_chat">Сообщения секретного чата хранятся только на этом устройстве и в самом чате: их нельзя переслать или экспортировать.</string>
+    <string name="chat_export_protected">Владелец чата запретил сохранение его содержимого.</string>
+    <string name="chat_export_error_title">Не удалось открыть чат</string>
+</resources>

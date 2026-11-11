@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Saved Messages' tabs: what the user saved, by the chat it came from (td_api.tl savedMessagesTopic). -->
+    <string name="saved_tab_all">Все</string>
+    <string name="saved_tab_my_notes">Мои заметки</string>
+    <!-- Messages forwarded from people who do not link their forwards to their account. -->
+    <string name="saved_tab_author_hidden">Автор скрыт</string>
+    <!-- A tab whose chat Telegram no longer shows (deleted, or left long ago). -->
+    <string name="saved_tab_unknown_chat">Удалённый чат</string>
+    <!-- In place of the composer in a tab of messages saved from another chat. -->
+    <string name="composer_saved_topic">Новые сообщения попадут в «Мои заметки»</string>
+</resources>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Forum topics (REQUIREMENTS.md FR-C9): the topic list of a forum and the conversation of a topic. -->
+<resources>
+    <!-- The topic list's top bar under the forum's name. -->
+    <plurals name="topics_subtitle">
+        <item quantity="one">%d тема</item>
+        <item quantity="few">%d темы</item>
+        <item quantity="many">%d тем</item>
+        <item quantity="other">%d темы</item>
+    </plurals>
+    <string name="topics_subtitle_forum">Темы</string>
+
+    <!-- The topic list's states. -->
+    <string name="topics_empty_title">Тем пока нет</string>
+    <string name="topics_empty_body">Темы появятся здесь, когда кто-нибудь создаст первую.</string>
+    <string name="topics_error_title">Не удалось загрузить темы</string>
+    <string name="topics_more_error">Не удалось загрузить другие темы</string>
+
+    <!-- A topic row's states, for screen readers. %1$d is a count. -->
+    <string name="topic_closed">Закрыта</string>
+    <string name="topic_pinned">Закреплена</string>
+    <plurals name="topic_unread">
+        <item quantity="one">%1$d непрочитанное сообщение</item>
+        <item quantity="few">%1$d непрочитанных сообщения</item>
+        <item quantity="many">%1$d непрочитанных сообщений</item>
+        <item quantity="other">%1$d непрочитанного сообщения</item>
+    </plurals>
+    <plurals name="topic_mentions">
+        <item quantity="one">%1$d упоминание</item>
+        <item quantity="few">%1$d упоминания</item>
+        <item quantity="many">%1$d упоминаний</item>
+        <item quantity="other">%1$d упоминания</item>
+    </plurals>
+
+    <!-- In the composer's place in a closed topic, for members who are not administrators. -->
+    <string name="composer_topic_closed">В закрытой теме писать могут только администраторы</string>
+
+    <!-- Managing topics: the topic list's top bar, a topic's long press and the topic conversation's top bar. -->
+    <string name="topics_new">Новая тема</string>
+    <string name="topic_manage">Управление темой</string>
+    <!-- Screen readers' name for a topic row's long press, which opens its menu. -->
+    <string name="topic_menu">Действия с темой</string>
+    <string name="topic_edit">Изменить название</string>
+    <string name="topic_close">Закрыть тему</string>
+    <string name="topic_reopen">Открыть тему снова</string>
+    <string name="topic_pin">Закрепить</string>
+    <string name="topic_unpin">Открепить</string>
+    <string name="topic_hide_general">Скрыть «Общее»</string>
+    <string name="topic_show_general">Показать «Общее»</string>
+    <string name="topic_delete">Удалить тему</string>
+    <!-- A General topic hidden from members, as its row says to the administrators who still see it. -->
+    <string name="topic_hidden">Скрыта</string>
+    <!-- Screen readers move a pinned topic up or down in the list. -->
+    <string name="topic_move_up">Переместить вверх</string>
+    <string name="topic_move_down">Переместить вниз</string>
+
+    <!-- The editor of a new topic or of a topic's name. -->
+    <string name="topic_editor_new_title">Новая тема</string>
+    <string name="topic_editor_edit_title">Изменить тему</string>
+    <string name="topic_editor_name">Название темы</string>
+    <!-- Under the name field: %1$d characters of at most %2$d. -->
+    <string name="topic_editor_counter">%1$d / %2$d</string>
+    <string name="topic_editor_too_long">Название слишком длинное</string>
+    <string name="topic_editor_color">Цвет</string>
+    <!-- Under the colors: Telegram's six colors show in the theme's three tonal pairs, so the chips carry names. -->
+    <string name="topic_editor_color_note">Здесь цвета тем показываются в цветах вашей темы оформления. В других приложениях Telegram — собственные цвета Telegram.</string>
+    <!-- Under the name when renaming: the color cannot change. -->
+    <string name="topic_editor_color_fixed">Тема сохраняет цвет, с которым была создана.</string>
+    <string name="topic_editor_create">Создать</string>
+    <string name="topic_editor_save">Сохранить</string>
+    <string name="topic_editor_cancel">Отмена</string>
+    <!-- Screen readers' name for the icon above the name field: the topic's icon in the color picked. %1$s is the color. -->
+    <string name="topic_editor_preview">Значок темы, %1$s</string>
+    <!-- Telegram's six topic colors, named under their chips and for screen readers. -->
+    <string name="topic_color_blue">Синий</string>
+    <string name="topic_color_yellow">Жёлтый</string>
+    <string name="topic_color_violet">Фиолетовый</string>
+    <string name="topic_color_green">Зелёный</string>
+    <string name="topic_color_rose">Розовый</string>
+    <string name="topic_color_red">Красный</string>
+
+    <!-- Before deleting a topic. %1$s is its name. -->
+    <string name="topic_delete_title">Удалить тему?</string>
+    <string name="topic_delete_body">«%1$s» и все её сообщения будут удалены для всех в группе.</string>
+    <string name="topic_delete_confirm">Удалить</string>
+    <string name="topic_deleted">Тема удалена</string>
+</resources>

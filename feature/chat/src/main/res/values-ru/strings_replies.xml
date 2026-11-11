@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Replies and links in the message actions (REQUIREMENTS.md FR-C5, FR-C6): quote replies, replies in another chat,
+     message links, and replacing the media of a message being edited. -->
+<resources>
+    <!-- The message actions. -->
+    <string name="message_action_reply_elsewhere">Ответить в другом чате</string>
+    <string name="message_action_copy_link">Копировать ссылку</string>
+    <string name="message_action_copy_thread_link">Копировать ссылку на эту ветку</string>
+    <!-- Before Android 13, which confirms copies itself. -->
+    <string name="message_link_copied">Ссылка скопирована</string>
+
+    <!-- The item the lifted message's text selection offers beside Copy: replies quoting the selected text. -->
+    <string name="quote_action">Цитировать</string>
+    <string name="quote_unavailable">Выделите часть текста сообщения, чтобы процитировать его</string>
+    <!-- For screen readers, the quote mark of a reply bar or reply quote that quotes part of the message. -->
+    <string name="quote_label">Цитата</string>
+    <!-- A bubble's description for screen readers: %1$s is the quoted message's sender, %2$s the quoted text. -->
+    <string name="chat_bubble_quote">Цитирует %1$s: %2$s</string>
+
+    <!-- The reply bar of a reply to a message of another chat: %1$s is its sender, %2$s that chat's title. -->
+    <string name="composer_reply_elsewhere">Ответ %1$s в чате «%2$s»</string>
+    <!-- The same for the user's own message: %1$s is the chat's title. -->
+    <string name="composer_reply_elsewhere_own">Ответ на ваше сообщение в чате «%1$s»</string>
+    <!-- The same while the message loads: %1$s is the chat's title. -->
+    <string name="composer_reply_in">Ответ в чате «%1$s»</string>
+
+    <!-- The sheet that picks the chat to reply in. %1$s is one line of the message replied to. -->
+    <string name="reply_chats_title">Ответить в другом чате</string>
+    <string name="reply_chats_message">Ответ на: %1$s</string>
+    <string name="reply_chats_none">Нет чатов, где можно ответить</string>
+
+    <!-- The edit bar's button that replaces the edited message's photo, video or GIF, or its file or song. -->
+    <string name="composer_replace_media">Заменить фото или видео</string>
+    <string name="composer_replace_file">Заменить файл</string>
+    <!-- The attach preview of the replacement. -->
+    <string name="attach_replace_title_media">Заменить на это</string>
+    <string name="attach_replace_title_file">Заменить на этот файл</string>
+    <string name="attach_replace_note">Подпись останется такой, как вы её изменили в сообщении.</string>
+    <string name="attach_replace_choose">Выбрать другое</string>
+    <string name="attach_replace_confirm">Заменить</string>
+</resources>

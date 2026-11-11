@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Media and other content in messages (ui/content). The kinds of content ("Photo", "Voice message", "Location")
+         are core:ui's preview strings. -->
+    <!-- What tapping a photo, a video, a file or a location does, for screen readers. -->
+    <string name="content_open">Открыть</string>
+    <!-- Over a video, under a song: %1$s is its length ("1:05"), %2$s its file size ("12 MB"). -->
+    <string name="content_duration_and_size">%1$s · %2$s</string>
+    <!-- For screen readers: %1$s is what something is ("Video"), %2$s more about it ("1:05 · 12 MB", "Not played yet"). -->
+    <string name="content_kind_and_details">%1$s, %2$s</string>
+    <!-- How much of a voice message or a song has played ("0:12 / 0:42"), or of a file has downloaded ("1.2 MB / 4.5 MB"). -->
+    <string name="content_progress_of">%1$s / %2$s</string>
+    <string name="content_play">Воспроизвести</string>
+    <string name="content_pause">Пауза</string>
+    <!-- For screen readers: nobody has played this voice message or watched this video message yet. -->
+    <string name="content_not_played">Ещё не воспроизводилось</string>
+    <string name="content_download">Загрузить</string>
+    <string name="content_cancel_download">Отменить загрузку</string>
+    <string name="content_pause_download">Приостановить загрузку</string>
+    <string name="content_resume_download">Продолжить загрузку</string>
+    <!-- A document's download the user paused: how much of it is on the device, e.g. "1.2 MB / 4.5 MB · Paused". -->
+    <string name="content_progress_paused">%1$s / %2$s · на паузе</string>
+    <!-- The title of the system's chooser of apps when a downloaded file has no known type. -->
+    <string name="content_open_with">Открыть в приложении</string>
+    <!-- A snackbar after tapping a downloaded file when no app on the device opens files of its type. -->
+    <string name="content_no_app_for_file">Нет приложения, которое откроет этот файл</string>
+    <!-- A snackbar after tapping a downloaded file that is no longer on the device. -->
+    <string name="content_file_unavailable">Этот файл недоступен</string>
+    <!-- A snackbar after tapping a location when no app on the device shows maps. -->
+    <string name="content_no_maps_app">Нет приложения на этом устройстве, которое может показать это место</string>
+    <!-- A snackbar when the file of a voice message or song cannot be played (damaged, or in a format the device lacks). -->
+    <string name="content_playback_failed">Это нельзя воспроизвести</string>
+    <!-- An album of photos and videos, for screen readers: %1$d is how many it holds. -->
+    <plurals name="content_album_photos">
+        <item quantity="one">%1$d фото</item>
+        <item quantity="few">%1$d фото</item>
+        <item quantity="many">%1$d фото</item>
+        <item quantity="other">%1$d фото</item>
+    </plurals>
+    <plurals name="content_album_videos">
+        <item quantity="one">%1$d видео</item>
+        <item quantity="few">%1$d видео</item>
+        <item quantity="many">%1$d видео</item>
+        <item quantity="other">%1$d видео</item>
+    </plurals>
+    <plurals name="content_album_media">
+        <item quantity="one">%1$d фото или видео</item>
+        <item quantity="few">%1$d фото и видео</item>
+        <item quantity="many">%1$d фото и видео</item>
+        <item quantity="other">%1$d фото и видео</item>
+    </plurals>
+
+    <!-- File sizes in decimal units, as Android shows them: %1$s is the number ("4.5"). -->
+    <string name="content_size_bytes">%1$s Б</string>
+    <string name="content_size_kilobytes">%1$s кБ</string>
+    <string name="content_size_megabytes">%1$s МБ</string>
+    <string name="content_size_gigabytes">%1$s ГБ</string>
+
+    <!-- A location's coordinates: %1$s is the latitude, %2$s the longitude, each with its hemisphere. -->
+    <string name="content_coordinates">%1$s, %2$s</string>
+    <!-- %1$s is a number of degrees ("52.52001"). -->
+    <string name="content_latitude_north">%1$s° с. ш.</string>
+    <string name="content_latitude_south">%1$s° ю. ш.</string>
+    <string name="content_longitude_east">%1$s° в. д.</string>
+    <string name="content_longitude_west">%1$s° з. д.</string>
+
+    <!-- Polls: what kind of poll it is, under its question. In an anonymous poll nobody sees who voted for what. -->
+    <string name="content_poll_anonymous">Анонимный опрос</string>
+    <string name="content_poll_public">Публичный опрос</string>
+    <!-- A quiz is a poll with a correct answer. -->
+    <string name="content_quiz_anonymous">Анонимная викторина</string>
+    <string name="content_quiz_public">Публичная викторина</string>
+    <!-- Instead of the kind of poll, once it is closed. -->
+    <string name="content_poll_closed">Итоговые результаты</string>
+    <!-- An answer's share of the votes: %1$d is a percentage. -->
+    <string name="content_poll_percentage">%1$d%%</string>
+    <!-- For screen readers, the marks next to answers. -->
+    <string name="content_poll_chosen">Ваш ответ</string>
+    <string name="content_quiz_correct">Правильный ответ</string>
+    <string name="content_quiz_wrong">Неправильный ответ</string>
+    <string name="content_poll_no_votes">Голосов пока нет</string>
+    <string name="content_quiz_no_answers">Ответов пока нет</string>
+    <!-- %1$s is the number of people who voted, with digits of the user's language. -->
+    <plurals name="content_poll_votes">
+        <item quantity="one">%1$s голос</item>
+        <item quantity="few">%1$s голоса</item>
+        <item quantity="many">%1$s голосов</item>
+        <item quantity="other">%1$s голоса</item>
+    </plurals>
+    <plurals name="content_quiz_answers">
+        <item quantity="one">%1$s ответ</item>
+        <item quantity="few">%1$s ответа</item>
+        <item quantity="many">%1$s ответов</item>
+        <item quantity="other">%1$s ответа</item>
+    </plurals>
+</resources>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Selecting, reporting and saving messages (ui/ChatSelection, ChatReporting, ChatSaving and their screens). -->
+    <!-- Message actions: start selection mode with this message. -->
+    <string name="message_action_select">Выбрать</string>
+    <!-- Message actions and the selection toolbar: report to Telegram's moderators. -->
+    <string name="message_action_report">Пожаловаться</string>
+    <!-- Message actions: copy the message's file into the phone's Downloads folder. -->
+    <string name="message_action_save_to_downloads">Сохранить в «Загрузки»</string>
+    <!-- The selection toolbar's copy button: the texts of the selected messages. -->
+    <string name="selection_action_copy">Копировать текст</string>
+
+    <!-- The top bar in selection mode: %d is how many messages are selected. -->
+    <plurals name="selection_count">
+        <item quantity="one">Выбрано: %d</item>
+        <item quantity="few">Выбрано: %d</item>
+        <item quantity="many">Выбрано: %d</item>
+        <item quantity="other">Выбрано: %d</item>
+    </plurals>
+    <!-- The top bar's close button in selection mode, for screen readers. -->
+    <string name="selection_clear">Снять выбор</string>
+    <!-- Screen readers: what tapping a message does in selection mode. -->
+    <string name="selection_select">Выбрать</string>
+    <string name="selection_deselect">Снять выбор</string>
+    <!-- Screen readers: the custom action that starts selection mode with a message. -->
+    <string name="selection_start">Выбрать сообщение</string>
+    <!-- The header of each message when several are copied: %1$s is the sender, %2$s when it was sent. -->
+    <string name="selection_copy_header">%1$s, [%2$s]</string>
+
+    <!-- The report sheet. Its reasons come from Telegram. -->
+    <string name="report_title">Жалоба</string>
+    <!-- The report step that asks for a comment. -->
+    <string name="report_comment_title">Расскажите подробнее</string>
+    <string name="report_comment_body">Модераторы увидят то, что вы напишете здесь, вместе с сообщениями.</string>
+    <string name="report_comment_label">Комментарий</string>
+    <string name="report_comment_label_optional">Комментарий (необязательно)</string>
+    <string name="report_send">Отправить жалобу</string>
+    <!-- A snackbar once the report is sent. -->
+    <string name="report_sent">Спасибо, жалоба отправлена</string>
+
+    <!-- Snackbars of "Save to Downloads". -->
+    <string name="save_downloading">Загружаем, чтобы сохранить…</string>
+    <!-- One file was saved. -->
+    <string name="save_done">Сохранено в «Загрузки»</string>
+    <!-- Several files were saved: %d is how many. -->
+    <plurals name="save_done_many">
+        <item quantity="one">%d файл сохранён в «Загрузки»</item>
+        <item quantity="few">%d файла сохранено в «Загрузки»</item>
+        <item quantity="many">%d файлов сохранено в «Загрузки»</item>
+        <item quantity="other">%d файла сохранено в «Загрузки»</item>
+    </plurals>
+    <!-- The action of the snackbar after one file was saved. -->
+    <string name="save_open">Открыть</string>
+    <string name="save_failed">Не удалось сохранить в «Загрузки»</string>
+    <!-- Android 8 and 9 only: why saving needs the storage permission, before the system asks for it. -->
+    <string name="save_storage_rationale">Чтобы сохранять файлы в «Загрузки», TrueGram нужен доступ к памяти</string>
+    <string name="save_storage_continue">Продолжить</string>
+    <string name="save_storage_denied">Для сохранения в «Загрузки» нужен доступ к памяти</string>
+    <string name="save_storage_settings">Настройки</string>
+</resources>

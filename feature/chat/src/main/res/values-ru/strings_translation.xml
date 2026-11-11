@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Message translation (REQUIREMENTS.md FR-C3): a message's actions, its bubble's label, and the translate bar. -->
+<resources>
+    <!-- The message actions that show a bubble's translation, and its own text again. -->
+    <string name="message_action_translate">Перевести</string>
+    <string name="message_action_show_original">Показать оригинал</string>
+
+    <!-- The label in a translated bubble's meta, before its time. %1$s is the language it was translated from. -->
+    <string name="translation_from">Переведено с: %1$s</string>
+    <string name="translation_translated">Переведено</string>
+    <string name="translation_translating">Перевод…</string>
+
+    <!-- The translate bar over the messages. %1$s is the language translations go into ("English"). -->
+    <string name="translation_bar_translate">Перевести на: %1$s</string>
+    <string name="translation_bar_show_original">Показать оригинал</string>
+    <!-- Under it, the chat's language as the device detected it. %1$s is that language ("Spanish"). -->
+    <string name="translation_bar_from">Чат на языке: %1$s</string>
+    <string name="translation_bar_translated">Сообщения переведены Telegram</string>
+    <string name="translation_bar_close">Закрыть панель перевода</string>
+
+    <!-- The snackbars. -->
+    <string name="translation_failed">Telegram не смог перевести это сообщение</string>
+    <string name="translation_bar_hidden">Панель перевода закрыта. Перевести сообщение можно и из его меню.</string>
+</resources>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Round video messages (docs/adr/0032-round-video-messages.md): the composer's record button switched to the
+         camera, the round preview while it records, and the sheet that asks for the camera. -->
+    <!-- The record button while it records video messages, for screen readers and its tooltip. -->
+    <string name="video_note_record">Записать видеосообщение</string>
+    <!-- The record button's custom actions for screen readers: a tap switches what it records. -->
+    <string name="video_note_switch_to_video">Переключить на видеосообщение</string>
+    <string name="video_note_switch_to_voice">Переключить на голосовое сообщение</string>
+    <!-- The send button of a video message that records hands-free. -->
+    <string name="video_note_send">Отправить видеосообщение</string>
+    <!-- The recording bar's button that records from the other camera. -->
+    <string name="video_note_flip">Переключить камеру</string>
+    <!-- The recording bar once the recording ended as the user left the app: it can be sent or deleted. -->
+    <string name="video_note_stopped">Запись остановлена</string>
+    <!-- The round preview of the camera, for screen readers, with how long it has recorded of the one minute allowed:
+         "Video message, 0:07 of 1:00". -->
+    <string name="video_note_preview">Видеосообщение, %1$s из %2$s</string>
+    <!-- The sheet before the system asks for the camera and the microphone. -->
+    <string name="video_note_permission_title">Запись видеосообщений</string>
+    <string name="video_note_permission_body">Для видеосообщений нужны камера и микрофон. TrueGram использует их только во время записи, а видео попадает только в отправленное вами сообщение.</string>
+    <string name="video_note_permission_denied_body">Разрешите доступ к камере и микрофону в настройках, чтобы записывать видеосообщения.</string>
+    <string name="video_note_permission_not_now">Не сейчас</string>
+    <string name="video_note_permission_continue">Продолжить</string>
+    <string name="video_note_permission_settings">Открыть настройки</string>
+    <!-- Snackbar when the camera or the microphone cannot be used, or the recording cannot be finished. -->
+    <string name="video_note_recording_failed">Не удалось записать. Камеру или микрофон может использовать другое приложение.</string>
+    <!-- Snackbar when the other camera cannot be opened while recording. -->
+    <string name="video_note_flip_failed">Не удалось переключить камеру</string>
+</resources>

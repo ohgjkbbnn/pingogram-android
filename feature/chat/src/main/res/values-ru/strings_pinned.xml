@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The pinned messages bar over the conversation and the sheet that lists them (REQUIREMENTS.md FR-C9). -->
+<resources>
+    <!-- The bar's label over the pinned message. %1$d is its place counted from the newest, %2$d how many there are. -->
+    <!-- No-break spaces around "of": where the label wraps at large font sizes, "4 of 5" stays together. -->
+    <!-- The experimental look's pinned bar (docs/DESIGN_SYSTEM.md §13.5): "Pinned · 6 of 6". -->
+    <string name="pinned_short">Закреплено</string>
+    <string name="pinned_short_of">Закреплено · %1$d&#160;из&#160;%2$d</string>
+
+    <!-- What tapping the bar does, for screen readers. -->
+    <string name="pinned_show">Показать в чате</string>
+
+    <!-- The bar's buttons. -->
+    <string name="pinned_list">Все закреплённые сообщения</string>
+    <string name="pinned_unpin">Открепить сообщение</string>
+    <string name="pinned_hide">Скрыть закреплённые сообщения</string>
+
+    <!-- The snackbar once the bar was hidden by someone who may not unpin. -->
+    <string name="pinned_hidden">Закреплённые сообщения скрыты. Они вернутся, когда будет закреплено новое сообщение.</string>
+
+    <!-- The sheet of every pinned message. -->
+    <string name="pinned_sheet_title">Закреплённые сообщения</string>
+</resources>

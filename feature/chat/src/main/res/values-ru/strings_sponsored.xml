@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Sponsored messages in channels and bots (ui/Sponsored*). "Telegram" only names the service, never the app. -->
+    <!-- The label at the top of a sponsored message's card. -->
+    <string name="sponsored_label">Реклама</string>
+    <!-- The label of a sponsored message that recommends a channel. -->
+    <string name="sponsored_label_recommended">Рекомендуем</string>
+    <!-- The info button of a sponsored message's card, for screen readers, and the title of the sheet it opens. -->
+    <string name="sponsored_about">О рекламе</string>
+    <string name="sponsored_about_recommended">О рекомендации</string>
+    <string name="sponsored_about_text">Telegram показывает рекламные сообщения в некоторых каналах и ботах. TrueGram показывает их так, как их присылает Telegram: он не выбирает и не меняет их.</string>
+    <!-- Above who placed the ad (legal information from Telegram). -->
+    <string name="sponsored_advertiser">Рекламодатель</string>
+    <!-- Above more information Telegram gives about the ad. -->
+    <string name="sponsored_additional_info">Подробнее о рекламе</string>
+    <string name="sponsored_report">Пожаловаться на рекламу</string>
+    <!-- The back button of the report step, for screen readers. -->
+    <string name="sponsored_report_back">Назад</string>
+    <string name="sponsored_reported">Спасибо, жалоба на рекламу отправлена</string>
+    <string name="sponsored_ads_hidden">Рекламные сообщения скрыты</string>
+    <string name="sponsored_premium_required">Скрывать рекламу могут только подписчики Telegram Premium</string>
+    <string name="sponsored_report_failed">Не удалось отправить жалобу на рекламу</string>
+    <!-- Information only: Pingogram never offers or links to Telegram Premium. -->
+    <string name="sponsored_premium_note">Подписчики Telegram Premium могут отключить рекламные сообщения.</string>
+    <string name="sponsored_no_app">Нет приложения, которое может открыть эту ссылку</string>
+</resources>

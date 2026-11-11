@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Comment threads and replies (REQUIREMENTS.md FR-C9): a message's link to its thread, and the thread's top bar. -->
+<resources>
+    <!-- Under a channel post: opens its comments. "Leave a comment" when there are none yet. -->
+    <string name="thread_comments_none">Оставить комментарий</string>
+    <plurals name="thread_comments">
+        <item quantity="one">%d комментарий</item>
+        <item quantity="few">%d комментария</item>
+        <item quantity="many">%d комментариев</item>
+        <item quantity="other">%d комментария</item>
+    </plurals>
+    <!-- Under a group message others replied to in its thread: opens the thread. -->
+    <plurals name="thread_replies">
+        <item quantity="one">%d ответ</item>
+        <item quantity="few">%d ответа</item>
+        <item quantity="many">%d ответов</item>
+        <item quantity="other">%d ответа</item>
+    </plurals>
+
+    <!-- The bubble's custom action for screen readers: opens the thread. -->
+    <string name="thread_open_comments">Открыть комментарии</string>
+    <string name="thread_open_replies">Открыть ответы</string>
+
+    <!-- The top bar of a thread with no comments or replies yet. -->
+    <string name="thread_title_comments">Комментарии</string>
+    <string name="thread_title_replies">Ответы</string>
+</resources>

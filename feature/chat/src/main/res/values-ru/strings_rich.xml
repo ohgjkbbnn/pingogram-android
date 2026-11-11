@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Rich messages, as channels post them: headings, collapsible sections, photos, lists and tables. -->
+<resources>
+    <!-- In place of a part of a rich message Pingogram cannot show yet (a map, an embedded page, a file). -->
+    <string name="rich_unsupported_block">Эту часть пока нельзя показать</string>
+    <!-- The button under a long rich message that shows the rest of it. -->
+    <string name="rich_show_more">Показать ещё</string>
+    <!-- The button under a rich message of which Telegram sent only the start: it loads the rest. -->
+    <string name="rich_show_full">Показать полное сообщение</string>
+    <!-- A collapsible section of a rich message, for screen readers: whether it shows its content. -->
+    <string name="rich_section_expanded">Развёрнуто</string>
+    <string name="rich_section_collapsed">Свёрнуто</string>
+    <!-- Screen readers' actions on a rich message's section. %1$s is the section's heading. -->
+    <string name="rich_section_expand">Развернуть: %1$s</string>
+    <string name="rich_section_collapse">Свернуть: %1$s</string>
+    <!-- Screen readers' action that opens a rich message's photo, video or GIF in the media viewer. %1$s is its kind
+         ("Photo"); with several, %2$d is which one and %3$d how many. -->
+    <string name="rich_open_media">Открыть: %1$s</string>
+    <string name="rich_open_media_of">Открыть: %1$s %2$d из %3$d</string>
+    <!-- A section in a rich message's description for screen readers. %1$s is its heading, %2$s whether it is open
+         ("Expanded"). -->
+    <string name="rich_section_description">Раздел %1$s, %2$s</string>
+    <!-- A checklist item in a rich message's description for screen readers. %1$s is its text. -->
+    <string name="rich_item_checked">Выполнено: %1$s</string>
+    <string name="rich_item_unchecked">Не выполнено: %1$s</string>
+    <!-- A table in a rich message's description for screen readers. -->
+    <plurals name="rich_table_rows">
+        <item quantity="one">Таблица, %1$d строка</item>
+        <item quantity="few">Таблица, %1$d строки</item>
+        <item quantity="many">Таблица, %1$d строк</item>
+        <item quantity="other">Таблица, %1$d строки</item>
+    </plurals>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dates in messages (td_api.tl textEntityTypeDateTime), shown in the reader's time zone, and the sheet a tap on one
+     opens. -->
+<resources>
+    <!-- Under a tapped date: the reader's time zone, in which it is shown. %1$s is the zone's name, e.g. "Central
+         European Time". -->
+    <string name="date_time_zone">В вашем часовом поясе: %1$s</string>
+    <!-- Opens the calendar app at a new event at the date. -->
+    <string name="date_time_add_to_calendar">Добавить в календарь</string>
+    <!-- Puts the date, as the sheet shows it, on the clipboard. -->
+    <string name="date_time_copy">Копировать</string>
+    <!-- A snackbar after "Add to calendar" when no calendar app is on the device. -->
+    <string name="date_time_no_calendar">На этом устройстве нет приложения календаря</string>
+</resources>

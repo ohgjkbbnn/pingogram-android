@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Who saw a group message and who reacted to it: the rows in its actions and their sheet. -->
+<resources>
+    <!-- The rows of a group message's actions that open the sheet. -->
+    <string name="message_action_seen_by">Просмотрели</string>
+    <string name="message_action_reactions">Реакции</string>
+
+    <!-- The sheet's title: on the tab of the viewers, and on the tabs of the reactions. -->
+    <string name="interactions_title_seen">Просмотрели</string>
+    <string name="interactions_title_reactions">Реакции</string>
+
+    <!-- The tabs' labels, each followed by its count where it is known: the viewers, then every reaction. -->
+    <string name="interactions_tab_seen">Просмотрели</string>
+    <string name="interactions_tab_all">Все</string>
+
+    <!-- Screen readers: the tabs. %1$d is how many people saw the message. -->
+    <plurals name="interactions_tab_seen_count">
+        <item quantity="one">Просмотрел %1$d человек</item>
+        <item quantity="few">Просмотрели %1$d человека</item>
+        <item quantity="many">Просмотрели %1$d человек</item>
+        <item quantity="other">Просмотрели %1$d человека</item>
+    </plurals>
+    <!-- Screen readers: %1$d is how many reactions the message has in all. -->
+    <plurals name="interactions_tab_all_count">
+        <item quantity="one">Все реакции, %1$d</item>
+        <item quantity="few">Все реакции, %1$d</item>
+        <item quantity="many">Все реакции, %1$d</item>
+        <item quantity="other">Все реакции, %1$d</item>
+    </plurals>
+    <!-- Screen readers: %1$s is the reaction's emoji, %2$d how often it was added. -->
+    <plurals name="interactions_tab_reaction_count">
+        <item quantity="one">%1$s, %2$d реакция</item>
+        <item quantity="few">%1$s, %2$d реакции</item>
+        <item quantity="many">%1$s, %2$d реакций</item>
+        <item quantity="other">%1$s, %2$d реакции</item>
+    </plurals>
+
+    <!-- When someone saw the message: %1$s is the time of day, %2$s the date ("Mar 17"). -->
+    <string name="interactions_seen_today">Просмотрено в %1$s</string>
+    <string name="interactions_seen_yesterday">Просмотрено вчера в %1$s</string>
+    <string name="interactions_seen_on">Просмотрено %1$s в %2$s</string>
+
+    <!-- When someone added their reaction: %1$s is the time of day, %2$s the date ("Mar 17"). -->
+    <string name="interactions_reacted_today">Отреагировал в %1$s</string>
+    <string name="interactions_reacted_yesterday">Отреагировал вчера в %1$s</string>
+    <string name="interactions_reacted_on">Отреагировал %1$s в %2$s</string>
+
+    <!-- Screen readers, on the tab of every reaction: %1$s is the reaction's emoji. -->
+    <string name="interactions_reacted_with">отреагировал %1$s</string>
+
+    <!-- A tab with nobody to show. -->
+    <string name="interactions_empty_seen_title">Пока никто не просмотрел</string>
+    <string name="interactions_empty_seen_body">Здесь появятся участники, которые прочитали сообщение, пока Telegram его хранит.</string>
+    <string name="interactions_empty_reactions_title">Нет реакций</string>
+    <string name="interactions_empty_reactions_body">Реакции, которые были убраны, здесь не показываются.</string>
+
+    <!-- A tab whose list could not be loaded, and the next page that could not. -->
+    <string name="interactions_error_title">Не удалось загрузить список</string>
+    <string name="interactions_retry">Попробовать снова</string>
+
+    <!-- Screen readers: the list on its way. -->
+    <string name="interactions_loading">Загрузка</string>
+</resources>

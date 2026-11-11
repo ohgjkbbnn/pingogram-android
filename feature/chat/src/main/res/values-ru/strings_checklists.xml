@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Checklists in messages (REQUIREMENTS.md FR-C4) and the form of a new one (FR-C5). -->
+<resources>
+    <!-- The small label over a checklist's title, shown in capitals. -->
+    <string name="checklist_kicker">Список дел</string>
+    <!-- Under the tasks: %1$d tasks of %2$d are done; the quantity is the total. -->
+    <plurals name="checklist_progress">
+        <item quantity="one">Выполнено %1$d из %2$d</item>
+        <item quantity="few">Выполнено %1$d из %2$d</item>
+        <item quantity="many">Выполнено %1$d из %2$d</item>
+        <item quantity="other">Выполнено %1$d из %2$d</item>
+    </plurals>
+    <!-- The button under a checklist that opens the field for a new task; also "Checklist" in the attach menu. -->
+    <string name="checklist_add_task">Добавить задачу</string>
+    <string name="attach_checklist">Список дел</string>
+    <!-- The inline field for a new task, and its buttons. -->
+    <string name="checklist_new_task">Новая задача</string>
+    <string name="checklist_add">Добавить</string>
+    <string name="checklist_cancel_add">Отмена</string>
+    <!-- For screen readers: a task's state. %1$s is who ticked it. -->
+    <string name="checklist_task_done">выполнено</string>
+    <string name="checklist_task_done_by">выполнено: %1$s</string>
+    <string name="checklist_task_not_done">не выполнено</string>
+    <string name="checklist_task_sending">сохраняется</string>
+    <!-- Screen readers' actions on a task. %1$s is its text. -->
+    <string name="checklist_mark_done">Отметить «%1$s» как выполненное</string>
+    <string name="checklist_mark_not_done">Отметить «%1$s» как невыполненное</string>
+
+    <!-- The form of a new checklist. -->
+    <string name="checklist_form_title">Новый список дел</string>
+    <string name="checklist_form_name">Название</string>
+    <string name="checklist_form_tasks">Задачи</string>
+    <!-- %1$d is the task's number. -->
+    <string name="checklist_form_task">Задача %1$d</string>
+    <string name="checklist_form_remove_task">Удалить задачу %1$d</string>
+    <string name="checklist_form_add_task">Добавить задачу</string>
+    <!-- A task that repeats one above it, which Telegram refuses. -->
+    <string name="checklist_form_task_repeated">Эта задача повторяет одну из задач выше</string>
+    <string name="checklist_form_settings">Настройки</string>
+    <string name="checklist_form_others_mark">Другие могут отмечать задачи как выполненные</string>
+    <string name="checklist_form_others_mark_note">Любой в чате может отмечать задачи и снимать отметки</string>
+    <string name="checklist_form_others_add">Другие могут добавлять задачи</string>
+    <string name="checklist_form_others_add_note">Любой в чате может добавлять задачи в список</string>
+</resources>

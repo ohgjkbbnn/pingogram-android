@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Voting in polls, their results and who voted (REQUIREMENTS.md FR-C4). The poll's own labels are in
+     strings_message_content.xml. -->
+<resources>
+    <!-- The button under a poll with several answers that sends the checked ones; also what tapping an answer does,
+         for screen readers. -->
+    <string name="poll_vote">Голосовать</string>
+    <!-- The button under a public poll's results that opens who voted for what. -->
+    <string name="poll_view_votes">Посмотреть голоса</string>
+    <!-- Screen readers' actions on a poll. %1$s is an answer's text. -->
+    <string name="poll_vote_for">Голосовать за: %1$s</string>
+    <string name="poll_check">Выбрать: %1$s</string>
+    <string name="poll_uncheck">Снять выбор: %1$s</string>
+    <!-- For screen readers: an answer with its share of the votes. %1$d is a percentage, %2$s the number of votes with
+         the digits of the user's language. -->
+    <plurals name="poll_option_share">
+        <item quantity="one">%1$d%%, %2$s голос</item>
+        <item quantity="few">%1$d%%, %2$s голоса</item>
+        <item quantity="many">%1$d%%, %2$s голосов</item>
+        <item quantity="other">%1$d%%, %2$s голоса</item>
+    </plurals>
+    <!-- For screen readers: an answer checked before "Vote". -->
+    <string name="poll_option_checked">выбрано</string>
+    <!-- For screen readers: an answer whose vote is on its way to Telegram. -->
+    <string name="poll_option_sending">голос отправляется</string>
+    <!-- Why the user can't vote, under the answers. -->
+    <string name="poll_restricted_members">Голосовать могут только участники чата</string>
+    <!-- "Country or region", never "country" alone: some places are regions. -->
+    <string name="poll_restricted_country">Голосование недоступно в вашей стране или регионе</string>
+    <string name="poll_restricted_scheduled">Голосование начнётся, когда сообщение будет отправлено</string>
+    <string name="poll_restricted_other">Вы не можете голосовать в этом опросе</string>
+    <!-- Above a quiz's explanation, shown once the user answered it. -->
+    <string name="poll_explanation">Пояснение</string>
+
+    <!-- The message actions of a poll. -->
+    <string name="message_action_retract_vote">Отозвать голос</string>
+    <string name="message_action_stop_poll">Остановить опрос</string>
+    <!-- The question before a poll is stopped. -->
+    <string name="poll_stop_title">Остановить опрос?</string>
+    <string name="poll_stop_text">Больше никто не сможет голосовать, и все увидят итоговые результаты. Открыть его снова будет нельзя.</string>
+    <string name="poll_stop_confirm">Остановить опрос</string>
+    <string name="poll_stop_cancel">Отмена</string>
+
+    <!-- The sheet of who voted for each answer of a public poll. -->
+    <string name="poll_voters_title">Голоса</string>
+    <string name="poll_voters_more">Показать ещё</string>
+    <string name="poll_voters_error">Не удалось загрузить эти голоса</string>
+    <string name="poll_voters_retry">Попробовать снова</string>
+</resources>
