@@ -96,9 +96,9 @@
     <string name="story_reaction_chosen">Your reaction: %1$s. Change reaction</string>
     <string name="story_playback_failed">This video can\'t be played</string>
     <string name="story_live_title">Live stream</string>
-    <string name="story_live_body">Pingogram can\'t join live streams from stories yet.</string>
+    <string name="story_live_body">TrueGram can\'t join live streams from stories yet.</string>
     <string name="story_unsupported_title">Can\'t show this story</string>
-    <string name="story_unsupported_body">Pingogram can\'t show this kind of story yet.</string>
+    <string name="story_unsupported_body">TrueGram can\'t show this kind of story yet.</string>
     <string name="story_unavailable_title">Story unavailable</string>
     <string name="story_unavailable_body">This story was deleted or has expired.</string>
     <!-- Posting a story, picking its photos and videos (docs/adr/0036-posting-stories.md). -->
