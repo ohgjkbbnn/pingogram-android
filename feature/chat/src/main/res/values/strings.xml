@@ -210,7 +210,7 @@
         <item quantity="one">%1$s, %2$d result</item>
         <item quantity="other">%1$s, %2$d results</item>
     </plurals>
-    <string name="inline_games_unsupported">Pingogram can\'t play games yet</string>
+    <string name="inline_games_unsupported">TrueGram can\'t play games yet</string>
     <string name="inline_location_title">Share your location with %1$s?</string>
     <string name="inline_location_body">%1$s asks where you are to show results nearby. Your location goes to this bot with what you type to it, and to no one else. Pingogram asks again after it restarts.</string>
     <string name="inline_location_share">Share location</string>
@@ -337,7 +337,7 @@
     <!-- The sheet that sends the device's location (the attach menu's "Location") -->
     <string name="location_title">Send location</string>
     <!-- Before Android asks for the location permission. -->
-    <string name="location_permission_body">Pingogram uses your location only to send it in this chat, and only while this sheet is open.</string>
+    <string name="location_permission_body">TrueGram uses your location only to send it in this chat, and only while this sheet is open.</string>
     <string name="location_permission_continue">Continue</string>
     <!-- After the user refused the permission for good: it can only be allowed in the system settings. -->
     <string name="location_permission_denied_body">To send your location, allow Pingogram to use it in the app\'s settings.</string>
@@ -543,10 +543,10 @@
         <item quantity="one">%d button</item>
         <item quantity="other">%d buttons</item>
     </plurals>
-    <string name="bot_unsupported_mini_app">Pingogram can\'t open Mini Apps yet</string>
-    <string name="bot_unsupported_game">Pingogram can\'t open games yet</string>
-    <string name="bot_unsupported_payment">Pingogram can\'t make payments yet</string>
-    <string name="bot_unsupported_inline_link">Pingogram can\'t open this button yet</string>
+    <string name="bot_unsupported_mini_app">TrueGram can\'t open Mini Apps yet</string>
+    <string name="bot_unsupported_game">TrueGram can\'t open games yet</string>
+    <string name="bot_unsupported_payment">TrueGram can\'t make payments yet</string>
+    <string name="bot_unsupported_inline_link">TrueGram can\'t open this button yet</string>
     <string name="bot_alert_ok">OK</string>
     <string name="bot_link_title">Open this link?</string>
     <string name="bot_link_open">Open</string>
