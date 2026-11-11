@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Media viewer (REQUIREMENTS.md FR-C10) -->
+    <string name="media_back">Назад</string>
+    <!-- Where the shown photo or video is among the chat's: "3 of 120" -->
+    <string name="media_position">%1$d из %2$d</string>
+    <!-- Joins the parts of a page's description for screen readers: "Photo, 3 of 120" -->
+    <string name="media_description_part">%1$s, %2$s</string>
+    <string name="media_loading">Загрузка медиафайла</string>
+    <string name="media_error_title">Не удалось загрузить этот медиафайл</string>
+    <string name="media_retry">Попробовать снова</string>
+    <string name="media_unavailable_title">Этот медиафайл больше недоступен</string>
+    <string name="media_unavailable_body">Его удалили или здесь его нельзя показать.</string>
+    <!-- A hidden spoiler photo or video -->
+    <string name="media_spoiler">Спойлер</string>
+    <string name="media_spoiler_reveal">Нажмите, чтобы показать</string>
+    <string name="media_show_spoiler">Показать спойлер</string>
+    <string name="media_show_controls">Показать элементы управления</string>
+    <string name="media_hide_controls">Скрыть элементы управления</string>
+    <string name="media_zoom_in">Увеличить</string>
+    <string name="media_zoom_out">Уменьшить</string>
+    <string name="media_zoomed_in">Увеличено</string>
+    <string name="media_show_older">Показать более ранние</string>
+    <string name="media_show_newer">Показать более поздние</string>
+    <string name="media_play">Воспроизвести</string>
+    <string name="media_pause">Пауза</string>
+    <string name="media_picture_in_picture">Картинка в картинке</string>
+    <string name="media_pip_video">Видео в режиме «картинка в картинке»</string>
+    <string name="media_seek">Позиция воспроизведения</string>
+    <string name="media_caption_expand">Показать всю подпись</string>
+    <string name="media_caption_collapse">Свернуть подпись</string>
+    <string name="media_downloading">Загрузка</string>
+    <string name="media_playback_failed">Это видео нельзя воспроизвести</string>
+    <!-- The toolbar's actions (REQUIREMENTS.md FR-C6, FR-C10) -->
+    <string name="media_forward">Переслать</string>
+    <string name="media_share">Поделиться</string>
+    <string name="media_save">Сохранить в галерею</string>
+    <!-- State of the Share button while the file downloads before it is shared -->
+    <string name="media_share_pending">Подготовка к отправке</string>
+    <!-- State of the Save button while the file downloads or is copied into the gallery -->
+    <string name="media_save_pending">Сохранение</string>
+    <string name="media_share_failed">Этот файл нельзя отправить</string>
+    <string name="media_no_share_app">Нет приложения, которое может отправить этот файл</string>
+    <string name="media_saved">Сохранено в галерею</string>
+    <string name="media_save_failed">Не удалось сохранить в галерею</string>
+    <!-- Android 8–9: the storage permission was refused; the action opens the app's settings -->
+    <string name="media_storage_denied">Для сохранения в галерею нужен доступ к памяти</string>
+    <string name="media_storage_settings">Настройки</string>
+    <string name="media_storage_rationale_title">Разрешить доступ к памяти?</string>
+    <string name="media_storage_rationale_body">В этой версии Android Pingogram нужен доступ к памяти, чтобы добавлять фото и видео в галерею. Он добавляет только те, которые вы сохраняете.</string>
+    <string name="media_storage_rationale_not_now">Не сейчас</string>
+    <string name="media_storage_rationale_continue">Продолжить</string>
+    <string name="media_delete">Удалить</string>
+    <!-- The toolbar's button that opens the menu of further actions -->
+    <string name="media_more">Ещё</string>
+    <!-- Opens the conversation at the message of the shown photo or video -->
+    <string name="media_show_in_chat">Показать в чате</string>
+    <!-- Puts the shown photo on the clipboard -->
+    <string name="media_copy">Копировать</string>
+    <!-- State of the More button while the photo downloads before it is copied -->
+    <string name="media_copy_pending">Подготовка к копированию</string>
+    <!-- The clipboard's label of a copied photo -->
+    <string name="media_copy_label">Фото</string>
+    <string name="media_copied">Фото скопировано</string>
+    <string name="media_copy_failed">Это фото нельзя скопировать</string>
+    <!-- The confirmation before the shown photo, video or GIF is deleted -->
+    <string name="media_delete_photo_title">Удалить фото?</string>
+    <string name="media_delete_video_title">Удалить видео?</string>
+    <string name="media_delete_gif_title">Удалить GIF?</string>
+    <string name="media_delete_for_me_body">Оно будет удалено только у вас.</string>
+    <string name="media_delete_for_everyone_body">Оно будет удалено для всех в этом чате.</string>
+    <!-- When the user may also delete it for the others, with the check box below -->
+    <string name="media_delete_choice_body">Оно будет удалено у вас.</string>
+    <string name="media_delete_for_everyone">Удалить у всех</string>
+    <string name="media_delete_confirm">Удалить</string>
+    <string name="media_delete_cancel">Отмена</string>
+    <!-- The stories viewer. -->
+    <string name="story_viewer_title">Истории</string>
+    <string name="story_viewer_loading">Загрузка историй</string>
+    <!-- Read by screen readers as each story shows: "Story 2 of 5 by Ada". -->
+    <string name="story_a11y_position">История %1$d из %2$d от %3$s</string>
+    <string name="story_next">Следующая история</string>
+    <string name="story_previous">Предыдущая история</string>
+    <string name="story_pause">Пауза</string>
+    <string name="story_resume">Продолжить</string>
+    <string name="story_close">Закрыть</string>
+    <string name="story_mute">Выключить звук</string>
+    <string name="story_unmute">Включить звук</string>
+    <!-- How long ago a story was posted, in its first minute; later "12m", "3h" in the language's narrow units. -->
+    <string name="story_age_now">только что</string>
+    <string name="story_reply_placeholder">Ответить в личном сообщении…</string>
+    <string name="story_send">Отправить ответ</string>
+    <string name="story_reply_sent">Ответ отправлен</string>
+    <string name="story_react">Реакция</string>
+    <!-- %1$s is the emoji the user reacted with. -->
+    <string name="story_reaction_chosen">Ваша реакция: %1$s. Изменить реакцию</string>
+    <string name="story_playback_failed">Это видео нельзя воспроизвести</string>
+    <string name="story_live_title">Прямой эфир</string>
+    <string name="story_live_body">TrueGram пока не может подключаться к прямым эфирам из историй.</string>
+    <string name="story_unsupported_title">Эту историю нельзя показать</string>
+    <string name="story_unsupported_body">TrueGram пока не может показать такой тип историй.</string>
+    <string name="story_unavailable_title">История недоступна</string>
+    <string name="story_unavailable_body">Эту историю удалили или срок её действия истёк.</string>
+    <!-- Posting a story, picking its photos and videos (docs/adr/0036-posting-stories.md). -->
+    <string name="new_story_title">Новая история</string>
+    <string name="new_story_close">Закрыть</string>
+    <!-- How many photos and videos are picked: "4 selected". -->
+    <plurals name="new_story_selected">
+        <item quantity="one">Выбран %1$d</item>
+        <item quantity="few">Выбрано: %1$d</item>
+        <item quantity="many">Выбрано: %1$d</item>
+        <item quantity="other">Выбрано: %1$d</item>
+    </plurals>
+    <string name="new_story_in_this_story">В этой истории</string>
+    <string name="new_story_drag_to_reorder">Перетащите, чтобы изменить порядок</string>
+    <string name="new_story_add_more">Добавить ещё</string>
+    <string name="new_story_camera">Камера</string>
+    <string name="new_story_next">Далее</string>
+    <string name="new_story_remove">Удалить из истории</string>
+    <string name="new_story_move_earlier">Переместить раньше</string>
+    <string name="new_story_move_later">Переместить позже</string>
+    <!-- Read by screen readers for a picked item: "Photo 1 of 4", "Video 3 of 4, 0:14". -->
+    <string name="new_story_a11y_photo">Фото %1$d из %2$d</string>
+    <string name="new_story_a11y_video">Видео %1$d из %2$d, %3$s</string>
+    <string name="new_story_a11y_preparing">Добавляем фото или видео</string>
+    <!-- Under the picked items; Pingogram never asks for the storage permission. -->
+    <plurals name="new_story_picker_note">
+        <item quantity="one">Выбрано через системный выбор фото Android. Pingogram видит только этот элемент.</item>
+        <item quantity="few">Выбрано через системный выбор фото Android. Pingogram видит только эти %1$d элемента.</item>
+        <item quantity="many">Выбрано через системный выбор фото Android. Pingogram видит только эти %1$d элементов.</item>
+        <item quantity="other">Выбрано через системный выбор фото Android. Pingogram видит только эти %1$d элемента.</item>
+    </plurals>
+    <string name="new_story_not_postable">В историю можно добавлять только фото и видео</string>
+    <string name="new_story_no_picker">Нет приложения на этом устройстве, которое может выбрать фото</string>
+    <string name="new_story_no_camera_app">На этом устройстве нет приложения камеры, которое может сделать фото</string>
+    <!-- Composing a story (board 10b). -->
+    <string name="new_story_back_to_picking">Назад к выбору</string>
+    <string name="new_story_caption">Подпись</string>
+    <string name="new_story_formatting">Форматирование</string>
+    <string name="new_story_bold">Жирный</string>
+    <string name="new_story_italic">Курсив</string>
+    <string name="new_story_link">Ссылка</string>
+    <string name="new_story_spoiler">Спойлер</string>
+    <string name="new_story_link_title">Ссылка</string>
+    <string name="new_story_link_address">Адрес</string>
+    <string name="new_story_link_apply">Применить</string>
+    <string name="new_story_link_remove">Удалить</string>
+    <string name="new_story_link_cancel">Отмена</string>
+    <string name="new_story_audience_everyone">Все</string>
+    <string name="new_story_audience_contacts">Контакты</string>
+    <string name="new_story_audience_close_friends">Близкие друзья</string>
+    <string name="new_story_audience_selected">Выбранные люди</string>
+    <!-- The chip once the story is for picked people: "3 people". -->
+    <plurals name="new_story_audience_people">
+        <item quantity="one">%1$d человек</item>
+        <item quantity="few">%1$d человека</item>
+        <item quantity="many">%1$d человек</item>
+        <item quantity="other">%1$d человека</item>
+    </plurals>
+    <!-- The chip that opens who the story is for: "Who can see it: Close friends". -->
+    <string name="new_story_audience_a11y">Кто может видеть: %1$s</string>
+    <string name="new_story_stays">Будет видна 24 ч</string>
+    <string name="new_story_post">Опубликовать</string>
+    <string name="new_story_posting">Публикация…</string>
+    <!-- Who sees the story and which item shows: "Shown to 14 close friends · 1 of 4 items". -->
+    <string name="new_story_shown_to_everyone">Показывается всем</string>
+    <string name="new_story_shown_to_contacts">Показывается вашим контактам</string>
+    <plurals name="new_story_shown_to_close_friends">
+        <item quantity="one">Показывается %1$d близкому другу</item>
+        <item quantity="few">Показывается %1$d близким друзьям</item>
+        <item quantity="many">Показывается %1$d близким друзьям</item>
+        <item quantity="other">Показывается %1$d близким друзьям</item>
+    </plurals>
+    <string name="new_story_shown_to_close_friends_unknown">Показывается вашим близким друзьям</string>
+    <plurals name="new_story_shown_to_people">
+        <item quantity="one">Показывается %1$d человеку</item>
+        <item quantity="few">Показывается %1$d людям</item>
+        <item quantity="many">Показывается %1$d людям</item>
+        <item quantity="other">Показывается %1$d людям</item>
+    </plurals>
+    <!-- "Selected people": picking who sees a story among the user's contacts. -->
+    <string name="new_story_people_title">Кто может видеть эту историю</string>
+    <string name="new_story_people_text">Видеть её будут только выбранные здесь люди. Telegram не показывает её никому другому.</string>
+    <string name="new_story_people_search">Поиск контактов</string>
+    <string name="new_story_people_clear">Очистить поиск</string>
+    <string name="new_story_people_cancel">Отмена</string>
+    <string name="new_story_people_done">Готово</string>
+    <!-- "Done" once people are picked: "Done (3)". -->
+    <plurals name="new_story_people_done_count">
+        <item quantity="one">Готово (%1$d)</item>
+        <item quantity="few">Готово (%1$d)</item>
+        <item quantity="many">Готово (%1$d)</item>
+        <item quantity="other">Готово (%1$d)</item>
+    </plurals>
+    <string name="new_story_people_no_matches">Нет подходящих контактов</string>
+    <string name="new_story_people_no_contacts">Пока нет контактов для выбора. Добавьте их на вкладке «Контакты».</string>
+    <string name="new_story_people_someone">Удалённый аккаунт</string>
+    <!-- %1$d is the shown item's place, %2$d how many there are: "1 of 4 items". -->
+    <plurals name="new_story_item_of">
+        <item quantity="one">%1$d из %2$d элемента</item>
+        <item quantity="few">%1$d из %2$d элементов</item>
+        <item quantity="many">%1$d из %2$d элементов</item>
+        <item quantity="other">%1$d из %2$d элемента</item>
+    </plurals>
+    <string name="new_story_summary">%1$s · %2$s</string>
+    <!-- Why Telegram does not let the user post a story now; never an offer of Telegram Premium (CLAUDE.md rule 3). -->
+    <string name="new_story_limit_active">У вас столько активных историй, сколько разрешает Telegram. Опубликуйте новую, когда одна истечёт.</string>
+    <string name="new_story_limit_weekly">Вы достигли недельного лимита историй. Опубликовать снова можно через %1$s.</string>
+    <string name="new_story_limit_monthly">Вы достигли месячного лимита историй. Опубликовать снова можно через %1$s.</string>
+    <string name="new_story_limit_premium">Telegram не позволяет этому аккаунту публиковать истории.</string>
+    <string name="new_story_limit_live">Ваш прямой эфир включён. Опубликовать историю можно будет после его окончания.</string>
+    <string name="new_story_limit_other">Telegram сейчас не позволяет вам опубликовать историю.</string>
+    <string name="new_story_checking">Проверяем, можно ли опубликовать историю…</string>
+</resources>
