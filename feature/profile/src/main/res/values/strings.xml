@@ -86,7 +86,7 @@
     <!-- What tapping a photo, video or file of the shared media does, spoken by screen readers ("double-tap to open"). -->
     <string name="profile_shared_media_open">Open</string>
     <!-- The label of what Pingogram puts on the clipboard, which Android may show. -->
-    <string name="profile_copy_label">Copied from Pingogram</string>
+    <string name="profile_copy_label">Copied from TrueGram</string>
     <!-- Snackbars before Android 13, which confirms copies itself. -->
     <string name="profile_username_copied">Username copied</string>
     <string name="profile_phone_copied">Phone number copied</string>
@@ -118,7 +118,7 @@
 
     <!-- Secret chat confirmation -->
     <string name="profile_secret_chat_title">Start a secret chat?</string>
-    <string name="profile_secret_chat_text">Secret chats are end-to-end encrypted and exist only on this device and the other person\'s. They aren\'t in your Telegram account, so you won\'t see them on your other devices, and logging out of Pingogram deletes them.</string>
+    <string name="profile_secret_chat_text">Secret chats are end-to-end encrypted and exist only on this device and the other person\'s. They aren\'t in your Telegram account, so you won\'t see them on your other devices, and logging out of TrueGram deletes them.</string>
     <string name="profile_secret_chat_confirm">Start</string>
 
     <!-- Report sheet -->
@@ -417,7 +417,7 @@
     <string name="invite_request_note_group">An admin has to accept your request to join this group.</string>
     <string name="invite_request_note_channel">An admin has to accept your request to join this channel.</string>
     <string name="invite_needs_subscription">Joining needs a paid subscription, which Pingogram doesn\'t offer.</string>
-    <string name="invite_needs_bot_approval">This group checks new members with a bot, which Pingogram can\'t show yet.</string>
+    <string name="invite_needs_bot_approval">This group checks new members with a bot, which TrueGram can\'t show yet.</string>
     <string name="invite_declined">Telegram didn\'t let you join.</string>
     <string name="invite_request_sent_title">Request sent</string>
     <string name="invite_request_sent_group">You can join the group once an admin accepts your request.</string>
