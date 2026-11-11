@@ -75,8 +75,8 @@
     <string name="call_route_selected">Selected</string>
 
     <!-- Before Android asks for the microphone (and Bluetooth headsets on Android 12+). -->
-    <string name="call_microphone_rationale">To talk, Pingogram needs your microphone. It is used only during calls, and nothing is recorded. On Android 12 and later, Android also asks to find your Bluetooth headsets, so you can move the call to one.</string>
-    <string name="call_microphone_settings">To talk, allow Pingogram to use your microphone in its settings.</string>
+    <string name="call_microphone_rationale">To talk, TrueGram needs your microphone. It is used only during calls, and nothing is recorded. On Android 12 and later, Android also asks to find your Bluetooth headsets, so you can move the call to one.</string>
+    <string name="call_microphone_settings">To talk, allow TrueGram to use your microphone in its settings.</string>
     <string name="call_not_now">Not now</string>
     <string name="call_continue">Continue</string>
     <string name="call_open_settings">Open settings</string>
@@ -105,7 +105,7 @@
     <string name="group_call_end_text">It ends for everyone in it.</string>
     <string name="group_call_end_confirm">End</string>
     <string name="group_call_cancel">Cancel</string>
-    <string name="group_call_microphone_rationale">To speak in the voice chat, Pingogram needs the microphone. You join muted, and nothing is sent until you unmute.</string>
+    <string name="group_call_microphone_rationale">To speak in the voice chat, TrueGram needs the microphone. You join muted, and nothing is sent until you unmute.</string>
     <!-- Recent calls (the call history). -->
     <string name="recent_calls_title">Recent calls</string>
     <string name="recent_calls_back">Back</string>
