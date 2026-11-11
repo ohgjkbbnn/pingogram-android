@@ -105,9 +105,10 @@ internal fun ProfileScreen(
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     twoPanes: Boolean = rememberTwoPanes(),
     gridState: LazyGridState = rememberLazyGridState(),
+    music: (@Composable () -> Unit)? = null,
 ) {
     val page =
-        ProfilePageParts(state, media, onEvent, onMediaEvent, mediaActions, onEditContact, onExportChat)
+        ProfilePageParts(state, media, onEvent, onMediaEvent, mediaActions, onEditContact, onExportChat, music)
     if (twoPanes) {
         ProfilePanes(page, onBack, snackbarHostState, modifier, gridState)
     } else {
@@ -124,6 +125,7 @@ internal class ProfilePageParts(
     val mediaActions: SharedMediaActions,
     val onEditContact: (() -> Unit)?,
     val onExportChat: (() -> Unit)? = null,
+    val music: (@Composable () -> Unit)? = null,
 )
 
 /** Whether the window has room for the supporting pane beside the profile: expanded and wider. */
@@ -244,6 +246,9 @@ private fun LazyGridScope.profileItems(
     fullWidth(key = ACTIONS, inset = inset) {
         ProfileActionsRow(state.actions, page.onEvent, Modifier.padding(top = MaterialTheme.spacing.small))
     }
+    page.music?.let { music ->
+        fullWidth(key = MUSIC, inset = inset, top = MaterialTheme.spacing.small) { music() }
+    }
     if (state.photos.totalCount > 1) {
         item(key = PHOTOS, span = { GridItemSpan(maxLineSpan) }, contentType = PHOTOS) {
             ProfilePhotosCarousel(
@@ -323,3 +328,4 @@ private const val PHOTOS = "photos"
 private const val INFO = "info"
 private const val MORE = "more"
 private const val MEDIA_HEADER = "media-header"
+private const val MUSIC = "music"
