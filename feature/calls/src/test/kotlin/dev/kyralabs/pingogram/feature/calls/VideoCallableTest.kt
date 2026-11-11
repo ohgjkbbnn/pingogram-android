@@ -5,10 +5,12 @@ import dev.kyralabs.pingogram.core.common.result.DomainError
 import dev.kyralabs.pingogram.core.common.result.Outcome
 import dev.kyralabs.pingogram.core.domain.model.Birthdate
 import dev.kyralabs.pingogram.core.domain.model.FormattedText
+import dev.kyralabs.pingogram.core.domain.model.ProfileAudiosPage
 import dev.kyralabs.pingogram.core.domain.model.UserFullInfo
 import dev.kyralabs.pingogram.core.domain.model.UserProfilePhotosPage
 import dev.kyralabs.pingogram.core.domain.repository.UserProfileRepository
 import dev.kyralabs.pingogram.feature.calls.ui.CameraAccess
+import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.test.runTest
@@ -78,6 +80,12 @@ class VideoCallableTest {
     }
 
     private class FakeProfiles : UserProfileRepository {
+        override suspend fun profileAudios(
+            userId: Long,
+            offset: Int,
+            limit: Int,
+        ): Outcome<ProfileAudiosPage> = Outcome.Success(ProfileAudiosPage(persistentListOf(), 0))
+
         val info = MutableSharedFlow<Outcome<UserFullInfo>>(replay = 1)
         val asked = mutableListOf<Long>()
 
