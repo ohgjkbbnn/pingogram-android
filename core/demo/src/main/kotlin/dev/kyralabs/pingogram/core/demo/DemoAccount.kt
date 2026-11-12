@@ -84,6 +84,10 @@ internal class DemoAccount : DemoArea {
                 ok(TdApi.Audios().apply { totalCount = 0; audios = emptyArray() })
             }
 
+            is TdApi.GetReceivedGifts -> {
+                ok(TdApi.ReceivedGifts().apply { totalCount = 0; gifts = emptyArray(); nextOffset = "" })
+            }
+
             is TdApi.GetUserLink -> {
                 ok(userLink(world))
             }
