@@ -49,6 +49,7 @@ internal fun ProfileRoute(
     onOpenProfile: (userId: Long) -> Unit,
     onOpenMedia: (chatId: Long, messageId: Long) -> Unit,
     onOpenMessage: (chatId: Long, messageId: Long) -> Unit,
+    onOpenPlayer: (userId: Long) -> Unit,
     modifier: Modifier = Modifier,
     onEditContact: ((userId: Long) -> Unit)? = null,
     onExportChat: ((chatId: Long) -> Unit)? = null,
@@ -83,6 +84,7 @@ internal fun ProfileRoute(
         modifier = modifier,
         onEditContact = if (onEditContact != null && userId != null) ({ onEditContact(userId) }) else null,
         onExportChat = if (onExportChat != null && exportChatId != null) ({ onExportChat(exportChatId) }) else null,
+        onOpenPlayer = onOpenPlayer,
         snackbarHostState = snackbarHostState,
         showMusic = true,
     )
