@@ -497,6 +497,16 @@ data class ProfileRoute(
 )
 
 /**
+ * The music of user [userId] (`REQUIREMENTS.md` FR-P2), `:feature:profile`: every track of the profile, the one
+ * playing, play and pause, the previous and next track, seeking, shuffle and repeat. Pushed above the profile whose
+ * card opens it, or above the screen the mini player is tapped on.
+ */
+@Serializable
+data class PlayerRoute(
+    val userId: Long,
+)
+
+/**
  * The info page of group or channel [chatId] (`REQUIREMENTS.md` FR-P3, FR-P4), `:feature:profile`: photo, title,
  * description and link, mute, the members, the shared media, administration for those whose rights allow it, and
  * leaving, deleting or clearing the history. Pushed above the conversation from its title, with the shared axis on X.
