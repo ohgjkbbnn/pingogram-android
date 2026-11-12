@@ -1,10 +1,9 @@
 package dev.kyralabs.pingogram.feature.profile.player
 
-import androidx.compose.animation.core.Animatable
-import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.detectVerticalDragGestures
+import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -27,14 +26,20 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.toShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -50,7 +55,6 @@ import dev.kyralabs.pingogram.core.ui.preview.PingogramPreviews
 import dev.kyralabs.pingogram.core.ui.theme.sizes
 import dev.kyralabs.pingogram.core.ui.theme.spacing
 import dev.kyralabs.pingogram.feature.profile.R
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.math.roundToInt
 
@@ -85,7 +89,10 @@ fun MiniPlayerBubble(
     )
 }
 
-/** The round bubble without a view model, so previews can show it. */
+/**
+ * The round bubble without a view model, so previews can show it. It moves anywhere with the finger. Dragged down to the
+ * bottom of the screen, a red close cross appears on it; released there, the music stops.
+ */
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 internal fun MiniPlayerBubbleContent(
@@ -96,61 +103,65 @@ internal fun MiniPlayerBubbleContent(
     onClose: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val closeDistance = with(LocalDensity.current) { CLOSE_DRAG_DP.dp.toPx() }
-    // How far the bubble is dragged down, and the close button's reveal (0 hidden, 1 fully shown).
-    val drag = remember { Animatable(0f) }
-    val scope = rememberCoroutineScope()
-    val reveal = (drag.value / closeDistance).coerceIn(0f, 1f)
+    val density = LocalDensity.current
+    val screenHeight = LocalWindowInfo.current.containerSize.height.toFloat()
+    val closeZoneTop = screenHeight - with(density) { CLOSE_ZONE_DP.dp.toPx() }
+    var offset by remember { mutableStateOf(Offset.Zero) }
+    var bottomInRoot by remember { mutableFloatStateOf(0f) }
+    var dragging by remember { mutableStateOf(false) }
+    // The drag gesture keeps the first composition's lambdas, so it reads the latest values through these.
+    val bottomNow = rememberUpdatedState(bottomInRoot)
+    val closeZoneNow = rememberUpdatedState(closeZoneTop)
+    val onCloseNow = rememberUpdatedState(onClose)
+    val overCloseZone = dragging && bottomInRoot > closeZoneTop
+    val reveal by animateFloatAsState(targetValue = if (overCloseZone) 1f else 0f, label = "bubbleClose")
     val colors = MaterialTheme.colorScheme
-    Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
-        Box(
-            modifier =
-                Modifier
-                    .size(BUBBLE_DP.dp)
-                    .pointerInput(Unit) {
-                        detectVerticalDragGestures(
-                            onVerticalDrag = { change, amount ->
-                                change.consume()
-                                scope.launch { drag.snapTo((drag.value + amount).coerceAtLeast(0f)) }
-                            },
-                            onDragEnd = {
-                                scope.launch {
-                                    if (drag.value >= closeDistance) {
-                                        onClose()
-                                    } else {
-                                        drag.animateTo(0f, spring(dampingRatio = 0.6f, stiffness = Spring.StiffnessMediumLow))
-                                    }
-                                }
-                            },
-                            onDragCancel = { scope.launch { drag.animateTo(0f) } },
-                        )
-                    }.offset { IntOffset(0, drag.value.roundToInt()) },
-            contentAlignment = Alignment.Center,
-        ) {
-            CircularWavyProgressIndicator(
-                progress = { progress },
-                modifier = Modifier.fillMaxSize(),
-                color = colors.primary,
-                trackColor = colors.surfaceContainerHighest,
-            )
-            Surface(
-                onClick = onOpen,
-                modifier = Modifier.padding(RING_INSET_DP.dp).fillMaxSize(),
-                shape = MaterialShapes.Cookie9Sided.toShape(),
-                color = colors.primaryContainer,
-                contentColor = colors.onPrimaryContainer,
-                shadowElevation = 4.dp,
-            ) {
-                Box(contentAlignment = Alignment.Center) {
-                    Icon(
-                        painter =
-                            painterResource(
-                                if (isPlaying) UiR.drawable.ic_pause_filled else UiR.drawable.ic_play_arrow_filled,
-                            ),
-                        contentDescription = label.ifBlank { null },
-                        modifier = Modifier.size(26.dp),
+    Box(
+        modifier =
+            modifier
+                .size(BUBBLE_DP.dp)
+                .onGloballyPositioned { coordinates ->
+                    bottomInRoot = coordinates.positionInRoot().y + coordinates.size.height
+                }.offset { IntOffset(offset.x.roundToInt(), offset.y.roundToInt()) }
+                .pointerInput(Unit) {
+                    detectDragGestures(
+                        onDragStart = { dragging = true },
+                        onDrag = { change, amount ->
+                            change.consume()
+                            offset += amount
+                        },
+                        onDragEnd = {
+                            if (bottomNow.value > closeZoneNow.value) onCloseNow.value()
+                            dragging = false
+                        },
+                        onDragCancel = { dragging = false },
                     )
-                }
+                },
+        contentAlignment = Alignment.Center,
+    ) {
+        CircularWavyProgressIndicator(
+            progress = { progress },
+            modifier = Modifier.fillMaxSize(),
+            color = colors.primary,
+            trackColor = colors.surfaceContainerHighest,
+        )
+        Surface(
+            onClick = onOpen,
+            modifier = Modifier.padding(RING_INSET_DP.dp).fillMaxSize(),
+            shape = MaterialShapes.Cookie9Sided.toShape(),
+            color = colors.primaryContainer,
+            contentColor = colors.onPrimaryContainer,
+            shadowElevation = 4.dp,
+        ) {
+            Box(contentAlignment = Alignment.Center) {
+                Icon(
+                    painter =
+                        painterResource(
+                            if (isPlaying) UiR.drawable.ic_pause_filled else UiR.drawable.ic_play_arrow_filled,
+                        ),
+                    contentDescription = label.ifBlank { null },
+                    modifier = Modifier.size(26.dp),
+                )
             }
         }
         Surface(
@@ -158,7 +169,7 @@ internal fun MiniPlayerBubbleContent(
             enabled = reveal >= 1f,
             modifier =
                 Modifier
-                    .padding(top = CLOSE_TOP_DP.dp)
+                    .align(Alignment.TopEnd)
                     .size(CLOSE_DP.dp)
                     .graphicsLayer {
                         alpha = reveal
@@ -182,8 +193,7 @@ internal fun MiniPlayerBubbleContent(
 
 private const val BUBBLE_DP = 72
 private const val RING_INSET_DP = 6
-private const val CLOSE_DRAG_DP = 56
-private const val CLOSE_TOP_DP = 8
+private const val CLOSE_ZONE_DP = 120
 private const val CLOSE_DP = 48
 
 /** The mini player's controls: play or pause, and the next track. */
