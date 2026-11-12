@@ -641,4 +641,20 @@
     <string name="statistics_graph_empty">Not enough data for this chart</string>
     <string name="statistics_chart_series">%1$s: from %2$s to %3$s, highest %4$s</string>
     <string name="profile_personal_channel">Channel</string>
+    <!-- The profile's music player and its mini player. -->
+    <string name="player_title">Now playing</string>
+    <string name="player_play">Play</string>
+    <string name="player_pause">Pause</string>
+    <string name="player_next">Next track</string>
+    <string name="player_previous">Previous track</string>
+    <string name="player_shuffle">Shuffle</string>
+    <string name="player_repeat_off">Repeat off</string>
+    <string name="player_repeat_all">Repeat all</string>
+    <string name="player_repeat_one">Repeat one</string>
+    <string name="player_queue">Up next</string>
+    <string name="player_empty_title">No music yet</string>
+    <string name="player_empty_body">This profile has no music.</string>
+    <string name="player_loading">Loading this profile’s music</string>
+    <string name="player_error">Could not load the music</string>
+    <string name="player_error_body">Check the connection and try again.</string>
 </resources>
