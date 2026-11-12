@@ -3,6 +3,7 @@ package dev.kyralabs.pingogram.core.domain.repository
 import dev.kyralabs.pingogram.core.common.result.Outcome
 import dev.kyralabs.pingogram.core.domain.model.Birthdate
 import dev.kyralabs.pingogram.core.domain.model.ProfileAudiosPage
+import dev.kyralabs.pingogram.core.domain.model.ProfileGiftsPage
 import dev.kyralabs.pingogram.core.domain.model.UserFullInfo
 import dev.kyralabs.pingogram.core.domain.model.UserProfilePhotosPage
 import kotlinx.coroutines.flow.Flow
@@ -61,7 +62,17 @@ interface UserProfileRepository {
         limit: Int = PROFILE_AUDIOS_PAGE_SIZE,
     ): Outcome<ProfileAudiosPage>
 
+    /** Up to [pageSize] of the gifts user [userId] received, from [pageOffset] (empty for the first page). */
+    suspend fun profileGifts(
+        userId: Long,
+        pageOffset: String = "",
+        pageSize: Int = PROFILE_GIFTS_PAGE_SIZE,
+    ): Outcome<ProfileGiftsPage>
+
     companion object {
+        /** The gifts the profile shows at first. */
+        const val PROFILE_GIFTS_PAGE_SIZE = 12
+
         /** The profile photos a page holds: enough for the carousel's first screens. */
         const val PHOTOS_PAGE_SIZE = 20
 
