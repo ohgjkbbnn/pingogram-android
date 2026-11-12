@@ -285,13 +285,6 @@ private fun LazyGridScope.profileItems(
             ProfileInfoGroup(state.info, page.onEvent, Modifier.padding(top = MaterialTheme.spacing.extraLarge))
         }
     }
-    if (page.showGifts) {
-        item(key = GIFTS, span = { GridItemSpan(maxLineSpan) }, contentType = GIFTS) {
-            ProfileGiftsSection(
-                modifier = Modifier.padding(start = inset, end = inset, top = MaterialTheme.spacing.extraLarge),
-            )
-        }
-    }
     val actions = state.actions
     val hasMore =
         (actions.contact != null && page.onEditContact != null) ||
@@ -306,6 +299,13 @@ private fun LazyGridScope.profileItems(
                 modifier = Modifier.padding(top = MaterialTheme.spacing.extraLarge),
                 onEditContact = page.onEditContact,
                 onExportChat = page.onExportChat,
+            )
+        }
+    }
+    if (page.showGifts) {
+        item(key = GIFTS, span = { GridItemSpan(maxLineSpan) }, contentType = GIFTS) {
+            ProfileGiftsSection(
+                modifier = Modifier.padding(start = inset, end = inset, top = MaterialTheme.spacing.extraLarge),
             )
         }
     }
