@@ -111,6 +111,14 @@ class MusicPlaybackController
                 }
         }
 
+        /** Stops the music and clears the queue: the mini player hides until the next play. */
+        fun close() {
+            loading?.cancel()
+            player?.stop()
+            player?.clearMediaItems()
+            mutableState.update { MusicPlaybackState(isConnected = it.isConnected) }
+        }
+
         /** Plays or pauses the queue. */
         fun toggle() {
             val exo = player ?: return
