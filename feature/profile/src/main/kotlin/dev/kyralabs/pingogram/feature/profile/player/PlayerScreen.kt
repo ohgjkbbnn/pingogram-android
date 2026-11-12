@@ -178,6 +178,7 @@ internal fun PlayerScreen(
             )
         },
     ) { innerPadding ->
+        val loadingDescription = stringResource(R.string.player_loading)
         when {
             state.isLoading && state.tracks.isEmpty() -> {
                 DelayedLoadingIndicator(
@@ -185,7 +186,7 @@ internal fun PlayerScreen(
                         Modifier
                             .fillMaxSize()
                             .padding(innerPadding)
-                            .semantics { contentDescription = stringResource(R.string.player_loading) },
+                            .semantics { contentDescription = loadingDescription },
                 )
             }
 
