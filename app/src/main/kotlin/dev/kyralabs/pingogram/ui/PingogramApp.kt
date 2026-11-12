@@ -72,6 +72,7 @@ import dev.kyralabs.pingogram.feature.chats.navigation.rememberGlobalSearchState
 import dev.kyralabs.pingogram.feature.contacts.navigation.navigateToNewContact
 import dev.kyralabs.pingogram.feature.feedback.navigation.navigateToFeedback
 import dev.kyralabs.pingogram.feature.profile.player.MiniPlayer
+import dev.kyralabs.pingogram.feature.profile.player.MiniPlayerBubble
 import dev.kyralabs.pingogram.link.LinkDispatcher
 import dev.kyralabs.pingogram.navigation.PingogramNavHost
 import dev.kyralabs.pingogram.navigation.TopLevelDestination
@@ -165,12 +166,15 @@ fun PingogramApp(
     val currentTab by remember(currentEntry) {
         derivedStateOf { currentEntry.value?.destination.topLevelDestination() }
     }
+    // Only on the main tabs: over a chat or a profile the bar would cover the message box and the profile's info.
     val showMiniPlayer by remember(currentEntry) {
+        derivedStateOf { currentEntry.value?.destination.topLevelDestination() != null }
+    }
+    // Off the main tabs the music shows as a round bubble at the screen's edge instead, so it never covers a message box.
+    val showBubble by remember(currentEntry) {
         derivedStateOf {
             val destination = currentEntry.value?.destination
-            destination.isInMainGraph() &&
-                !destination.isFullScreen() &&
-                destination?.hasRoute<PlayerRoute>() != true
+            destination.topLevelDestination() == null && destination?.hasRoute<PlayerRoute>() != true
         }
     }
     // The tab the user is on: the current destination, or while screens pushed on top of a tab hide the floating bar,
@@ -261,6 +265,16 @@ fun PingogramApp(
                                                     FloatingToolbarDefaults.ScreenOffset
                                                 },
                                         ),
+                            )
+                        }
+                        if (showBubble) {
+                            MiniPlayerBubble(
+                                onOpenPlayer = openPlayer,
+                                modifier =
+                                    Modifier
+                                        .align(Alignment.CenterEnd)
+                                        .windowInsetsPadding(WindowInsets.navigationBars)
+                                        .padding(end = MaterialTheme.spacing.small),
                             )
                         }
                         // Compact windows only: composed there even while hidden (FloatingNavigationBar).
