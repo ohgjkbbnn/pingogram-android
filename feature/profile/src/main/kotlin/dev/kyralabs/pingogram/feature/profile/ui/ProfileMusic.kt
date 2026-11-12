@@ -1,7 +1,5 @@
 package dev.kyralabs.pingogram.feature.profile.ui
 
-import android.content.Context
-import android.net.Uri
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -9,7 +7,10 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
+import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -19,172 +20,128 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewModelScope
-import androidx.media3.common.MediaItem
-import androidx.media3.common.Player
-import androidx.media3.exoplayer.ExoPlayer
 import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dev.kyralabs.pingogram.core.common.result.Outcome
-import dev.kyralabs.pingogram.core.domain.model.DownloadPriority
-import dev.kyralabs.pingogram.core.domain.model.FileState
-import dev.kyralabs.pingogram.core.domain.repository.FileRepository
 import dev.kyralabs.pingogram.core.domain.repository.UserProfileRepository
 import dev.kyralabs.pingogram.core.navigation.ProfileRoute
+import dev.kyralabs.pingogram.core.ui.theme.sizes
 import dev.kyralabs.pingogram.core.ui.theme.spacing
+import dev.kyralabs.pingogram.feature.profile.R
+import dev.kyralabs.pingogram.feature.profile.player.MusicPlaybackController
+import dev.kyralabs.pingogram.feature.profile.player.MusicTrack
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.toImmutableList
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.filterIsInstance
-import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import java.io.File
 import javax.inject.Inject
 import dev.kyralabs.pingogram.core.ui.R as UiR
 
-/** One track of the profile's music: the file to play, and what the card shows. */
-data class ProfileMusicTrack(
-    val fileId: Int,
-    val title: String,
-    val performer: String,
-)
-
 /**
- * The profile's music as the card shows it: the first [tracks] of the user's profile music, which one plays
- * ([playingIndex]), and whether it plays ([isPlaying]).
+ * The profile's music as the card shows it: the first [tracks] of the user's profile music, the track that plays
+ * ([nowPlaying]) when it is this profile's queue, and whether it plays.
  */
 data class ProfileMusicState(
-    val tracks: ImmutableList<ProfileMusicTrack> = persistentListOf(),
-    val playingIndex: Int? = null,
+    val tracks: ImmutableList<MusicTrack> = persistentListOf(),
+    val nowPlaying: MusicTrack? = null,
     val isPlaying: Boolean = false,
 )
 
 /**
- * The profile's music (`UserProfileRepository.profileAudios`): loads the first tracks of user [userId], and plays a
- * track on its own [ExoPlayer] once TDLib has downloaded it (`FileRepository`). Playback belongs to this view model,
- * so it stops when the profile closes; a background player comes later.
+ * The profile's music card: it loads the first tracks of user [userId] for the card, and plays the profile's whole
+ * queue through [MusicPlaybackController], so playback goes on when the profile closes. The player's service owns the
+ * playback; this view model only mirrors it for the card.
  */
 @HiltViewModel
 class ProfileMusicViewModel
     @Inject
     constructor(
         savedStateHandle: SavedStateHandle,
-        @param:ApplicationContext private val context: Context,
         private val profileRepository: UserProfileRepository,
-        private val fileRepository: FileRepository,
+        private val playback: MusicPlaybackController,
     ) : ViewModel() {
         private val userId = savedStateHandle.toRoute<ProfileRoute>().userId
 
-        private val mutableState = MutableStateFlow(ProfileMusicState())
+        private val preview = MutableStateFlow(ProfileMusicState())
 
-        /** The tracks, which one plays, and whether it plays. */
-        val state: StateFlow<ProfileMusicState> = mutableState.asStateFlow()
-
-        private var loading: Job? = null
-
-        private val player: ExoPlayer =
-            ExoPlayer.Builder(context).build().apply {
-                addListener(
-                    object : Player.Listener {
-                        override fun onIsPlayingChanged(isPlaying: Boolean) {
-                            mutableState.update { it.copy(isPlaying = isPlaying) }
-                        }
-
-                        override fun onPlaybackStateChanged(playbackState: Int) {
-                            if (playbackState == Player.STATE_ENDED) {
-                                mutableState.update { it.copy(isPlaying = false) }
-                            }
-                        }
-                    },
-                )
-            }
+        /** The card's first tracks, the track that plays when it is this profile's, and whether it plays. */
+        val state: StateFlow<ProfileMusicState> =
+            combine(preview, playback.state) { card, player ->
+                val current = player.currentTrack?.takeIf { player.profileUserId == userId }
+                card.copy(nowPlaying = current, isPlaying = current != null && player.isPlaying)
+            }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS), ProfileMusicState())
 
         init {
+            playback.ensureConnected()
             viewModelScope.launch {
                 // The card shows the first few tracks; a failure leaves the card out.
                 val page = profileRepository.profileAudios(userId, offset = 0, limit = FIRST_TRACKS)
                 if (page is Outcome.Success) {
                     val tracks =
                         page.value.audios.map { audio ->
-                            ProfileMusicTrack(
+                            MusicTrack(
                                 fileId = audio.file.id,
                                 title = audio.title.ifBlank { audio.fileName },
                                 performer = audio.performer,
                             )
                         }
-                    mutableState.update { it.copy(tracks = tracks.toImmutableList()) }
+                    preview.update { it.copy(tracks = tracks.toImmutableList()) }
                 }
             }
         }
 
-        /** Plays track [index], or pauses or resumes it when it already plays. */
-        fun onPlayPause(index: Int) {
-            if (mutableState.value.playingIndex == index) {
-                if (player.isPlaying) player.pause() else player.play()
+        /** Plays the profile's music, or pauses or resumes it when it already plays. */
+        fun onPlayPause() {
+            val player = playback.state.value
+            if (player.profileUserId == userId && player.currentTrack != null) {
+                playback.toggle()
             } else {
-                startTrack(index)
+                playback.playProfile(userId)
             }
-        }
-
-        private fun startTrack(index: Int) {
-            val track = mutableState.value.tracks.getOrNull(index) ?: return
-            loading?.cancel()
-            player.stop()
-            mutableState.update { it.copy(playingIndex = index, isPlaying = false) }
-            loading =
-                viewModelScope.launch {
-                    fileRepository.download(track.fileId, DownloadPriority.Visible)
-                    val path =
-                        fileRepository
-                            .observe(track.fileId)
-                            .filterIsInstance<FileState.Downloaded>()
-                            .first()
-                            .path
-                    player.setMediaItem(MediaItem.fromUri(Uri.fromFile(File(path))))
-                    player.prepare()
-                    player.play()
-                }
-        }
-
-        override fun onCleared() {
-            loading?.cancel()
-            player.release()
-            super.onCleared()
         }
 
         private companion object {
-            /** The tracks the profile's card loads: the first few; the rest come with the player's list. */
+            /** The tracks the profile's card loads: the first few; the player lists the rest. */
             const val FIRST_TRACKS = 5
+
+            /** How long the card keeps its state after it leaves the composition. */
+            const val STOP_TIMEOUT_MILLIS = 5_000L
         }
     }
 
 /**
- * The profile's music card, under the actions: the playing track (else the first) with its title and performer; a
- * tap plays it, or pauses it while it plays. Shows nothing when the user has no music on their profile.
+ * The profile's music card, under the actions: the playing track (else the first) with its title and performer. A tap
+ * opens the full player ([onOpenPlayer]); the button plays, or pauses it while it plays. Shows nothing when the user
+ * has no music on their profile.
  */
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 internal fun ProfileMusicCard(
     modifier: Modifier = Modifier,
+    onOpenPlayer: () -> Unit = {},
     viewModel: ProfileMusicViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
-    val index = state.playingIndex ?: 0
-    val track = state.tracks.getOrNull(index) ?: return
-    val isPlayingThis = state.playingIndex == index && state.isPlaying
+    val current = state.nowPlaying
+    val preview = state.tracks.firstOrNull()
+    val title = current?.title ?: preview?.title ?: return
+    val performer = current?.performer ?: preview?.performer.orEmpty()
+    val isPlayingThis = current != null && state.isPlaying
     Surface(
-        onClick = { viewModel.onPlayPause(index) },
+        onClick = onOpenPlayer,
         modifier = modifier.fillMaxWidth(),
         shape = MaterialTheme.shapes.large,
         color = MaterialTheme.colorScheme.surfaceContainer,
@@ -196,7 +153,7 @@ internal fun ProfileMusicCard(
             Box(
                 modifier =
                     Modifier
-                        .size(56.dp)
+                        .size(MaterialTheme.sizes.avatarMedium)
                         .clip(MaterialTheme.shapes.medium)
                         .background(MaterialTheme.colorScheme.surfaceContainerHigh),
                 contentAlignment = Alignment.Center,
@@ -207,29 +164,39 @@ internal fun ProfileMusicCard(
                     tint = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
-            Column(modifier = Modifier.weight(1f).padding(horizontal = 12.dp)) {
+            Column(
+                modifier =
+                    Modifier
+                        .weight(1f)
+                        .padding(horizontal = MaterialTheme.spacing.medium),
+            ) {
                 Text(
-                    text = track.title,
+                    text = title,
                     style = MaterialTheme.typography.titleMedium,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                 )
                 Text(
-                    text = track.performer,
+                    text = performer,
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                 )
             }
-            Icon(
-                painter =
-                    painterResource(
-                        if (isPlayingThis) UiR.drawable.ic_pause_filled else UiR.drawable.ic_play_arrow_filled,
-                    ),
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.primary,
-            )
+            FilledIconButton(
+                onClick = viewModel::onPlayPause,
+                shapes = IconButtonDefaults.shapes(),
+            ) {
+                Icon(
+                    painter =
+                        painterResource(
+                            if (isPlayingThis) UiR.drawable.ic_pause_filled else UiR.drawable.ic_play_arrow_filled,
+                        ),
+                    contentDescription =
+                        stringResource(if (isPlayingThis) R.string.player_pause else R.string.player_play),
+                )
+            }
         }
     }
 }
