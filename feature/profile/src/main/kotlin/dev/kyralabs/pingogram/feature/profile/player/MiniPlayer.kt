@@ -26,7 +26,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.toShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
@@ -91,8 +90,8 @@ fun MiniPlayerBubble(
 }
 
 /**
- * The round bubble without a view model, so previews can show it. It moves anywhere with the finger. Dragged down to the
- * bottom of the screen, a red close cross appears on it; released there, the music stops.
+ * The round bubble without a view model, so previews can show it. It moves anywhere with the finger but never leaves
+ * the screen. Pulled down to the bottom of the screen, a red close cross appears on it; released there, the music stops.
  */
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
@@ -105,16 +104,18 @@ internal fun MiniPlayerBubbleContent(
     modifier: Modifier = Modifier,
 ) {
     val density = LocalDensity.current
-    val screenHeight = LocalWindowInfo.current.containerSize.height.toFloat()
-    val closeZoneTop = screenHeight - with(density) { CLOSE_ZONE_DP.dp.toPx() }
+    val screen = LocalWindowInfo.current.containerSize
+    val screenNow = rememberUpdatedState(Offset(screen.width.toFloat(), screen.height.toFloat()))
+    val closeZoneDp = with(density) { CLOSE_ZONE_DP.dp.toPx() }
+    // Where the bubble sits before the drag moves it, and its size; the drag offset is added on top.
+    var base by remember { mutableStateOf(Offset.Zero) }
+    var bubbleSize by remember { mutableStateOf(Offset.Zero) }
     var offset by remember { mutableStateOf(Offset.Zero) }
-    var bottomInRoot by remember { mutableFloatStateOf(0f) }
     var dragging by remember { mutableStateOf(false) }
-    // The drag gesture keeps the first composition's lambdas, so it reads the latest values through these.
-    val bottomNow = rememberUpdatedState(bottomInRoot)
-    val closeZoneNow = rememberUpdatedState(closeZoneTop)
+    val bottom = base.y + offset.y + bubbleSize.y
+    val overCloseZone = dragging && bottom > screenNow.value.y - closeZoneDp
+    val overNow = rememberUpdatedState(overCloseZone)
     val onCloseNow = rememberUpdatedState(onClose)
-    val overCloseZone = dragging && bottomInRoot > closeZoneTop
     val reveal by animateFloatAsState(targetValue = if (overCloseZone) 1f else 0f, label = "bubbleClose")
     val colors = MaterialTheme.colorScheme
     Box(
@@ -122,17 +123,22 @@ internal fun MiniPlayerBubbleContent(
             modifier
                 .size(BUBBLE_DP.dp)
                 .onGloballyPositioned { coordinates ->
-                    bottomInRoot = coordinates.positionInRoot().y + coordinates.size.height
+                    base = coordinates.positionInRoot()
+                    bubbleSize = Offset(coordinates.size.width.toFloat(), coordinates.size.height.toFloat())
                 }.offset { IntOffset(offset.x.roundToInt(), offset.y.roundToInt()) }
                 .pointerInput(Unit) {
                     detectDragGestures(
                         onDragStart = { dragging = true },
                         onDrag = { change, amount ->
                             change.consume()
-                            offset += amount
+                            // Clamped so the bubble stays inside the screen.
+                            val size = screenNow.value
+                            val x = (base.x + offset.x + amount.x).coerceIn(0f, size.x - bubbleSize.x)
+                            val y = (base.y + offset.y + amount.y).coerceIn(0f, size.y - bubbleSize.y)
+                            offset = Offset(x - base.x, y - base.y)
                         },
                         onDragEnd = {
-                            if (bottomNow.value > closeZoneNow.value) onCloseNow.value()
+                            if (overNow.value) onCloseNow.value()
                             dragging = false
                         },
                         onDragCancel = { dragging = false },
