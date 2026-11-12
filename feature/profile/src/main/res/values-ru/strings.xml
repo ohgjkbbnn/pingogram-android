@@ -669,4 +669,20 @@
     <string name="statistics_graph_empty">Недостаточно данных для этого графика</string>
     <string name="statistics_chart_series">%1$s: с %2$s по %3$s, максимум %4$s</string>
     <string name="profile_personal_channel">Канал</string>
+    <!-- The profile's music player and its mini player. -->
+    <string name="player_title">Сейчас играет</string>
+    <string name="player_play">Воспроизвести</string>
+    <string name="player_pause">Пауза</string>
+    <string name="player_next">Следующий трек</string>
+    <string name="player_previous">Предыдущий трек</string>
+    <string name="player_shuffle">Перемешать</string>
+    <string name="player_repeat_off">Повтор выключен</string>
+    <string name="player_repeat_all">Повторять все</string>
+    <string name="player_repeat_one">Повторять один трек</string>
+    <string name="player_queue">Очередь</string>
+    <string name="player_empty_title">Музыки пока нет</string>
+    <string name="player_empty_body">В этом профиле нет музыки.</string>
+    <string name="player_loading">Загружаем музыку профиля</string>
+    <string name="player_error">Не удалось загрузить музыку</string>
+    <string name="player_error_body">Проверьте соединение и попробуйте снова.</string>
 </resources>
