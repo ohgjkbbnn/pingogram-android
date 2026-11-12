@@ -657,4 +657,5 @@
     <string name="player_loading">Loading this profile’s music</string>
     <string name="player_error">Could not load the music</string>
     <string name="player_error_body">Check the connection and try again.</string>
+    <string name="player_close">Close player</string>
 </resources>
