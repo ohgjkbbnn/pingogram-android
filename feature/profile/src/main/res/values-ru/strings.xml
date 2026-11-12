@@ -691,4 +691,11 @@
     <string name="gift_regular_title">Подарок</string>
     <string name="gift_unique_label">NFT-подарок</string>
     <string name="gift_stars">%1$d ★</string>
+    <string name="gift_detail_model">Модель</string>
+    <string name="gift_detail_symbol">Узор</string>
+    <string name="gift_detail_backdrop">Фон</string>
+    <string name="gift_detail_number">Номер</string>
+    <string name="gift_detail_price">Стоимость</string>
+    <string name="gift_detail_date">Дата</string>
+    <string name="gift_detail_ok">OK</string>
 </resources>
