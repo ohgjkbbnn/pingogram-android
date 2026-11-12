@@ -108,6 +108,7 @@ internal fun ProfileScreen(
     twoPanes: Boolean = rememberTwoPanes(),
     gridState: LazyGridState = rememberLazyGridState(),
     showMusic: Boolean = false,
+    showGifts: Boolean = false,
 ) {
     val page =
         ProfilePageParts(
@@ -120,6 +121,7 @@ internal fun ProfileScreen(
             onExportChat,
             onOpenPlayer,
             showMusic,
+            showGifts,
         )
     if (twoPanes) {
         ProfilePanes(page, onBack, snackbarHostState, modifier, gridState)
@@ -139,6 +141,7 @@ internal class ProfilePageParts(
     val onExportChat: (() -> Unit)? = null,
     val onOpenPlayer: (userId: Long) -> Unit = {},
     val showMusic: Boolean = false,
+    val showGifts: Boolean = false,
 )
 
 /** Whether the window has room for the supporting pane beside the profile: expanded and wider. */
@@ -282,6 +285,13 @@ private fun LazyGridScope.profileItems(
             ProfileInfoGroup(state.info, page.onEvent, Modifier.padding(top = MaterialTheme.spacing.extraLarge))
         }
     }
+    if (page.showGifts) {
+        item(key = GIFTS, span = { GridItemSpan(maxLineSpan) }, contentType = GIFTS) {
+            ProfileGiftsSection(
+                modifier = Modifier.padding(start = inset, end = inset, top = MaterialTheme.spacing.extraLarge),
+            )
+        }
+    }
     val actions = state.actions
     val hasMore =
         (actions.contact != null && page.onEditContact != null) ||
@@ -347,3 +357,4 @@ private const val INFO = "info"
 private const val MORE = "more"
 private const val MEDIA_HEADER = "media-header"
 private const val MUSIC = "music"
+private const val GIFTS = "gifts"
