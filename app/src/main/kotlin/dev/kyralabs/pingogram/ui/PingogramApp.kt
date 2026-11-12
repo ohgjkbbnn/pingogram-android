@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.FloatingToolbarDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfoV2
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteItem
@@ -41,6 +42,7 @@ import dev.kyralabs.pingogram.core.navigation.ChatRoute
 import dev.kyralabs.pingogram.core.navigation.ChatsRoute
 import dev.kyralabs.pingogram.core.navigation.LockedChatsRoute
 import dev.kyralabs.pingogram.core.navigation.NewChatRoute
+import dev.kyralabs.pingogram.core.navigation.PlayerRoute
 import dev.kyralabs.pingogram.core.navigation.SearchRoute
 import dev.kyralabs.pingogram.core.ui.component.HideNavigationBar
 import dev.kyralabs.pingogram.core.ui.component.LocalChatLauncher
@@ -57,6 +59,8 @@ import dev.kyralabs.pingogram.core.ui.navigation.OverlayHost
 import dev.kyralabs.pingogram.core.ui.navigation.rememberOverlayNavigator
 import dev.kyralabs.pingogram.core.ui.preview.PingogramPreview
 import dev.kyralabs.pingogram.core.ui.preview.PingogramPreviews
+import dev.kyralabs.pingogram.core.ui.theme.sizes
+import dev.kyralabs.pingogram.core.ui.theme.spacing
 import dev.kyralabs.pingogram.core.ui.transition.LocalSharedTransitionScope
 import dev.kyralabs.pingogram.core.ui.transition.ProvideSharedTransitionScope
 import dev.kyralabs.pingogram.feature.auth.ui.AuthProgressScreen
@@ -67,6 +71,7 @@ import dev.kyralabs.pingogram.feature.chats.navigation.GlobalSearchState
 import dev.kyralabs.pingogram.feature.chats.navigation.rememberGlobalSearchState
 import dev.kyralabs.pingogram.feature.contacts.navigation.navigateToNewContact
 import dev.kyralabs.pingogram.feature.feedback.navigation.navigateToFeedback
+import dev.kyralabs.pingogram.feature.profile.player.MiniPlayer
 import dev.kyralabs.pingogram.link.LinkDispatcher
 import dev.kyralabs.pingogram.navigation.PingogramNavHost
 import dev.kyralabs.pingogram.navigation.TopLevelDestination
@@ -160,6 +165,14 @@ fun PingogramApp(
     val currentTab by remember(currentEntry) {
         derivedStateOf { currentEntry.value?.destination.topLevelDestination() }
     }
+    val showMiniPlayer by remember(currentEntry) {
+        derivedStateOf {
+            val destination = currentEntry.value?.destination
+            destination.isInMainGraph() &&
+                !destination.isFullScreen() &&
+                destination?.hasRoute<PlayerRoute>() != true
+        }
+    }
     // The tab the user is on: the current destination, or while screens pushed on top of a tab hide the floating bar,
     // that tab. A plain holder rather than state: the shell recomposes whenever the current tab changes.
     val lastTab = remember { LastTab() }
@@ -182,6 +195,10 @@ fun PingogramApp(
     val openLockedChats =
         remember(navController) { { navController.navigate(LockedChatsRoute) { launchSingleTop = true } } }
     val openChat = remember(navController) { { chatId: Long -> navController.navigate(ChatRoute(chatId)) } }
+    val openPlayer =
+        remember(navController) {
+            { userId: Long -> navController.navigate(PlayerRoute(userId)) { launchSingleTop = true } }
+        }
     // Before the NavHost sets its graph, whose media viewer is an overlay destination.
     val overlays = rememberOverlayNavigator(navController)
     SharedTransitionLayout(modifier) {
@@ -225,6 +242,26 @@ fun PingogramApp(
                                     onOpenLinkTarget = { target -> links?.show(target) },
                                 )
                             }
+                        }
+                        if (showMiniPlayer) {
+                            MiniPlayer(
+                                onOpenPlayer = openPlayer,
+                                modifier =
+                                    Modifier
+                                        .align(Alignment.BottomCenter)
+                                        .windowInsetsPadding(WindowInsets.navigationBars)
+                                        .padding(horizontal = MaterialTheme.spacing.windowMarginCompact)
+                                        .padding(
+                                            bottom =
+                                                if (floatingBar && showNavigation && currentTab != null) {
+                                                    MaterialTheme.sizes.experimentalNavigationBar +
+                                                        FloatingToolbarDefaults.ScreenOffset +
+                                                        MaterialTheme.spacing.small
+                                                } else {
+                                                    FloatingToolbarDefaults.ScreenOffset
+                                                },
+                                        ),
+                            )
                         }
                         // Compact windows only: composed there even while hidden (FloatingNavigationBar).
                         if (floatingBar) {
