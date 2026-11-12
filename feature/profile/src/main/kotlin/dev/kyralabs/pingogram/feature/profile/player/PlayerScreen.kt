@@ -230,7 +230,6 @@ internal fun PlayerScreen(
 
 /** The player's artwork, now playing, seek bar, controls and queue. */
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
-@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 private fun PlayerContent(
     state: MusicPlaybackState,
