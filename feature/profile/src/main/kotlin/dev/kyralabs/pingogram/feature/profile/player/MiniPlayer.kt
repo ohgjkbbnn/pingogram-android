@@ -1,5 +1,8 @@
 package dev.kyralabs.pingogram.feature.profile.player
 
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectVerticalDragGestures
 import androidx.compose.foundation.layout.Box
@@ -8,47 +11,55 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
-import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.CircularWavyProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonDefaults
+import androidx.compose.material3.MaterialShapes
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.toShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableFloatStateOf
-import androidx.compose.runtime.setValue
 import androidx.compose.runtime.remember
-import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dev.kyralabs.pingogram.core.ui.R as UiR
 import dev.kyralabs.pingogram.core.ui.preview.PingogramPreview
 import dev.kyralabs.pingogram.core.ui.preview.PingogramPreviews
 import dev.kyralabs.pingogram.core.ui.theme.sizes
 import dev.kyralabs.pingogram.core.ui.theme.spacing
 import dev.kyralabs.pingogram.feature.profile.R
+import kotlinx.coroutines.launch
 import javax.inject.Inject
-import dev.kyralabs.pingogram.core.ui.R as UiR
+import kotlin.math.roundToInt
 
 /**
- * The floating round player for the chats and profiles: a tap opens the full player, a drag down closes it and stops
- * the music. It shows nothing while the queue is empty.
+ * The floating round player for the chats and profiles, in Material 3 Expressive: a wavy ring shows how far the track
+ * has played, the cookie-shaped circle opens the full player when tapped. Dragging it down moves it with the finger and
+ * reveals a close button; released far enough, the music stops, otherwise it springs back.
  */
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun MiniPlayerBubble(
     onOpenPlayer: (userId: Long) -> Unit,
@@ -58,66 +69,122 @@ fun MiniPlayerBubble(
     val state by viewModel.state.collectAsStateWithLifecycle()
     val track = state.currentTrack ?: return
     val profileUserId = state.profileUserId ?: return
+    val progress =
+        if (state.durationMillis > 0L) {
+            (state.positionMillis.toFloat() / state.durationMillis.toFloat()).coerceIn(0f, 1f)
+        } else {
+            0f
+        }
     MiniPlayerBubbleContent(
         isPlaying = state.isPlaying,
+        progress = progress,
+        label = track.title,
         onOpen = { onOpenPlayer(profileUserId) },
         onClose = viewModel::onClose,
         modifier = modifier,
-        contentLabel = track.title,
     )
 }
 
 /** The round bubble without a view model, so previews can show it. */
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 internal fun MiniPlayerBubbleContent(
     isPlaying: Boolean,
+    progress: Float,
+    label: String,
     onOpen: () -> Unit,
     onClose: () -> Unit,
     modifier: Modifier = Modifier,
-    contentLabel: String = "",
 ) {
-    // How far down the bubble must be dragged to close: a drag, not a tap.
     val closeDistance = with(LocalDensity.current) { CLOSE_DRAG_DP.dp.toPx() }
-    var dragged by remember { mutableFloatStateOf(0f) }
-    Surface(
-        onClick = onOpen,
-        modifier =
-            modifier
-                .size(BUBBLE_DP.dp)
-                .pointerInput(closeDistance) {
-                    detectVerticalDragGestures(
-                        onDragStart = { dragged = 0f },
-                        onVerticalDrag = { _, amount -> dragged += amount },
-                        onDragEnd = { if (dragged > closeDistance) onClose() },
-                        onDragCancel = { dragged = 0f },
+    // How far the bubble is dragged down, and the close button's reveal (0 hidden, 1 fully shown).
+    val drag = remember { Animatable(0f) }
+    val scope = rememberCoroutineScope()
+    val reveal = (drag.value / closeDistance).coerceIn(0f, 1f)
+    val colors = MaterialTheme.colorScheme
+    Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
+        Box(
+            modifier =
+                Modifier
+                    .size(BUBBLE_DP.dp)
+                    .pointerInput(Unit) {
+                        detectVerticalDragGestures(
+                            onVerticalDrag = { change, amount ->
+                                change.consume()
+                                scope.launch { drag.snapTo((drag.value + amount).coerceAtLeast(0f)) }
+                            },
+                            onDragEnd = {
+                                scope.launch {
+                                    if (drag.value >= closeDistance) {
+                                        onClose()
+                                    } else {
+                                        drag.animateTo(0f, spring(dampingRatio = 0.6f, stiffness = Spring.StiffnessMediumLow))
+                                    }
+                                }
+                            },
+                            onDragCancel = { scope.launch { drag.animateTo(0f) } },
+                        )
+                    }.offset { IntOffset(0, drag.value.roundToInt()) },
+            contentAlignment = Alignment.Center,
+        ) {
+            CircularWavyProgressIndicator(
+                progress = { progress },
+                modifier = Modifier.fillMaxSize(),
+                color = colors.primary,
+                trackColor = colors.surfaceContainerHighest,
+            )
+            Surface(
+                onClick = onOpen,
+                modifier = Modifier.padding(RING_INSET_DP.dp).fillMaxSize(),
+                shape = MaterialShapes.Cookie9Sided.toShape(),
+                color = colors.primaryContainer,
+                contentColor = colors.onPrimaryContainer,
+                shadowElevation = 4.dp,
+            ) {
+                Box(contentAlignment = Alignment.Center) {
+                    Icon(
+                        painter =
+                            painterResource(
+                                if (isPlaying) UiR.drawable.ic_pause_filled else UiR.drawable.ic_play_arrow_filled,
+                            ),
+                        contentDescription = label.ifBlank { null },
+                        modifier = Modifier.size(26.dp),
                     )
-                },
-        shape = CircleShape,
-        color = MaterialTheme.colorScheme.surfaceContainerHigh,
-        shadowElevation = MaterialTheme.spacing.small,
-    ) {
-        Box(contentAlignment = Alignment.Center) {
-            Icon(
-                painter = painterResource(UiR.drawable.ic_music_note),
-                contentDescription = contentLabel.ifBlank { null },
-                tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.size(28.dp),
-            )
-            Icon(
-                painter =
-                    painterResource(
-                        if (isPlaying) UiR.drawable.ic_pause_filled else UiR.drawable.ic_play_arrow_filled,
-                    ),
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.primary,
-                modifier = Modifier.align(Alignment.BottomEnd).size(20.dp),
-            )
+                }
+            }
+        }
+        Surface(
+            onClick = onClose,
+            enabled = reveal >= 1f,
+            modifier =
+                Modifier
+                    .padding(top = CLOSE_TOP_DP.dp)
+                    .size(CLOSE_DP.dp)
+                    .graphicsLayer {
+                        alpha = reveal
+                        scaleX = 0.5f + 0.5f * reveal
+                        scaleY = scaleX
+                    },
+            shape = MaterialShapes.Cookie6Sided.toShape(),
+            color = colors.errorContainer,
+            contentColor = colors.onErrorContainer,
+        ) {
+            Box(contentAlignment = Alignment.Center) {
+                Icon(
+                    painter = painterResource(UiR.drawable.ic_close),
+                    contentDescription = stringResource(R.string.player_close),
+                    modifier = Modifier.size(22.dp),
+                )
+            }
         }
     }
 }
 
-private const val BUBBLE_DP = 64
-private const val CLOSE_DRAG_DP = 72
+private const val BUBBLE_DP = 72
+private const val RING_INSET_DP = 6
+private const val CLOSE_DRAG_DP = 56
+private const val CLOSE_TOP_DP = 8
+private const val CLOSE_DP = 48
 
 /** The mini player's controls: play or pause, and the next track. */
 @HiltViewModel
