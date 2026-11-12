@@ -1,6 +1,6 @@
+@file:OptIn(ExperimentalMaterial3ExpressiveApi::class, ExperimentalMaterial3Api::class)
 package dev.kyralabs.pingogram.feature.profile.ui
 
-@file:OptIn(ExperimentalMaterial3ExpressiveApi::class, ExperimentalMaterial3Api::class)
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
