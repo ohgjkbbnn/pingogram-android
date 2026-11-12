@@ -6,6 +6,7 @@ import dev.kyralabs.pingogram.core.common.result.Outcome
 import dev.kyralabs.pingogram.core.domain.model.Birthdate
 import dev.kyralabs.pingogram.core.domain.model.FormattedText
 import dev.kyralabs.pingogram.core.domain.model.ProfileAudiosPage
+import dev.kyralabs.pingogram.core.domain.model.ProfileGiftsPage
 import dev.kyralabs.pingogram.core.domain.model.UserFullInfo
 import dev.kyralabs.pingogram.core.domain.model.UserProfilePhotosPage
 import dev.kyralabs.pingogram.core.domain.repository.UserProfileRepository
@@ -80,6 +81,12 @@ class VideoCallableTest {
     }
 
     private class FakeProfiles : UserProfileRepository {
+        override suspend fun profileGifts(
+            userId: Long,
+            pageOffset: String,
+            pageSize: Int,
+        ): Outcome<ProfileGiftsPage> = Outcome.Success(ProfileGiftsPage(persistentListOf(), 0, ""))
+
         override suspend fun profileAudios(
             userId: Long,
             offset: Int,
