@@ -1,19 +1,22 @@
 package dev.kyralabs.pingogram.feature.profile.player
 
-import android.content.ComponentName
 import android.content.Context
-import androidx.core.content.ContextCompat
+import androidx.media3.common.AudioAttributes
+import androidx.media3.common.C
 import androidx.media3.common.MediaItem
 import androidx.media3.common.MediaMetadata
+import androidx.media3.common.PlaybackException
 import androidx.media3.common.Player
-import androidx.media3.session.MediaController
-import androidx.media3.session.SessionToken
-import com.google.common.util.concurrent.ListenableFuture
+import androidx.media3.common.util.UnstableApi
+import androidx.media3.datasource.DefaultDataSource
+import androidx.media3.exoplayer.ExoPlayer
+import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dev.kyralabs.pingogram.core.common.result.Outcome
-import dev.kyralabs.pingogram.core.domain.model.Audio
+import dev.kyralabs.pingogram.core.domain.repository.FileStreamRepository
 import dev.kyralabs.pingogram.core.domain.repository.UserProfileRepository
 import dev.kyralabs.pingogram.core.ui.media.TdlibDataSource
+import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -31,21 +34,19 @@ import javax.inject.Provider
 import javax.inject.Singleton
 
 /**
- * The app's one music player, for the profile's music: it asks [MusicPlaybackService] for a [MediaController], loads
- * every track of a profile through [UserProfileRepository], and hands the queue to the service's player. The service
- * owns the `ExoPlayer`, so playback goes on when the profile closes; [state] mirrors the player for the card, the full
- * player and the mini player.
- *
- * The service streams TDLib files as they download (`TdlibDataSource`), and the player keeps audio focus and pauses
- * when headphones are unplugged, as the service builds it. The repositories are looked up for every queue, so a queue
- * loaded after an account switch belongs to the new account.
+ * The app's one music player, for the profile's music. It lives in the app's process, not in a system service: the
+ * card, the mini player and the full player all read [state] and call the functions below. The player is created when
+ * the user first plays a profile's music, so no account is read before a track plays. Playback goes on when the profile
+ * closes, as long as the app runs.
  */
+@OptIn(UnstableApi::class)
 @Singleton
 class MusicPlaybackController
     @Inject
     constructor(
         @param:ApplicationContext private val context: Context,
         private val profiles: Provider<UserProfileRepository>,
+        private val streams: Provider<FileStreamRepository>,
     ) {
         private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
 
@@ -54,47 +55,21 @@ class MusicPlaybackController
         /** The queue, the track that plays, its progress and the player's modes. */
         val state: StateFlow<MusicPlaybackState> = mutableState.asStateFlow()
 
-        private var controller: MediaController? = null
-        private var controllerFuture: ListenableFuture<MediaController>? = null
-        private var pending: ((MediaController) -> Unit)? = null
+        private var player: ExoPlayer? = null
         private var loading: Job? = null
 
         init {
             scope.launch {
                 while (isActive) {
                     delay(POSITION_UPDATE_MILLIS)
-                    controller?.let(::refresh)
+                    player?.let(::refresh)
                 }
             }
         }
 
-        /** Connects to the playback service, so the player exists before the first tap. */
+        /** Kept for the screens that call it before playing; the player is created on the first play. */
         fun ensureConnected() {
-            if (controller != null || controllerFuture != null) return
-            val token = SessionToken(context, ComponentName(context, MusicPlaybackService::class.java))
-            val future =
-                MediaController
-                    .Builder(context, token)
-                    .setListener(ControllerListener())
-                    .buildAsync()
-            controllerFuture = future
-            future.addListener(
-                {
-                    if (controllerFuture !== future) return@addListener
-                    runCatching { future.get() }
-                        .onSuccess { connected ->
-                            controller = connected
-                            mutableState.update { it.copy(isConnected = true) }
-                            pending?.let { it(connected) }
-                            pending = null
-                            refresh(connected)
-                        }.onFailure {
-                            controllerFuture = null
-                            mutableState.update { it.copy(isConnected = false) }
-                        }
-                },
-                ContextCompat.getMainExecutor(context),
-            )
+            // Nothing to connect: the player is created when a profile's music starts.
         }
 
         /**
@@ -104,17 +79,16 @@ class MusicPlaybackController
         fun playProfile(userId: Long) {
             val current = mutableState.value
             if (current.profileUserId == userId && current.tracks.isNotEmpty()) {
-                if (!current.isLoading) withController { it.resumeOrRestart() }
+                if (!current.isLoading) resumeOrRestart()
                 return
             }
             if (current.profileUserId == userId && current.isLoading) return
-            ensureConnected()
             loading?.cancel()
             loading =
                 scope.launch {
                     mutableState.update {
                         it.copy(
-                            tracks = emptyList<MusicTrack>().toImmutableList(),
+                            tracks = persistentListOf(),
                             currentIndex = 0,
                             isPlaying = false,
                             isLoading = true,
@@ -130,161 +104,169 @@ class MusicPlaybackController
                         return@launch
                     }
                     mutableState.update { it.copy(tracks = tracks.toImmutableList(), isLoading = false) }
-                    withController { connected ->
-                        connected.setMediaItems(
-                            tracks.map { track ->
-                                MediaItem
-                                    .Builder()
-                                    .setMediaId(track.fileId.toString())
-                                    .setUri(TdlibDataSource.uriOf(track.fileId))
-                                    .setMediaMetadata(
-                                        MediaMetadata
-                                            .Builder()
-                                            .setTitle(track.title)
-                                            .setArtist(track.performer)
-                                            .build(),
-                                    ).build()
-                            },
-                            0,
-                            0L,
-                        )
-                        connected.prepare()
-                        connected.play()
-                    }
+                    val exo = player ?: createPlayer()
+                    exo.setMediaItems(tracks.map(::mediaItemOf), 0, 0L)
+                    exo.prepare()
+                    exo.play()
                 }
         }
 
-        /** Plays or pauses the current track. */
-        fun toggle() = withController { it.resumeOrPause() }
+        /** Plays or pauses the queue. */
+        fun toggle() {
+            val exo = player ?: return
+            if (exo.isPlaying) exo.pause() else resumeOrRestart()
+        }
 
         /** Moves to the next track, wrapping around when the player repeats. */
-        fun next() = withController { it.seekToNextMediaItem() }
+        fun next() {
+            player?.seekToNextMediaItem()
+        }
 
         /** Goes back to the start of the track, or to the previous one when it just started. */
-        fun previous() =
-            withController { connected ->
-                if (connected.currentPosition > RESTART_THRESHOLD_MILLIS) {
-                    connected.seekTo(0)
-                } else {
-                    connected.seekToPreviousMediaItem()
-                }
+        fun previous() {
+            val exo = player ?: return
+            if (exo.currentPosition > RESTART_THRESHOLD_MILLIS) {
+                exo.seekTo(0)
+            } else {
+                exo.seekToPreviousMediaItem()
             }
+        }
 
-        /** Seeks to [positionMillis] of the current track. */
-        fun seekTo(positionMillis: Long) = withController { connected -> connected.seekTo(positionMillis) }
+        fun seekTo(positionMillis: Long) {
+            player?.seekTo(positionMillis)
+        }
 
         /** Plays track [index] of the queue. */
-        fun select(index: Int) =
-            withController { connected ->
-                connected.seekToDefaultPosition(index)
-                connected.play()
-            }
+        fun select(index: Int) {
+            val exo = player ?: return
+            exo.seekToDefaultPosition(index)
+            exo.play()
+        }
 
-        /** Turns shuffling on or off. */
-        fun toggleShuffle() =
-            withController { connected -> connected.shuffleModeEnabled = !connected.shuffleModeEnabled }
+        fun toggleShuffle() {
+            val exo = player ?: return
+            exo.shuffleModeEnabled = !exo.shuffleModeEnabled
+        }
 
         /** Cycles repeat from off to all, all to one, and one to off. */
-        fun cycleRepeat() =
-            withController { connected ->
-                connected.repeatMode =
-                    when (connected.repeatMode) {
-                        Player.REPEAT_MODE_OFF -> Player.REPEAT_MODE_ALL
-                        Player.REPEAT_MODE_ALL -> Player.REPEAT_MODE_ONE
-                        else -> Player.REPEAT_MODE_OFF
-                    }
-            }
-
-        private fun withController(action: (MediaController) -> Unit) {
-            val connected = controller
-            if (connected != null) {
-                action(connected)
-            } else {
-                pending = action
-                ensureConnected()
-            }
+        fun cycleRepeat() {
+            val exo = player ?: return
+            exo.repeatMode =
+                when (exo.repeatMode) {
+                    Player.REPEAT_MODE_OFF -> Player.REPEAT_MODE_ALL
+                    Player.REPEAT_MODE_ALL -> Player.REPEAT_MODE_ONE
+                    else -> Player.REPEAT_MODE_OFF
+                }
         }
 
-        private suspend fun loadTracks(userId: Long): List<MusicTrack> {
-            val tracks = mutableListOf<MusicTrack>()
-            val repository = profiles.get()
-            var offset = 0
-            var total = Int.MAX_VALUE
-            while (tracks.size < MAX_TRACKS && offset < total) {
-                when (val page = repository.profileAudios(userId, offset = offset, limit = PAGE_SIZE)) {
-                    is Outcome.Success -> {
-                        val audios = page.value.audios
-                        if (audios.isEmpty()) break
-                        tracks += audios.map { it.toTrack() }
-                        offset += audios.size
-                        total = page.value.totalCount
-                    }
+        private fun resumeOrRestart() {
+            val exo = player ?: return
+            if (exo.playbackState == Player.STATE_ENDED) exo.seekToDefaultPosition()
+            exo.play()
+        }
 
-                    is Outcome.Failure -> {
-                        break
+        private fun createPlayer(): ExoPlayer {
+            val exo =
+                ExoPlayer
+                    .Builder(context)
+                    .setMediaSourceFactory(
+                        DefaultMediaSourceFactory(
+                            DefaultDataSource.Factory(context, TdlibDataSource.Factory(streams.get())),
+                        ),
+                    ).setAudioAttributes(
+                        AudioAttributes
+                            .Builder()
+                            .setContentType(C.AUDIO_CONTENT_TYPE_MUSIC)
+                            .setUsage(C.USAGE_MEDIA)
+                            .build(),
+                        true,
+                    ).setHandleAudioBecomingNoisy(true)
+                    .build()
+            exo.addListener(listenerFor(exo))
+            player = exo
+            mutableState.update { it.copy(isConnected = true) }
+            return exo
+        }
+
+        private fun listenerFor(exo: ExoPlayer) =
+            object : Player.Listener {
+                override fun onIsPlayingChanged(isPlaying: Boolean) {
+                    mutableState.update { it.copy(isPlaying = isPlaying) }
+                }
+
+                override fun onPlaybackStateChanged(playbackState: Int) {
+                    if (playbackState == Player.STATE_ENDED) {
+                        mutableState.update { it.copy(isPlaying = false) }
                     }
                 }
-            }
-            return tracks
-        }
 
-        private fun refresh(source: MediaController) {
-            val duration = source.duration.takeIf { it > 0 } ?: 0L
+                override fun onMediaItemTransition(
+                    mediaItem: MediaItem?,
+                    reason: Int,
+                ) {
+                    mutableState.update { it.copy(currentIndex = exo.currentMediaItemIndex, positionMillis = 0L) }
+                }
+
+                override fun onRepeatModeChanged(repeatMode: Int) {
+                    mutableState.update { it.copy(repeatMode = repeatMode) }
+                }
+
+                override fun onShuffleModeEnabledChanged(shuffleModeEnabled: Boolean) {
+                    mutableState.update { it.copy(shuffle = shuffleModeEnabled) }
+                }
+
+                override fun onPlayerError(error: PlaybackException) {
+                    mutableState.update { it.copy(isPlaying = false, error = true) }
+                }
+            }
+
+        private fun refresh(exo: ExoPlayer) {
             mutableState.update {
                 it.copy(
-                    currentIndex = source.currentMediaItemIndex.coerceAtLeast(0),
-                    isPlaying = source.isPlaying,
-                    isConnected = true,
-                    positionMillis = source.currentPosition.coerceAtLeast(0),
-                    durationMillis = duration,
-                    repeatMode = source.repeatMode,
-                    shuffle = source.shuffleModeEnabled,
+                    positionMillis = exo.currentPosition,
+                    durationMillis = exo.duration.takeIf { duration -> duration != C.TIME_UNSET } ?: 0L,
+                    isPlaying = exo.isPlaying,
                 )
             }
         }
 
-        private inner class ControllerListener : MediaController.Listener {
-            override fun onDisconnected(controller: MediaController) {
-                this@MusicPlaybackController.controller = null
-                controllerFuture = null
-                mutableState.update { it.copy(isConnected = false, isPlaying = false) }
+        /** Every track of the profile's music, page by page; a failed page ends the queue with what came before. */
+        private suspend fun loadTracks(userId: Long): List<MusicTrack> {
+            val repository = profiles.get()
+            val all = mutableListOf<MusicTrack>()
+            var offset = 0
+            while (true) {
+                val result = repository.profileAudios(userId, offset = offset, limit = PAGE_SIZE)
+                if (result !is Outcome.Success) return all
+                val page = result.value
+                all += page.audios.map { audio ->
+                    MusicTrack(
+                        fileId = audio.file.id,
+                        title = audio.title.ifBlank { audio.fileName },
+                        performer = audio.performer,
+                    )
+                }
+                offset += page.audios.size
+                if (page.audios.isEmpty() || offset >= page.totalCount) return all
             }
         }
 
+        private fun mediaItemOf(track: MusicTrack): MediaItem =
+            MediaItem
+                .Builder()
+                .setMediaId(track.fileId.toString())
+                .setUri(TdlibDataSource.uriOf(track.fileId))
+                .setMediaMetadata(
+                    MediaMetadata
+                        .Builder()
+                        .setTitle(track.title)
+                        .setArtist(track.performer)
+                        .build(),
+                ).build()
+
         private companion object {
-            /** How often the player's progress reaches the UI. */
             const val POSITION_UPDATE_MILLIS = 500L
-
-            /** Pressing previous later than this restarts the track instead of going to the previous one. */
             const val RESTART_THRESHOLD_MILLIS = 3_000L
-
-            /** The profile's music a page holds. */
-            const val PAGE_SIZE = 50
-
-            /** The most tracks one profile's queue holds, so a wrong total count cannot load forever. */
-            const val MAX_TRACKS = 500
+            const val PAGE_SIZE = 100
         }
     }
-
-/** The player's play and pause, restarting a queue that ended. */
-private fun MediaController.resumeOrPause() {
-    if (isPlaying) {
-        pause()
-    } else {
-        resumeOrRestart()
-    }
-}
-
-/** Starts or resumes playback, from the start when the queue has ended. */
-private fun MediaController.resumeOrRestart() {
-    if (playbackState == Player.STATE_ENDED) seekTo(0)
-    play()
-}
-
-/** What a track's card and player show, from TDLib's audio. */
-private fun Audio.toTrack(): MusicTrack =
-    MusicTrack(
-        fileId = file.id,
-        title = title.ifBlank { fileName },
-        performer = performer,
-    )
