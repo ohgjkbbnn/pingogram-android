@@ -663,4 +663,11 @@
     <string name="gift_regular_title">Gift</string>
     <string name="gift_unique_label">Unique NFT</string>
     <string name="gift_stars">%1$d ★</string>
+    <string name="gift_detail_model">Model</string>
+    <string name="gift_detail_symbol">Pattern</string>
+    <string name="gift_detail_backdrop">Backdrop</string>
+    <string name="gift_detail_number">Number</string>
+    <string name="gift_detail_price">Price</string>
+    <string name="gift_detail_date">Date</string>
+    <string name="gift_detail_ok">OK</string>
 </resources>
