@@ -61,7 +61,7 @@ class MiniPlayerViewModel
  * player of the track's profile ([onOpenPlayer]); it shows nothing while the queue is empty.
  */
 @Composable
-internal fun MiniPlayer(
+fun MiniPlayer(
     onOpenPlayer: (userId: Long) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: MiniPlayerViewModel = hiltViewModel(),
