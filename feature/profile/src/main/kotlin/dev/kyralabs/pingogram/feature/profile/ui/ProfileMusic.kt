@@ -85,7 +85,7 @@ class ProfileMusicViewModel
             }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS), ProfileMusicState())
 
         init {
-            playback.ensureConnected()
+            // Not connected here: opening a profile only loads the card's tracks; the service starts when a track plays.
             viewModelScope.launch {
                 // The card shows the first few tracks; a failure leaves the card out.
                 val page = profileRepository.profileAudios(userId, offset = 0, limit = FIRST_TRACKS)
