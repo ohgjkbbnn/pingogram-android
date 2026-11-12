@@ -113,7 +113,7 @@ class PlayerViewModel
             }
         }
 
-        fun onEvent(event: PlayerEvent) {
+        internal fun onEvent(event: PlayerEvent) {
             when (event) {
                 PlayerEvent.PlayPause -> playback.toggle()
                 PlayerEvent.Next -> playback.next()
@@ -180,8 +180,11 @@ internal fun PlayerScreen(
         when {
             state.isLoading && state.tracks.isEmpty() -> {
                 DelayedLoadingIndicator(
-                    modifier = Modifier.fillMaxSize().padding(innerPadding),
-                    contentDescription = stringResource(R.string.player_loading),
+                    modifier =
+                        Modifier
+                            .fillMaxSize()
+                            .padding(innerPadding)
+                            .semantics { contentDescription = stringResource(R.string.player_loading) },
                 )
             }
 
