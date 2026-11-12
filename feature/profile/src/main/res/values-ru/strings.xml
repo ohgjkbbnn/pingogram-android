@@ -686,4 +686,9 @@
     <string name="player_error">Не удалось загрузить музыку</string>
     <string name="player_error_body">Проверьте соединение и попробуйте снова.</string>
     <string name="player_close">Закрыть плеер</string>
+    <string name="profile_section_gifts">Подарки</string>
+    <string name="gift_unique_title">%1$s #%2$d</string>
+    <string name="gift_regular_title">Подарок</string>
+    <string name="gift_unique_label">NFT-подарок</string>
+    <string name="gift_stars">%1$d ★</string>
 </resources>
