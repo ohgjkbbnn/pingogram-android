@@ -14,6 +14,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import dev.kyralabs.pingogram.core.domain.repository.FileStreamRepository
 import dev.kyralabs.pingogram.core.ui.media.TdlibDataSource
 import javax.inject.Inject
+import javax.inject.Provider
 
 /**
  * The service that owns the profile music's `ExoPlayer` ([MusicPlaybackController] controls it through a
@@ -26,7 +27,11 @@ import javax.inject.Inject
  */
 @AndroidEntryPoint
 class MusicPlaybackService : MediaSessionService() {
-    @Inject lateinit var streams: FileStreamRepository
+    /**
+     * Read only when a track starts streaming, never when the service is created: the service is bound from the app's
+     * root as soon as the mini player shows, and at sign-in no account's graph exists yet to provide the repository.
+     */
+    @Inject lateinit var streams: Provider<FileStreamRepository>
 
     private var session: MediaSession? = null
     private var player: ExoPlayer? = null
@@ -68,7 +73,13 @@ class MusicPlaybackService : MediaSessionService() {
         ExoPlayer
             .Builder(this)
             .setMediaSourceFactory(
-                DefaultMediaSourceFactory(DefaultDataSource.Factory(this, TdlibDataSource.Factory(streams))),
+                DefaultMediaSourceFactory(
+                    DefaultDataSource.Factory(
+                        this,
+                        // Each stream opens its data source when it starts, so the active account is read then.
+                        androidx.media3.datasource.DataSource.Factory { TdlibDataSource.Factory(streams.get()).createDataSource() },
+                    ),
+                ),
             ).setAudioAttributes(
                 AudioAttributes
                     .Builder()
