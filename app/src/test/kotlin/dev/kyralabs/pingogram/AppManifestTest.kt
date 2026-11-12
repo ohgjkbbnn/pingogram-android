@@ -28,7 +28,9 @@ import org.xmlpull.v1.XmlPullParser
  * of the device; ACCESS_NETWORK_STATE tells Wi-Fi, mobile data and roaming apart for automatic download and TDLib
  * (approved 2026-10-20); WorkManager's WAKE_LOCK runs notification actions as a foreground service before Android 12
  * only, so it stops at API 30; FOREGROUND_SERVICE and FOREGROUND_SERVICE_DATA_SYNC run the transfers the user started
- * in WorkManager's foreground service of type dataSync (approved 2026-10-20), and POST_PROMOTED_NOTIFICATIONS lets
+ * in WorkManager's foreground service of type dataSync (approved 2026-10-20),
+ * FOREGROUND_SERVICE_MEDIA_PLAYBACK lets the profile's music keep playing in its own foreground service of type
+ * mediaPlayback, and POST_PROMOTED_NOTIFICATIONS lets
  * Android 16 show their progress as a Live Update (approved 2026-10-21); WorkManager's RECEIVE_BOOT_COMPLETED is
  * left out, except in the foss flavor, whose "Keep connected" service needs its
  * type's FOREGROUND_SERVICE_SPECIAL_USE and RECEIVE_BOOT_COMPLETED (approved 2026-10-19; [FlavorManifest] in each
@@ -79,6 +81,8 @@ class AppManifestTest {
                 Manifest.permission.RECORD_AUDIO,
                 Manifest.permission.FOREGROUND_SERVICE,
                 Manifest.permission.FOREGROUND_SERVICE_DATA_SYNC,
+                // The profile's music keeps playing in a foreground service of type mediaPlayback.
+                Manifest.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK,
                 Manifest.permission.POST_PROMOTED_NOTIFICATIONS,
                 Manifest.permission.ACCESS_NETWORK_STATE,
                 // Installing an app file the user tapped in a chat, through Android's package installer.
@@ -124,6 +128,8 @@ class AppManifestTest {
                 Manifest.permission.RECORD_AUDIO to "",
                 Manifest.permission.FOREGROUND_SERVICE to "",
                 Manifest.permission.FOREGROUND_SERVICE_DATA_SYNC to "",
+                // The profile's music keeps playing in a foreground service of type mediaPlayback.
+                Manifest.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK to "",
                 Manifest.permission.POST_PROMOTED_NOTIFICATIONS to "",
                 Manifest.permission.ACCESS_NETWORK_STATE to "",
                 // Installing an app file the user tapped in a chat, on every version.
