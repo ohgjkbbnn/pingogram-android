@@ -685,4 +685,5 @@
     <string name="player_loading">Загружаем музыку профиля</string>
     <string name="player_error">Не удалось загрузить музыку</string>
     <string name="player_error_body">Проверьте соединение и попробуйте снова.</string>
+    <string name="player_close">Закрыть плеер</string>
 </resources>
