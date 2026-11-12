@@ -23,6 +23,8 @@ import dev.kyralabs.pingogram.core.ui.transition.LocalSharedTransitionScope
 import dev.kyralabs.pingogram.feature.chat.navigation.chatExportScreen
 import dev.kyralabs.pingogram.feature.chat.navigation.navigateToChatExport
 import dev.kyralabs.pingogram.feature.profile.navigation.chatInfoScreens
+import dev.kyralabs.pingogram.feature.profile.navigation.navigateToPlayer
+import dev.kyralabs.pingogram.feature.profile.navigation.playerScreen
 import dev.kyralabs.pingogram.feature.profile.navigation.popBackStackAfterGroupChange
 import dev.kyralabs.pingogram.feature.profile.navigation.profileScreen
 
@@ -105,9 +107,11 @@ private fun ExtraPaneNavHost(
             onOpenProfile = openProfile,
             onOpenMedia = navigation.onOpenMedia,
             onOpenMessage = navigation.onOpenMessage,
+            onOpenPlayer = { userId -> navController.navigateToPlayer(userId) },
             onEditContact = navigation.onEditContact,
             onExportChat = { chatId -> navController.navigateToChatExport(chatId) },
         )
+        playerScreen(onBack = back)
         chatInfoScreens(
             onOpen = { route -> navController.navigate(route) { launchSingleTop = true } },
             onBack = back,
