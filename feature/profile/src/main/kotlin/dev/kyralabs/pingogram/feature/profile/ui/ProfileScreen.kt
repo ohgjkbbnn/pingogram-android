@@ -88,7 +88,8 @@ import dev.kyralabs.pingogram.core.ui.R as UiR
  *
  * [onBack] is the top bar's back button; null hides it. [onEditContact], where the app has a contact editor, is what
  * "Add to contacts" or "Edit contact" opens; without it the row is left out. [onExportChat], where the app has the
- * export page, is what "Export chat" opens; without it that row is left out too.
+ * export page, is what "Export chat" opens; without it that row is left out too. [onOpenPlayer] opens the full player
+ * of the profile's music.
  */
 @Suppress("LongParameterList") // The states, where their events go, and the app's navigation.
 @Composable
@@ -102,13 +103,24 @@ internal fun ProfileScreen(
     modifier: Modifier = Modifier,
     onEditContact: (() -> Unit)? = null,
     onExportChat: (() -> Unit)? = null,
+    onOpenPlayer: (userId: Long) -> Unit = {},
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     twoPanes: Boolean = rememberTwoPanes(),
     gridState: LazyGridState = rememberLazyGridState(),
     showMusic: Boolean = false,
 ) {
     val page =
-        ProfilePageParts(state, media, onEvent, onMediaEvent, mediaActions, onEditContact, onExportChat, showMusic)
+        ProfilePageParts(
+            state,
+            media,
+            onEvent,
+            onMediaEvent,
+            mediaActions,
+            onEditContact,
+            onExportChat,
+            onOpenPlayer,
+            showMusic,
+        )
     if (twoPanes) {
         ProfilePanes(page, onBack, snackbarHostState, modifier, gridState)
     } else {
@@ -125,6 +137,7 @@ internal class ProfilePageParts(
     val mediaActions: SharedMediaActions,
     val onEditContact: (() -> Unit)?,
     val onExportChat: (() -> Unit)? = null,
+    val onOpenPlayer: (userId: Long) -> Unit = {},
     val showMusic: Boolean = false,
 )
 
@@ -250,6 +263,7 @@ private fun LazyGridScope.profileItems(
         item(key = MUSIC, span = { GridItemSpan(maxLineSpan) }, contentType = MUSIC) {
             ProfileMusicCard(
                 modifier = Modifier.padding(start = inset, end = inset, top = MaterialTheme.spacing.small),
+                onOpenPlayer = { page.onOpenPlayer(state.header.userId) },
             )
         }
     }
