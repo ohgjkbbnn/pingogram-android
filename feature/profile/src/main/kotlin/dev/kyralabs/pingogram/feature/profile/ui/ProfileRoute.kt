@@ -87,6 +87,7 @@ internal fun ProfileRoute(
         onOpenPlayer = onOpenPlayer,
         snackbarHostState = snackbarHostState,
         showMusic = true,
+        showGifts = true,
     )
     ProfileDialogs((state as? ProfileUiState.Content)?.dialog, viewModel::onEvent)
     reportSheet?.let { ReportProfileSheet(it, viewModel.reportComment, viewModel::onEvent) }
