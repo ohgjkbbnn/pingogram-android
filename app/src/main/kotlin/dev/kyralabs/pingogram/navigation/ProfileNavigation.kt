@@ -13,6 +13,8 @@ import dev.kyralabs.pingogram.feature.chat.navigation.navigateToChatExport
 import dev.kyralabs.pingogram.feature.contacts.navigation.navigateToEditContact
 import dev.kyralabs.pingogram.feature.media.navigation.navigateToMediaViewer
 import dev.kyralabs.pingogram.feature.profile.navigation.chatInfoScreens
+import dev.kyralabs.pingogram.feature.profile.navigation.navigateToPlayer
+import dev.kyralabs.pingogram.feature.profile.navigation.playerScreen
 import dev.kyralabs.pingogram.feature.profile.navigation.popBackStackAfterGroupChange
 import dev.kyralabs.pingogram.feature.profile.navigation.profileScreen
 
@@ -37,9 +39,11 @@ internal fun NavGraphBuilder.profile(
         onOpenMessage = { chatId, messageId ->
             navController.navigateToChat(chatId, messageId, besideList = besideList.value)
         },
+        onOpenPlayer = { userId -> navController.navigateToPlayer(userId) },
         onEditContact = { userId -> navController.navigateToEditContact(userId) },
         onExportChat = { chatId -> navController.navigateToChatExport(chatId) },
     )
+    playerScreen(onBack = { navController.popBackStack() })
 }
 
 /** Pushes the profile of user [userId], unless it is shown already. */
