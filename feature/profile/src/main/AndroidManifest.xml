@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The profile's music (REQUIREMENTS.md FR-P2). Its permission is declared, with its reason, in :app's manifest, the
+     one place that lists permissions (AppManifestTest). -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <!-- Keeps the profile's music playing outside the profile and in the background. The media session, not the
+             service, is what the system's media controls talk to, so it is not exported. -->
+        <service
+            android:name=".player.MusicPlaybackService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
+    </application>
+</manifest>
