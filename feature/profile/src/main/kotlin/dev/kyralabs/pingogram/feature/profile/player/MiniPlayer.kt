@@ -47,9 +47,8 @@ class MiniPlayerViewModel
         /** The queue, the track that plays and whether it plays. */
         val state = playback.state
 
-        init {
-            playback.ensureConnected()
-        }
+        // Not connected here: the mini player shows on the chats screen, and the service starts only when something plays
+        // (playProfile and the full player connect on their own).
 
         fun onPlayPause() = playback.toggle()
 
