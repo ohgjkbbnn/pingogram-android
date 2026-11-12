@@ -11,6 +11,8 @@ import dev.kyralabs.pingogram.core.data.mapper.toTdBirthdate
 import dev.kyralabs.pingogram.core.domain.model.Birthdate
 import dev.kyralabs.pingogram.core.domain.model.FormattedText
 import dev.kyralabs.pingogram.core.domain.model.ProfileAudiosPage
+import dev.kyralabs.pingogram.core.domain.model.ProfileGift
+import dev.kyralabs.pingogram.core.domain.model.ProfileGiftsPage
 import dev.kyralabs.pingogram.core.domain.model.UserFullInfo
 import dev.kyralabs.pingogram.core.domain.model.UserProfilePhoto
 import dev.kyralabs.pingogram.core.domain.model.UserProfilePhotosPage
@@ -97,6 +99,49 @@ class TdlibUserProfileRepository
                     totalCount = found.totalCount.coerceAtLeast(0),
                 )
             }
+
+        override suspend fun profileGifts(
+            userId: Long,
+            pageOffset: String,
+            pageSize: Int,
+        ): Outcome<ProfileGiftsPage> =
+            client
+                .request(
+                    TdApi.GetReceivedGifts().apply {
+                        ownerId = TdApi.MessageSenderUser(userId)
+                        offset = pageOffset
+                        limit = pageSize
+                    },
+                ).map { received ->
+                    ProfileGiftsPage(
+                        gifts = received.gifts.filterNotNull().map { it.toProfileGift() }.toImmutableList(),
+                        totalCount = received.totalCount.coerceAtLeast(0),
+                        nextOffset = received.nextOffset,
+                    )
+                }
+    }
+
+/** A received gift as the profile shows it: an NFT gift by its title and number, a regular one by its Star price. */
+private fun TdApi.ReceivedGift.toProfileGift(): ProfileGift =
+    when (val sent = gift) {
+        is TdApi.SentGiftUpgraded ->
+            ProfileGift(
+                id = receivedGiftId,
+                isUnique = true,
+                title = sent.gift.title.orEmpty(),
+                number = sent.gift.number,
+                starCount = 0L,
+            )
+        is TdApi.SentGiftRegular ->
+            ProfileGift(
+                id = receivedGiftId,
+                isUnique = false,
+                title = "",
+                number = 0,
+                starCount = sent.gift.starCount.toLong(),
+            )
+        else ->
+            ProfileGift(id = receivedGiftId, isUnique = false, title = "", number = 0, starCount = 0L)
     }
 
 /** The full info as the profile shows it; a year of 0 means the user shares only the day and month. */
