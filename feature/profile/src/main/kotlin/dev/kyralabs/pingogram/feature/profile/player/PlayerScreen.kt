@@ -19,18 +19,22 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.FilledIconButton
+import androidx.compose.material3.FilledTonalIconButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.IconToggleButton
+import androidx.compose.material3.LinearWavyProgressIndicator
 import androidx.compose.material3.MaterialShapes
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Slider
+import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.toShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -39,6 +43,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
@@ -54,6 +59,7 @@ import androidx.media3.common.Player
 import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.kyralabs.pingogram.core.navigation.PlayerRoute
+import dev.kyralabs.pingogram.core.ui.R as UiR
 import dev.kyralabs.pingogram.core.ui.component.DelayedLoadingIndicator
 import dev.kyralabs.pingogram.core.ui.component.EmptyState
 import dev.kyralabs.pingogram.core.ui.component.windowMargin
@@ -65,7 +71,6 @@ import dev.kyralabs.pingogram.core.ui.theme.spacing
 import dev.kyralabs.pingogram.feature.profile.R
 import kotlinx.collections.immutable.persistentListOf
 import javax.inject.Inject
-import dev.kyralabs.pingogram.core.ui.R as UiR
 
 /** What the player's controls ask of its view model. */
 internal sealed interface PlayerEvent {
@@ -225,6 +230,7 @@ internal fun PlayerScreen(
 
 /** The player's artwork, now playing, seek bar, controls and queue. */
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 private fun PlayerContent(
     state: MusicPlaybackState,
@@ -271,15 +277,29 @@ private fun PlayerContent(
         }
         item {
             Column(modifier = Modifier.widthIn(max = maxWidth)) {
-                Slider(
-                    value = shown.toFloat(),
-                    onValueChange = { dragged = it.toLong() },
-                    onValueChangeFinished = {
-                        dragged?.let { onEvent(PlayerEvent.Seek(it)) }
-                        dragged = null
-                    },
-                    valueRange = 0f..duration.toFloat(),
-                )
+                Box(modifier = Modifier.fillMaxWidth()) {
+                    // The wavy line shows the progress; the transparent slider on top takes the seeking.
+                    LinearWavyProgressIndicator(
+                        progress = { shown.toFloat() / duration.toFloat() },
+                        modifier = Modifier.align(Alignment.Center).fillMaxWidth(),
+                        color = MaterialTheme.colorScheme.primary,
+                        trackColor = MaterialTheme.colorScheme.surfaceContainerHighest,
+                    )
+                    Slider(
+                        value = shown.toFloat(),
+                        onValueChange = { dragged = it.toLong() },
+                        onValueChangeFinished = {
+                            dragged?.let { onEvent(PlayerEvent.Seek(it)) }
+                            dragged = null
+                        },
+                        valueRange = 0f..duration.toFloat(),
+                        colors =
+                            SliderDefaults.colors(
+                                activeTrackColor = Color.Transparent,
+                                inactiveTrackColor = Color.Transparent,
+                            ),
+                    )
+                }
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
@@ -360,7 +380,7 @@ private fun PlayerControls(
                 contentDescription = stringResource(R.string.player_shuffle),
             )
         }
-        FilledIconButton(
+        FilledTonalIconButton(
             onClick = { onEvent(PlayerEvent.Previous) },
             shapes = IconButtonDefaults.shapes(),
             modifier = Modifier.size(MaterialTheme.sizes.fabSmall),
@@ -370,21 +390,27 @@ private fun PlayerControls(
                 contentDescription = stringResource(R.string.player_previous),
             )
         }
-        FilledIconButton(
+        // Material 3 Expressive: the play button is a cookie-shaped primary surface, the largest control.
+        Surface(
             onClick = { onEvent(PlayerEvent.PlayPause) },
-            shapes = IconButtonDefaults.shapes(),
             modifier = Modifier.size(MaterialTheme.sizes.playerPlayButton),
+            shape = MaterialShapes.Cookie9Sided.toShape(),
+            color = MaterialTheme.colorScheme.primary,
+            contentColor = MaterialTheme.colorScheme.onPrimary,
         ) {
-            Icon(
-                painter =
-                    painterResource(
-                        if (state.isPlaying) UiR.drawable.ic_pause_filled else UiR.drawable.ic_play_arrow_filled,
-                    ),
-                contentDescription =
-                    stringResource(if (state.isPlaying) R.string.player_pause else R.string.player_play),
-            )
+            Box(contentAlignment = Alignment.Center) {
+                Icon(
+                    painter =
+                        painterResource(
+                            if (state.isPlaying) UiR.drawable.ic_pause_filled else UiR.drawable.ic_play_arrow_filled,
+                        ),
+                    contentDescription =
+                        stringResource(if (state.isPlaying) R.string.player_pause else R.string.player_play),
+                    modifier = Modifier.size(MaterialTheme.sizes.playerPlayButton / 2),
+                )
+            }
         }
-        FilledIconButton(
+        FilledTonalIconButton(
             onClick = { onEvent(PlayerEvent.Next) },
             shapes = IconButtonDefaults.shapes(),
             modifier = Modifier.size(MaterialTheme.sizes.fabSmall),
