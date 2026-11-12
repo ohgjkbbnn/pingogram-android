@@ -173,6 +173,8 @@ media3-exoplayer = { group = "androidx.media3", name = "media3-exoplayer", versi
 media3-datasource = { group = "androidx.media3", name = "media3-datasource", version.ref = "media3" }
 # PlayerSurface for the media viewer's videos: Compose only, on media3-common, no View widgets.
 media3-ui-compose = { group = "androidx.media3", name = "media3-ui-compose", version.ref = "media3" }
+# MediaSession and MediaController for background music: the service owns playback, the app controls it.
+media3-session = { group = "androidx.media3", name = "media3-session", version.ref = "media3" }
 robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
 roborazzi = { group = "io.github.takahirom.roborazzi", name = "roborazzi", version.ref = "roborazzi" }
 roborazzi-compose = { group = "io.github.takahirom.roborazzi", name = "roborazzi-compose", version.ref = "roborazzi" }
