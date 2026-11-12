@@ -116,6 +116,9 @@ import androidx.compose.ui.unit.dp
  * @property experimentalBottomFade the experimental look's fade at the end of a tab's list, under the bar.
  * @property headerAction the experimental look's tonal circular action buttons in a tab's large header.
  * @property experimentalAccountAvatar the account's avatar on the experimental look's account card in Settings.
+ * @property playerArtwork the square of the artwork in the profile music player.
+ * @property playerPlayButton the diameter of the player's play and pause button, larger than the controls beside it.
+ * @property miniPlayer the height of the mini player above the navigation bar.
  */
 @Immutable
 data class PingogramSizes(
@@ -189,6 +192,9 @@ data class PingogramSizes(
     val experimentalBottomFade: Dp = 132.dp,
     val experimentalAccountAvatar: Dp = 76.dp,
     val headerAction: Dp = 48.dp,
+    val playerArtwork: Dp = 240.dp,
+    val playerPlayButton: Dp = 72.dp,
+    val miniPlayer: Dp = 64.dp,
 )
 
 val LocalPingogramSizes = staticCompositionLocalOf { PingogramSizes() }
