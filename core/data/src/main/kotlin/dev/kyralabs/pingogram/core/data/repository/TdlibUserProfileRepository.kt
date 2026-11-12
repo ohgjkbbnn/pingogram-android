@@ -121,9 +121,10 @@ class TdlibUserProfileRepository
                 }
     }
 
-/** A received gift as the profile shows it: an NFT gift by its title and number, a regular one by its Star price. */
-private fun TdApi.ReceivedGift.toProfileGift(): ProfileGift =
-    when (val sent = gift) {
+/** A received gift as the profile shows it: an NFT gift with its model, pattern and backdrop, a regular one by its price. */
+private fun TdApi.ReceivedGift.toProfileGift(): ProfileGift {
+    val note = text?.text.orEmpty()
+    return when (val sent = gift) {
         is TdApi.SentGiftUpgraded ->
             ProfileGift(
                 id = receivedGiftId,
@@ -131,6 +132,11 @@ private fun TdApi.ReceivedGift.toProfileGift(): ProfileGift =
                 title = sent.gift.title.orEmpty(),
                 number = sent.gift.number,
                 starCount = 0L,
+                model = sent.gift.model?.name.orEmpty(),
+                symbol = sent.gift.symbol?.name.orEmpty(),
+                backdrop = sent.gift.backdrop?.name.orEmpty(),
+                date = date,
+                text = note,
             )
         is TdApi.SentGiftRegular ->
             ProfileGift(
@@ -139,10 +145,12 @@ private fun TdApi.ReceivedGift.toProfileGift(): ProfileGift =
                 title = "",
                 number = 0,
                 starCount = sent.gift.starCount.toLong(),
+                date = date,
+                text = note,
             )
-        else ->
-            ProfileGift(id = receivedGiftId, isUnique = false, title = "", number = 0, starCount = 0L)
+        else -> ProfileGift(id = receivedGiftId, isUnique = false, title = "", number = 0, starCount = 0L, date = date, text = note)
     }
+}
 
 /** The full info as the profile shows it; a year of 0 means the user shares only the day and month. */
 private fun TdApi.UserFullInfo.toUserFullInfo(): UserFullInfo =
